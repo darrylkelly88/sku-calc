@@ -181,20 +181,34 @@
     <script src="form-sliders.js"></script>
 
     <script>
-        // Function to fetch and display JSON data
         async function loadAndDisplayJSON() {
             try {
                 const response = await fetch('sku-map.json'); // Replace with the path to your JSON file
                 const jsonData = await response.json();
-                const jsonString = JSON.stringify(jsonData, null, 2); // Convert JSON to a nicely formatted string
-                document.getElementById('skuList').textContent = jsonString;
+
+                // Create an HTML string to display SKU and Description
+                let skuHtml = '<h2>SKU and Description</h2>';
+                skuHtml += '<ul>';
+
+                // Loop through the JSON data and add each SKU and its Description to the HTML
+                for (const skuData of jsonData) {
+                    const sku = skuData["SKU"];
+                    const description = skuData["SKU Description"];
+                    skuHtml += `<li><strong>SKU:</strong> ${sku}, <strong>Description:</strong> ${description}</li>`;
+                }
+
+                skuHtml += '</ul>';
+
+                // Display the SKU and Description HTML in the 'skuList' div
+                document.getElementById('skuList').innerHTML = skuHtml;
             } catch (error) {
                 console.error('Error loading JSON:', error);
             }
         }
-    
+
         // Call the function when the page loads
         window.onload = loadAndDisplayJSON;
+
     </script>
 
 
