@@ -186,14 +186,24 @@
                 const response = await fetch('sku-map.json'); // Replace with the path to your JSON file
                 const jsonData = await response.json();
 
-                // Function to filter and display SKUs based on the user's selection
-                function filterAndDisplaySKUs(selectedValue) {
+                // Function to filter and display SKUs based on the user's selections
+                function filterAndDisplaySKUs(runSAPValue, architectureValue) {
                     let filteredSKUs = jsonData.filter((skuData) => {
-                        if (selectedValue === "Yes") {
-                            return skuData.SAP === "TRUE";
-                        } else if (selectedValue === "No") {
-                            return skuData.SAP === "FALSE";
+                        if (
+                            (runSAPValue === "Yes" && skuData.SAP === "TRUE") ||
+                            (runSAPValue === "No" && skuData.SAP === "FALSE")
+                        ) {
+                            if (architectureValue === "") {
+                                return true; // No architecture filter, include all SKUs
+                            } else if (architectureValue === "x86") {
+                                return skuData["x86"] === "TRUE"; // Filter for x86 architecture
+                            } else if (architectureValue === "IBM POWER") {
+                                return skuData["IBM POWER"] === "TRUE"; // Filter for IBM POWER architecture
+                            } else {
+                                // Handle other architecture options here if needed
+                            }
                         }
+                        return false; // SKU does not match the filter criteria
                     });
 
                     // Create an HTML string to display the filtered SKUs
@@ -210,19 +220,25 @@
                     document.getElementById('skuList').innerHTML = skuHtml;
                 }
 
-                // Add an event listener to the 'runSAP' select element
+                // Add event listeners to the 'runSAP' and 'architecture' select elements
                 document.getElementById('runSAP').addEventListener('change', function () {
-                    const selectedValue = this.value; // Get the selected option value
-                    filterAndDisplaySKUs(selectedValue); // Call the filter function
+                    const runSAPValue = this.value; // Get the selected 'runSAP' option value
+                    const architectureValue = document.getElementById('architecture').value; // Get the selected 'architecture' option value
+                    filterAndDisplaySKUs(runSAPValue, architectureValue); // Call the filter function
+                });
+
+                document.getElementById('architecture').addEventListener('change', function () {
+                    const architectureValue = this.value; // Get the selected 'architecture' option value
+                    const runSAPValue = document.getElementById('runSAP').value; // Get the selected 'runSAP' option value
+                    filterAndDisplaySKUs(runSAPValue, architectureValue); // Call the filter function
                 });
             } catch (error) {
                 console.error('Error loading JSON:', error);
             }
         }
 
-// Call the function when the page loads
-window.onload = loadAndDisplayJSON;
-
+        // Call the function when the page loads
+        window.onload = loadAndDisplayJSON;
 
     </script>
 
