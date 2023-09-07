@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form</title>
+
+    <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="assets/dropdown/css/style.css">
+    <link rel="stylesheet" href="assets/socicon/css/styles.css">
+    <link rel="stylesheet" href="assets/theme/css/style.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+    <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  
+
+</head>
+<body>
+    <form>
+
+        <!-- All Questions -->
+
+        <!-- Is this being used to run a managed service? -->
+        <div>
+            <label for="managedService">Is this being used to run a managed service?</label>
+            <select id="managedService" name="managedService">
+                <option value="" selected>Select an Option</option>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+            </select><br>
+        </div>
+        
+        <!-- Is this being used to run software internally? -->
+        <div>
+            <label for="internalSoftware">Is this being used to run software internally?</label>
+            <select id="internalSoftware" name="internalSoftware">
+                <option value="" selected>Select an Option</option>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+            </select><br>
+        </div>
+        
+        <!-- Where will this be deployed? -->
+        <div>
+            <label for="deploymentLocation">Where will this be deployed?</label>
+            <select id="deploymentLocation" name="deploymentLocation">
+                <option value="" selected>Select an Option</option>
+                <option value="On Premise">On Premise</option>
+                <option value="In the Cloud">In the Cloud</option>
+            </select><br>
+        </div>
+        
+        <!-- Is this opportunity a renewal or new? -->
+        <div>
+            <label for="renewalOrNew">Is this opportunity a renewal or new?</label>
+            <select id="renewalOrNew" name="renewalOrNew">
+                <option value="" selected>Select an Option</option>
+                <option value="Renewal">Renewal</option>
+                <option value="New">New</option>
+            </select><br>
+        </div>
+        
+        <!-- What term are you looking at? -->
+        <div>
+            <label for="term">What term are you looking at?</label>
+            <select id="term" name="term">
+                <option value="" selected>Select an Option</option>
+                <option value="1 year">1 year</option>
+                <option value="3 year">3 year</option>
+            </select><br>
+            <p style="font-size: 80%; color: #777;">Note: 3 year SKU's include a built-in discount.</p>
+        </div>
+        
+        <!-- Which Product are you looking for? -->
+        <div>
+            <label for="product">Which Product are you looking for?</label>
+            <select id="product" name="product">
+                <option value="" selected>Select an Option</option>
+                <option value="Red Hat Enterprise Linux (RHEL)">Red Hat Enterprise Linux (RHEL)</option>
+                <option value="Red Hat Ansible Automation Platform">Red Hat Ansible Automation Platform</option>
+                <option value="Red Hat OpenShift Container Platform">Red Hat OpenShift Container Platform</option>
+            </select><br>
+        </div>
+        
+        <!-- Is this being used to run SAP? -->
+        <div>
+            <label for="runSAP">Is this being used to run SAP?</label>
+            <select id="runSAP" name="runSAP">
+                <option value="" selected>Select an Option</option>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+            </select><br>
+            <p style="font-size: 80%; color: #777;">Note: There are specific SKU's that are needed to run SAP. If unsure, select No.</p>
+        </div>
+        
+        <!-- What architecture is this running on? -->
+        <div>
+            <label for="architecture">What architecture is this running on?</label>
+            <select id="architecture" name="architecture">
+                <option value="" selected>Select an Option</option>
+                <option value="x86">x86</option>
+                <option value="IBM POWER">IBM POWER</option>
+                <option value="ARM">ARM</option>
+            </select><br>
+            <p style="font-size: 80%; color: #777;">Note: If unsure, it is likely x86.</p>
+        </div>
+        
+        <!-- Will this be running virtually or bare metal? -->
+        <div>
+            <label for="virtualOrBareMetal">Will this be running virtually or bare metal?</label>
+            <select id="virtualOrBareMetal" name="virtualOrBareMetal">
+                <option value="" selected>Select an Option</option>
+                <option value="Virtual">Virtual</option>
+                <option value="Bare Metal">Bare Metal</option>
+            </select><br>
+        </div>
+        
+        <!-- Will the customer be running a density of greater than 7 VM's per physical host? -->
+        <div>
+            <label for="densityGreaterThan7">Will the customer be running a density of greater than 7 VM's per physical host?</label>
+            <select id="densityGreaterThan7" name="densityGreaterThan7">
+                <option value="" selected>Select an Option</option>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+            </select><br>
+            <p style="font-size: 80%; color: #777;">Note: If running greater than 7 VM's per host, it is cheaper to buy a Virtual Data Centre license. If you do not know, select No.</p>
+        </div>
+        
+        <!-- Do you need the Satellite Add-on? -->
+        <div>
+            <label for="satelliteAddon">Do you need the Satellite Add-on?</label>
+            <select id="satelliteAddon" name="satelliteAddon">
+                <option value="" selected>Select an Option</option>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+            </select><br>
+            <p style="font-size: 80%; color: #777;">Note: Red Hat recommends Satellite for customers with greater than 10 RHEL Machines.</p>
+        </div>
+        
+
+
+        <!-- Place to show matching SKUs -->
+        <div id="skuList"></div>
+
+
+        <!-- Sliders & Questions to Determine Quantities -->
+
+        <!-- Slider Question: How many cores? -->
+        <div>
+            <label for="cores">How many cores?</label>
+            <input type="number" id="coresInput" name="coresInput" min="1" max="500" value="1">
+            <input type="range" id="coresSlider" name="coresSlider" min="1" max="500" value="1">
+        </div>
+        
+        <!-- Slider Question: How many VM's? -->
+        <div>
+            <label for="vms">How many VM's?</label>
+            <input type="number" id="vmsInput" name="vmsInput" min="1" max="500" value="1">
+            <input type="range" id="vmsSlider" name="vmsSlider" min="1" max="500" value="1">
+        </div>
+        
+        <!-- Slider Question: How many Socket Pairs? -->
+        <div>
+            <label for="socketPairs">How many Socket Pairs?</label>
+            <input type="number" id="socketPairsInput" name="socketPairsInput" min="1" max="500" value="1">
+            <input type="range" id="socketPairsSlider" name="socketPairsSlider" min="1" max="500" value="1">
+        </div>
+        
+        <!-- Slider Question: How many LPAR's? -->
+        <div>
+            <label for="lpars">How many LPAR's?</label>
+            <input type="number" id="lparsInput" name="lparsInput" min="1" max="500" value="1">
+            <input type="range" id="lparsSlider" name="lparsSlider" min="1" max="500" value="1">
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Load the javascript to control the sliders -->
+    <script src="form-sliders.js"></script>
+
+    <script>
+        // Function to fetch and display JSON data
+        async function loadAndDisplayJSON() {
+            try {
+                const response = await fetch('sku-map.json'); // Replace with the path to your JSON file
+                const jsonData = await response.json();
+                const jsonString = JSON.stringify(jsonData, null, 2); // Convert JSON to a nicely formatted string
+                document.getElementById('skuList').textContent = jsonString;
+            } catch (error) {
+                console.error('Error loading JSON:', error);
+            }
+        }
+    
+        // Call the function when the page loads
+        window.onload = loadAndDisplayJSON;
+    </script>
+
+
+</body>
+</html>
