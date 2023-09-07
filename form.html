@@ -186,28 +186,43 @@
                 const response = await fetch('sku-map.json'); // Replace with the path to your JSON file
                 const jsonData = await response.json();
 
-                // Create an HTML string to display SKU and Description
-                let skuHtml = '<h2>SKU and Description</h2>';
-                skuHtml += '<ul>';
+                // Function to filter and display SKUs based on the user's selection
+                function filterAndDisplaySKUs(selectedValue) {
+                    let filteredSKUs = jsonData.filter((skuData) => {
+                        if (selectedValue === "Yes") {
+                            return skuData.SAP === "TRUE";
+                        } else if (selectedValue === "No") {
+                            return skuData.SAP === "FALSE";
+                        }
+                    });
 
-                // Loop through the JSON data and add each SKU and its Description to the HTML
-                for (const skuData of jsonData) {
-                    const sku = skuData["SKU"];
-                    const description = skuData["SKU Description"];
-                    skuHtml += `<li><strong>SKU:</strong> ${sku}, <strong>Description:</strong> ${description}</li>`;
+                    // Create an HTML string to display the filtered SKUs
+                    let skuHtml = '<h2>Filtered SKUs</h2>';
+                    skuHtml += '<ul>';
+
+                    for (const skuData of filteredSKUs) {
+                        skuHtml += `<li><strong>SKU:</strong> ${skuData.SKU}, <strong>Description:</strong> ${skuData["SKU Description"]}</li>`;
+                    }
+
+                    skuHtml += '</ul>';
+
+                    // Display the filtered SKUs in the 'skuList' div
+                    document.getElementById('skuList').innerHTML = skuHtml;
                 }
 
-                skuHtml += '</ul>';
-
-                // Display the SKU and Description HTML in the 'skuList' div
-                document.getElementById('skuList').innerHTML = skuHtml;
+                // Add an event listener to the 'runSAP' select element
+                document.getElementById('runSAP').addEventListener('change', function () {
+                    const selectedValue = this.value; // Get the selected option value
+                    filterAndDisplaySKUs(selectedValue); // Call the filter function
+                });
             } catch (error) {
                 console.error('Error loading JSON:', error);
             }
         }
 
-        // Call the function when the page loads
-        window.onload = loadAndDisplayJSON;
+// Call the function when the page loads
+window.onload = loadAndDisplayJSON;
+
 
     </script>
 
