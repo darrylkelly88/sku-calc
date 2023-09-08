@@ -204,12 +204,13 @@
                             (!term || (term === "1 year" && item["1-Year MSRP"] !== "") || (term === "3 year" && item["Channel F3 SKU"] !== "")) &&
                             (!product || item["Product Line"] === product) &&
                             (!runSAP || (runSAP === "Yes" && item["SAP"] === "TRUE") || (runSAP === "No" && item["SAP"] === "FALSE")) &&
-                            (!architecture || (architecture === "x86" && item["x86"] === "TRUE") || (architecture === "IBM POWER" && item["IBM POWER"] === "TRUE")) &&
+                            (!architecture || (architecture === "x86" && item["x86"] === "TRUE") || (architecture === "IBM POWER" && item["IBM POWER"] === "TRUE") || (architecture === "ARM" && item["ARM"] === "TRUE")) &&
                             (!virtualOrBareMetal || (virtualOrBareMetal === "Virtual" && item["Virtual"] === "TRUE") || (virtualOrBareMetal === "Bare Metal" && item["Physical"] === "TRUE")) &&
                             (!densityGreaterThan7 || (densityGreaterThan7 === "Yes" && item["Vitrual Datacenters"] === "TRUE") || (densityGreaterThan7 === "No" && item["Vitrual Datacenters"] === "FALSE")) &&
                             (!satelliteAddon || (satelliteAddon === "Yes" && item["Satellite / Smart Management"] === "TRUE") || (satelliteAddon === "No" && item["Satellite / Smart Management"] === "FALSE"))
                         );
                     });
+
 
                     // Display the filtered results in the "skuList" div
                     displayFilteredResults(filteredData);
