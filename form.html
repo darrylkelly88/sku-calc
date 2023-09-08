@@ -204,8 +204,6 @@
 
                         // Check if the user made a selection in each field before applying the filter
                         return (
-                            (!term || (term === "1 year" && item["1-Year MSRP"] !== "") || (term === "3 year" && item["Channel F3 SKU"] !== "")) &&
-                            (!product || item["Product Line"] === product) &&
                             (!runSAP || (runSAP === "Yes" && item["SAP"] === "TRUE") || (runSAP === "No" && item["SAP"] === "FALSE")) &&
                             (!architecture || (architecture === "x86" && item["x86"] === "TRUE") || (architecture === "IBM POWER" && item["IBM POWER"] === "TRUE") || (architecture === "ARM" && item["ARM"] === "TRUE")) &&
                             (!virtualOrBareMetal || (virtualOrBareMetal === "Virtual" && item["Virtual"] === "TRUE") || (virtualOrBareMetal === "Bare Metal" && item["Physical"] === "TRUE")) &&
