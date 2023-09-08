@@ -197,10 +197,11 @@
                     const densityGreaterThan7 = document.getElementById("densityGreaterThan7").value;
                     const satelliteAddon = document.getElementById("satelliteAddon").value;
 
+
                     // Filter the JSON data based on user selections
                     const filteredData = data.filter((item) => {
-                        // Check if the user made a selection in each field before applying the filter
-                        return (
+                        // Ensure "Include in data" is always true
+                        return item["Include in data"] === "TRUE" &&
                             (!term || (term === "1 year" && item["1-Year MSRP"] !== "") || (term === "3 year" && item["Channel F3 SKU"] !== "")) &&
                             (!product || item["Product Line"] === product) &&
                             (!runSAP || (runSAP === "Yes" && item["SAP"] === "TRUE") || (runSAP === "No" && item["SAP"] === "FALSE")) &&
@@ -208,8 +209,9 @@
                             (!virtualOrBareMetal || (virtualOrBareMetal === "Virtual" && item["Virtual"] === "TRUE") || (virtualOrBareMetal === "Bare Metal" && item["Physical"] === "TRUE")) &&
                             (!densityGreaterThan7 || (densityGreaterThan7 === "Yes" && item["Vitrual Datacenters"] === "TRUE") || (densityGreaterThan7 === "No" && item["Vitrual Datacenters"] === "FALSE")) &&
                             (!satelliteAddon || (satelliteAddon === "Yes" && item["Satellite / Smart Management"] === "TRUE") || (satelliteAddon === "No" && item["Satellite / Smart Management"] === "FALSE"))
-                        );
                     });
+
+
 
 
                     // Display the filtered results in the "skuList" div
