@@ -181,64 +181,64 @@
     <script src="form-sliders.js"></script>
 
     <script>
-        async function loadAndDisplayJSON() {
-            try {
-                const response = await fetch('sku-map.json'); // Replace with the path to your JSON file
-                const jsonData = await response.json();
+    document.addEventListener("DOMContentLoaded", function () {
+        // Load JSON data from sku-map.json (assuming you have this file)
+        fetch("sku-map.json")
+            .then((response) => response.json())
+            .then((data) => {
+                // Add an event listener to the form
+                document.getElementById("skuCalculatorForm").addEventListener("change", function () {
+                    // Get user selections from form items
+                    const term = document.getElementById("term").value;
+                    const product = document.getElementById("product").value;
+                    const runSAP = document.getElementById("runSAP").value;
+                    const architecture = document.getElementById("architecture").value;
+                    const virtualOrBareMetal = document.getElementById("virtualOrBareMetal").value;
+                    const densityGreaterThan7 = document.getElementById("densityGreaterThan7").value;
+                    const satelliteAddon = document.getElementById("satelliteAddon").value;
 
-                // Function to filter and display SKUs based on the user's selections
-                function filterAndDisplaySKUs(runSAPValue, architectureValue) {
-                    let filteredSKUs = jsonData.filter((skuData) => {
-                        if (
-                            (runSAPValue === "Yes" && skuData.SAP === "TRUE") ||
-                            (runSAPValue === "No" && skuData.SAP === "FALSE")
-                        ) {
-                            if (architectureValue === "") {
-                                return true; // No architecture filter, include all SKUs
-                            } else if (architectureValue === "x86") {
-                                return skuData["x86"] === "TRUE"; // Filter for x86 architecture
-                            } else if (architectureValue === "IBM POWER") {
-                                return skuData["IBM POWER"] === "TRUE"; // Filter for IBM POWER architecture
-                            } else {
-                                // Handle other architecture options here if needed
-                            }
-                        }
-                        return false; // SKU does not match the filter criteria
+                    // Filter the JSON data based on user selections
+                    const filteredData = data.filter((item) => {
+                        // Check if the user made a selection in each field before applying the filter
+                        return (
+                            (!term || (term === "1 year" && item["1-Year MSRP"] !== "") || (term === "3 year" && item["Channel F3 SKU"] !== "")) &&
+                            (!product || item["Product Line"] === product) &&
+                            (!runSAP || (runSAP === "Yes" && item["SAP"] === "TRUE") || (runSAP === "No" && item["SAP"] === "FALSE")) &&
+                            (!architecture || (architecture === "x86" && item["x86"] === "TRUE") || (architecture === "IBM POWER" && item["IBM POWER"] === "TRUE")) &&
+                            (!virtualOrBareMetal || (virtualOrBareMetal === "Virtual" && item["Virtual"] === "TRUE") || (virtualOrBareMetal === "Bare Metal" && item["Physical"] === "TRUE")) &&
+                            (!densityGreaterThan7 || (densityGreaterThan7 === "Yes" && item["Vitrual Datacenters"] === "TRUE") || (densityGreaterThan7 === "No" && item["Vitrual Datacenters"] === "FALSE")) &&
+                            (!satelliteAddon || (satelliteAddon === "Yes" && item["Satellite / Smart Management"] === "TRUE") || (satelliteAddon === "No" && item["Satellite / Smart Management"] === "FALSE"))
+                        );
                     });
 
-                    // Create an HTML string to display the filtered SKUs
-                    let skuHtml = '<h2>Filtered SKUs</h2>';
-                    skuHtml += '<ul>';
-
-                    for (const skuData of filteredSKUs) {
-                        skuHtml += `<li><strong>SKU:</strong> ${skuData.SKU}, <strong>Description:</strong> ${skuData["SKU Description"]}</li>`;
-                    }
-
-                    skuHtml += '</ul>';
-
-                    // Display the filtered SKUs in the 'skuList' div
-                    document.getElementById('skuList').innerHTML = skuHtml;
-                }
-
-                // Add event listeners to the 'runSAP' and 'architecture' select elements
-                document.getElementById('runSAP').addEventListener('change', function () {
-                    const runSAPValue = this.value; // Get the selected 'runSAP' option value
-                    const architectureValue = document.getElementById('architecture').value; // Get the selected 'architecture' option value
-                    filterAndDisplaySKUs(runSAPValue, architectureValue); // Call the filter function
+                    // Display the filtered results in the "skuList" div
+                    displayFilteredResults(filteredData);
                 });
+            })
+            .catch((error) => {
+                console.error("Error loading JSON data:", error);
+            });
+    });
 
-                document.getElementById('architecture').addEventListener('change', function () {
-                    const architectureValue = this.value; // Get the selected 'architecture' option value
-                    const runSAPValue = document.getElementById('runSAP').value; // Get the selected 'runSAP' option value
-                    filterAndDisplaySKUs(runSAPValue, architectureValue); // Call the filter function
-                });
-            } catch (error) {
-                console.error('Error loading JSON:', error);
-            }
+    function displayFilteredResults(filteredData) {
+        // Display the filtered results in the "skuList" div
+        const skuListDiv = document.getElementById("skuList");
+        skuListDiv.innerHTML = "";
+
+        if (filteredData.length === 0) {
+            skuListDiv.innerHTML = "<p>No matching SKUs found.</p>";
+            return;
         }
 
-        // Call the function when the page loads
-        window.onload = loadAndDisplayJSON;
+        const resultList = document.createElement("ul");
+        filteredData.forEach((item) => {
+            const listItem = document.createElement("li");
+            listItem.textContent = `${item["SKU"]} - ${item["SKU Description"]}`;
+            resultList.appendChild(listItem);
+        });
+
+        skuListDiv.appendChild(resultList);
+    }
 
     </script>
 
