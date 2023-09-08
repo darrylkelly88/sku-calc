@@ -60,7 +60,20 @@
                 <option value="New">New</option>
             </select><br>
         </div>
-        
+
+                <!-- Support Level Selection -->
+        <div>
+            <label for="support-level">Select your support level:</label>
+            <select id="support-level" name="support-level">
+                <option value="" selected>Select an Option</option>
+                <option value="standard">Standard Support</option>
+                <option value="premium">Premium Support</option>
+            </select><br>
+            <p style="font-size: 80%; color: #777;">
+                Note: <a href="https://access.redhat.com/support/offerings/production/sla" target="_blank">Click here</a> to see more details about the differences between Standard and Premium support.
+            </p>
+        </div>
+
         <!-- What term are you looking at? -->
         <div>
             <label for="term">What term are you looking at?</label>
@@ -196,11 +209,11 @@
                     const virtualOrBareMetal = document.getElementById("virtualOrBareMetal").value;
                     const densityGreaterThan7 = document.getElementById("densityGreaterThan7").value;
                     const satelliteAddon = document.getElementById("satelliteAddon").value;
+                    const supportLevel = document.getElementById("support-level").value;
 
                     // Filter the JSON data based on user selections
                     const filteredData = data.filter((item) => {
                         // Determine the SKU field to display based on the selected term
-//                        const skuField = term === "1 year" ? "SKU" : "Channel F3 SKU";
 
                         // Check if the user made a selection in each field before applying the filter
                         return (
@@ -209,6 +222,7 @@
                             (!virtualOrBareMetal || (virtualOrBareMetal === "Virtual" && item["Virtual"] === "TRUE") || (virtualOrBareMetal === "Bare Metal" && item["Physical"] === "TRUE")) &&
                             (!densityGreaterThan7 || (densityGreaterThan7 === "Yes" && item["Virtual Datacenters"] === "TRUE") || (densityGreaterThan7 === "No" && item["Virtual Datacenters"] === "FALSE")) &&
                             (!satelliteAddon || (satelliteAddon === "Yes" && item["Satellite / Smart Management"] === "TRUE") || (satelliteAddon === "No" && item["Satellite / Smart Management"] === "FALSE"))
+                            (!supportLevel || (supportLevel === "standard" && item["Standard"] === "TRUE") || (supportLevel === "premium" && item["Premium"] === "TRUE"))
                         );
                     });
 
