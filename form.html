@@ -98,7 +98,7 @@
 
         <!-- Is RHEL being used as a server, a workstation (PC) or for High Performance Computing (Supercomputer) -->
         <div>
-            <label for="pctype">Is RHEL being used as a server, a workstation (PC) or for Distributed High Performance Computing (Supercomputer)?</label>
+            <label for="pctype">Is RHEL being used as a server, a workstation (PC) or for High Performance Computing (Supercomputer)?</label>
             <select id="pctype" name="pctype">
                 <option value="" selected>Select an Option</option>
                 <option value="server">Server</option>
@@ -110,7 +110,7 @@
         
         <!-- Is this being used to run SAP? -->
         <div>
-            <label for="runSAP">Is this being used to run SAP?</label>
+            <label for="runSAP">Does the customer need just the minimum requirements to run SAP or a full solution?</label>
             <select id="runSAP" name="runSAP">
                 <option value="" selected>Select an Option</option>
                 <option value="No">No</option>
@@ -119,6 +119,19 @@
             <p style="font-size: 80%; color: #777;">Note: There are specific SKU's that are needed to run SAP. If unsure, select No.</p>
         </div>
         
+        <!-- Which version of RHEL for SAP is needed? -->
+        <div>
+            <label for="SAPversion">Is this being used to run SAP?</label>
+            <select id="SAPversion" name="SAPversion">
+                <option value="" selected>Select an Option</option>
+                <option value="minimum">Minimum Requirements</option>
+                <option value="solution">Full Solution</option>
+            </select><br>
+            <p style="font-size: 80%; color: #777;">
+                Note: <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_sap_solutions/8/html/overview_of_red_hat_enterprise_linux_for_sap_solutions_subscription/assembly_differences-between-rhel-for-sap-applications-and-rhel-for-sap-solutions_overview-of-rhel-for-sap-solutions-subscription-combined#:~:text=Chapter%205.-,Differences%20between%20RHEL%20for%20SAP%20Applications%20and%20RHEL%20for%20SAP,RHEL%20for%20SAP%20Applications%20subscription." target="_blank">Click here</a> to see more details about the differences between the minimum requirements and full solution.
+            </p>
+        </div>
+
         <!-- What architecture is this running on? -->
         <div>
             <label for="architecture">What architecture is this running on?</label>
