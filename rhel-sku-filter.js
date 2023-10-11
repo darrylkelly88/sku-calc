@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const densityGreaterThan7 = document.getElementById("densityGreaterThan7").value;
                 const satelliteAddon = document.getElementById("satelliteAddon").value;
                 const supportLevel = document.getElementById("support-level").value;
+                const pctype = document.getElementById("pctype").value;
 
                 // Filter the JSON data based on user selections
                 const filteredData = data.filter((item) => {
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     // Check if the user made a selection in each field before applying the filter
                     return (
                         (!runSAP || (runSAP === "Yes" && item["SAP"] === "TRUE") || (runSAP === "No" && item["SAP"] === "FALSE")) &&
+                        (!pctype || (pctype === "workstation" && item["Workstation"] === "TRUE") || (pctype === "HPC" && item["HPC"] === "TRUE")) &&
                         (!architecture || (architecture === "x86" && item["x86"] === "TRUE") || (architecture === "IBM POWER" && item["IBM POWER"] === "TRUE") || (architecture === "ARM" && item["ARM"] === "TRUE")) &&
                         (!virtualOrBareMetal || (virtualOrBareMetal === "Virtual" && item["Virtual"] === "TRUE") || (virtualOrBareMetal === "Bare Metal" && item["Physical"] === "TRUE")) &&
                         (!densityGreaterThan7 || (densityGreaterThan7 === "Yes" && item["Virtual Datacenters"] === "TRUE") || (densityGreaterThan7 === "No" && item["Virtual Datacenters"] === "FALSE")) &&
@@ -30,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         // standard exclusion filters
                         (item["Add-on"] !== "TRUE") && 
                         (item["Is it for Edge, Endpoint or gateway?"] !== "TRUE") &&
-                        (item["HPC"] !== "TRUE") &&
+//                        (item["HPC"] !== "TRUE") &&
                         (item["Include in Data?"] == "TRUE") 
                    );
                 });
