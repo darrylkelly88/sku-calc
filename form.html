@@ -95,6 +95,18 @@
                 <option value="Red Hat OpenShift Container Platform">Red Hat OpenShift Container Platform</option>
             </select><br>
         </div>
+
+        <!-- Is RHEL being used as a server, a workstation (PC) or for High Performance Computing (Supercomputer) -->
+        <div>
+            <label for="pctype">Is RHEL being used as a server, a workstation (PC) or for Distributed High Performance Computing (Supercomputer)?</label>
+            <select id="pctype" name="pctype">
+                <option value="" selected>Select an Option</option>
+                <option value="server">Server</option>
+                <option value="workstation">Workstation (PC)</option>
+                <option value="HPC">High Performance Computing (Supercomputer)</option>
+            </select><br>
+            <p style="font-size: 80%; color: #777;">Note: In most cases the standard server license is the appropriate option.</p>
+        </div>
         
         <!-- Is this being used to run SAP? -->
         <div>
