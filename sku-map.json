@@ -3963,7 +3963,7 @@
     "High availability": "FALSE",
     "Disaster Recovery": "FALSE",
     "Is it for Edge, Endpoint or gateway?": "FALSE",
-    "Include in Data?": "TRUE",
+    "Include in Data?": "FALSE",
     "": "",
     "Currency": "GBP",
     "1-Year MSRP": 7590,
