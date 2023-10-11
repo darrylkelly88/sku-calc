@@ -223,7 +223,10 @@
                             (!densityGreaterThan7 || (densityGreaterThan7 === "Yes" && item["Virtual Datacenters"] === "TRUE") || (densityGreaterThan7 === "No" && item["Virtual Datacenters"] === "FALSE")) &&
                             (!satelliteAddon || (satelliteAddon === "Yes" && item["Satellite / Smart Management"] === "TRUE") || (satelliteAddon === "No" && item["Satellite / Smart Management"] === "FALSE")) &&
                             (!supportLevel || (supportLevel === "standard" && item["Standard"] === "TRUE") || (supportLevel === "premium" && item["Premium"] === "TRUE")) &&
-                            (item["Add-on"] !== "TRUE") && (item["Is it for Edge, Endpoint or gateway?"] !== "TRUE")
+                            // standard exclusion filters
+                            (item["Add-on"] !== "TRUE") && 
+                            (item["Is it for Edge, Endpoint or gateway?"] !== "TRUE") &&
+                            (item["HPC"] !== "TRUE") &&
                        );
                     });
 
