@@ -30,7 +30,12 @@
                 <option value="Yes">Yes</option>
             </select><br>
         </div>
-        
+
+        <!-- Message about CCSP agreement -->
+        <div id="ccspMessageDiv" style="display: none;">
+            To operate a managed service with Red Hat, you must have a CCSP agreement or it is non-compliant with their terms.
+        </div>
+
         <!-- Is this being used to run software internally? -->
         <div>
             <label for="internalSoftware">Is this being used to run software internally?</label>
@@ -218,8 +223,37 @@
     <!-- Load the javascript to control the sliders -->
     <script src="form-sliders.js"></script>
 
+
+    <!-- Load the javascript to control the SKU filters for RHEL -->
     <script src="rhel-sku-filter.js"></script>
 
+
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const managedServiceSelect = document.getElementById("managedService");
+            const internalSoftwareDiv = document.getElementById("internalSoftwareDiv");
+            const ccspMessageDiv = document.getElementById("ccspMessageDiv");
+
+            // Hide the "Is this being used to run software internally?" question initially
+            internalSoftwareDiv.style.display = "none";
+
+            managedServiceSelect.addEventListener('change', function () {
+                if (this.value === "Yes") {
+                    // Show the CCSP message and hide the "Is this being used to run software internally?" question
+                    ccspMessageDiv.style.display = "block";
+                    internalSoftwareDiv.style.display = "none";
+                } else if (this.value === "No") {
+                    // Show the "Is this being used to run software internally?" question and hide the CCSP message
+                    internalSoftwareDiv.style.display = "block";
+                    ccspMessageDiv.style.display = "none";
+                } else {
+                    // Hide both the "Is this being used to run software internally?" question and the CCSP message
+                    internalSoftwareDiv.style.display = "none";
+                    ccspMessageDiv.style.display = "none";
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
