@@ -32,13 +32,13 @@
         </div>
 
         <!-- Message about CCSP agreement -->
-        <div id="ccspMessage" style="display: none;">
+        <div id="ccspMessageDiv" style="display: none;">
             To operate a managed service with Red Hat, you must have a CCSP agreement or it is non-compliant with their terms.
         </div>
 
         <!-- Is this being used to run software internally? -->
         <div>
-            <label for="internalSoftware">Is this being used to run software internally?</label>
+            <label for="internalSoftwareDiv">Is this being used to run software internally?</label>
             <select id="internalSoftware" name="internalSoftware">
                 <option value="" selected>Select an Option</option>
                 <option value="No">No</option>
@@ -227,29 +227,28 @@
     <!-- Load the javascript to control the SKU filters for RHEL -->
     <script src="rhel-sku-filter.js"></script>
 
-
     <script>
         window.addEventListener('DOMContentLoaded', (event) => {
             const managedServiceSelect = document.getElementById("managedService");
-            const internalSoftware = document.getElementById("internalSoftware");
-            const ccspMessage = document.getElementById("ccspMessage");
+            const internalSoftwareDiv = document.getElementById("internalSoftwareDiv");
+            const ccspMessageDiv = document.getElementById("ccspMessageDiv");
 
             // Hide the "Is this being used to run software internally?" question initially
-            internalSoftware.style.display = "none";
+            internalSoftwareDiv.style.display = "none";
 
             managedServiceSelect.addEventListener('change', function () {
                 if (this.value === "Yes") {
                     // Show the CCSP message and hide the "Is this being used to run software internally?" question
-                    ccspMessage.style.display = "block";
-                    internalSoftware.style.display = "none";
+                    ccspMessageDiv.style.display = "block";
+                    internalSoftwareDiv.style.display = "none";
                 } else if (this.value === "No") {
                     // Show the "Is this being used to run software internally?" question and hide the CCSP message
-                    internalSoftware.style.display = "block";
-                    ccspMessage.style.display = "none";
+                    internalSoftwareDiv.style.display = "block";
+                    ccspMessageDiv.style.display = "none";
                 } else {
                     // Hide both the "Is this being used to run software internally?" question and the CCSP message
-                    internalSoftware.style.display = "none";
-                    ccspMessage.style.display = "none";
+                    internalSoftwareDiv.style.display = "none";
+                    ccspMessageDiv.style.display = "none";
                 }
             });
         });
