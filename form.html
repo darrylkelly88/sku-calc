@@ -36,6 +36,7 @@
             <br>
             To operate a managed service with Red Hat, you must have a CCSP agreement or it is non-compliant with their terms. 
             <br>
+            <br>
             CCSP uses different SKU's and subscription models that are not available in this calculator.
         </div>
 
@@ -230,9 +231,9 @@
     <script src="rhel-sku-filter.js"></script>
 
     <script>
-        //define divs
+        
         window.addEventListener('DOMContentLoaded', (event) => {
-            const managedServiceSelect = document.getElementById("managedService");
+            //define divs
             const internalSoftwareDiv = document.getElementById("internalSoftwareDiv");
             const ccspMessageDiv = document.getElementById("ccspMessageDiv");
             const deploymentLocationDiv = document.getElementById("deploymentLocationDiv");
@@ -248,6 +249,9 @@
             const densityGreaterThan7Div = document.getElementById("densityGreaterThan7Div");
             const satelliteAddonDiv = document.getElementById("satelliteAddonDiv");
             const skuListDiv = document.getElementById("skuList");
+            
+            //define selections
+            const managedServiceSelect = document.getElementById("managedService");
 
             // Initially hide all questions
             internalSoftwareDiv.style.display = "none";
