@@ -579,6 +579,37 @@
                 }
             });
 
+            //density of greater than 7?
+            densityGreaterThan7Select.addEventListener('change', function () {
+                if (this.value === "No") {
+                    // If new, display a reminder about ORP and promotions
+                    satelliteAddonDiv.style.display = "block";
+                } else if (this.value === "Yes") {
+                    // If renewal move on to next question.
+                    satelliteAddonDiv.style.display = "block";
+                } else {
+                    // if something else e.g select option then hide all
+                    satelliteAddonDiv.style.display = "none";
+
+                }
+            });
+
+
+
+            //do you need the satellite add-on
+            satelliteAddonSelect.addEventListener('change', function () {
+                if (this.value === "No") {
+                    // If new, display a reminder about ORP and promotions
+                    skuListDiv.style.display = "block";
+                } else if (this.value === "Yes") {
+                    // If renewal move on to next question.
+                    skuListDiv.style.display = "block";
+                } else {
+                    // if something else e.g select option then hide all
+                    skuListDiv.style.display = "none";
+                }
+            });
+
 
 
         });
