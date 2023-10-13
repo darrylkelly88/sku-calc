@@ -64,5 +64,10 @@ function displayFilteredResults(filteredData) {
         resultList.appendChild(listItem);
     });
 
+    //intro text 
+    const introText = document.createElement("p");
+    introText.textContent = "List of Matching SKUs:";
+
+    skuListDiv.appendChild(introText);
     skuListDiv.appendChild(resultList);
 }
