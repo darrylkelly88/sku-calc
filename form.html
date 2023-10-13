@@ -32,7 +32,7 @@
         </div>
 
         <!-- Message about CCSP agreement -->
-        <div id="ccspMessageDiv" style="display: none;">
+        <div id="ccspMessageDiv">
             To operate a managed service with Red Hat, you must have a CCSP agreement or it is non-compliant with their terms. CCSP uses different SKU's and subscription models that are not available in this calculator.
         </div>
 
@@ -244,6 +244,7 @@
             const virtualOrBareMetalDiv = document.getElementById("virtualOrBareMetalDiv");
             const densityGreaterThan7Div = document.getElementById("densityGreaterThan7Div");
             const satelliteAddonDiv = document.getElementById("satelliteAddonDiv");
+            const skuListDiv = document.getElementById("skuList");
 
             // Initially hide all questions
             internalSoftwareDiv.style.display = "none";
@@ -260,6 +261,7 @@
             virtualOrBareMetalDiv.style.display = "none";
             densityGreaterThan7Div.style.display = "none";
             satelliteAddonDiv.style.display = "none";
+            skuListDiv.style.display = "none";
 
             managedServiceSelect.addEventListener('change', function () {
                 if (this.value === "Yes") {
