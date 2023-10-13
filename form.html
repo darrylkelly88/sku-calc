@@ -403,7 +403,19 @@
                 }
             });
 
-
+            //What support level do you need?
+            supportLevelSelect.addEventListener('change', function () {
+                if (this.value === "standard") {
+                    // If new, display a reminder about ORP and promotions
+                    termDiv.style.display = "block";
+                } else if (this.value === "premium") {
+                    // If renewal move on to next question.
+                    termDiv.style.display = "block";
+                } else {
+                    // if something else e.g select option then hide all
+                    termDiv.style.display = "none";
+                }
+            });
 
         });
     </script>
