@@ -78,7 +78,7 @@
         <!-- Message about Cloud Access -->
         <div id="cloudAccessMessageDiv">
             <br>
-            In order to be compliant when deploying Red Hat subscriptions in the cloud, a customer must notifiy Red Hat by completing <a href="https://www.redhat.com/en/technologies/cloud-computing/cloud-access" target="_blank">Red Hat Cloud Access.</a>
+            Please note, that deployments in the cloud use the same SKU's. However in order to be compliant when deploying Red Hat subscriptions in the cloud, a customer must notifiy Red Hat by completing <a href="https://www.redhat.com/en/technologies/cloud-computing/cloud-access" target="_blank">Red Hat Cloud Access.</a>
             <br>
             <br>
         </div>
@@ -442,7 +442,26 @@
                 }
             });
 
-
+            //RHEL use case?
+            pctypeSelect.addEventListener('change', function () {
+                if (this.value === "server") {
+                    // If new, display a reminder about ORP and promotions
+                    runSAPDiv.style.display = "block";
+                    skuListDiv.style.display = "none";
+                } else if (this.value === "workstation") {
+                    // If renewal move on to next question.
+                    runSAPDiv.style.display = "none";
+                    skuListDiv.style.display = "block";
+                } else if (this.value === "HPC") {
+                    // If renewal move on to next question.
+                    runSAPDiv.style.display = "none";
+                    skuListDiv.style.display = "block";
+                } else {
+                    // if something else e.g select option then hide all
+                    runSAPDiv.style.display = "none";
+                    skuListDiv.style.display = "none";
+                }
+            });
 
 
 
