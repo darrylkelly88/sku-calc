@@ -543,6 +543,43 @@
             });
 
 
+            //which architecture are they running on?
+            architectureSelect.addEventListener('change', function () {
+                if (this.value === "x86") {
+                    // If new, display a reminder about ORP and promotions
+                    virtualOrBareMetalDiv.style.display = "block";
+                } else if (this.value === "IBM POWER") {
+                    // If renewal move on to next question.
+                    virtualOrBareMetalDiv.style.display = "block";
+                } else if (this.value === "ARM") {
+                    // If renewal move on to next question.
+                    virtualOrBareMetalDiv.style.display = "block";
+                } else {
+                    // if something else e.g select option then hide all
+                    virtualOrBareMetalDiv.style.display = "none";
+                }
+            });            
+
+            //Is this virtual or bare metal?
+            virtualOrBareMetalSelect.addEventListener('change', function () {
+                if (this.value === "Virtual") {
+                    // If virtual ask about density
+                    densityGreaterThan7Div.style.display = "block";
+                    satelliteAddonDiv.style.display = "none";
+                } else if (this.value === "Bare Metal") {
+                    // If bare metal move on to satellite question
+                    densityGreaterThan7Div.style.display = "none";
+                    satelliteAddonDiv.style.display = "block";
+                    //clear filters
+                    densityGreaterThan7Select.value ="";
+                } else {
+                    // if something else e.g select option then hide all
+                    ORPMessageDiv.style.display = "none";
+                    supportlevelDiv.style.display = "none";
+                }
+            });
+
+
 
         });
     </script>
