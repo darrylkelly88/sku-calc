@@ -152,6 +152,7 @@
             <p style="font-size: 80%; color: #777;">Note: In most cases Server is the appropriate option.</p>
         </div>
         
+
         <!-- Is this being used to run SAP? -->
         <div id="runSAPDiv">
             <label for="runSAP">Is this being used to run SAP?</label>
@@ -221,6 +222,13 @@
         </div>
         
 
+        <!-- Not server Message -->
+        <div id="HPCMessageDiv">
+            <br>
+            HPC requires at least 1 head node and multiple system nodes. Please engage a pre-sales resource to accurately size.
+            <br>
+            <br>
+        </div>
 
         <!-- Place to show matching SKUs -->
         <div id="skuList"></div>
@@ -286,6 +294,7 @@
             const virtualOrBareMetalDiv = document.getElementById("virtualOrBareMetalDiv");
             const densityGreaterThan7Div = document.getElementById("densityGreaterThan7Div");
             const satelliteAddonDiv = document.getElementById("satelliteAddonDiv");
+            const HPCMessageDiv  = document.getElementById("satelliteAddonDiv");
             const skuListDiv = document.getElementById("skuList");
             //define divs - sliders
             const coresDiv = document.getElementById("coresDiv");
@@ -451,24 +460,28 @@
                     skuListDiv.style.display = "none";
                     virtualOrBareMetalDiv.style.display = "none";
                     architectureDiv.style.display = "none";
+                    HPCMessageDiv.style.display = "none";
                 } else if (this.value === "workstation") {
                     // If renewal move on to next question.
                     runSAPDiv.style.display = "none";
                     skuListDiv.style.display = "block";
                     virtualOrBareMetalDiv.style.display = "none";
                     architectureDiv.style.display = "none";
+                    HPCMessageDiv.style.display = "none";
                 } else if (this.value === "HPC") {
                     // If renewal move on to next question.
                     runSAPDiv.style.display = "none";
                     skuListDiv.style.display = "block";
                     virtualOrBareMetalDiv.style.display = "none";
                     architectureDiv.style.display = "block";
+                    HPCMessageDiv.style.display = "block";
                 } else {
                     // if something else e.g select option then hide all
                     runSAPDiv.style.display = "none";
                     skuListDiv.style.display = "none";
                     virtualOrBareMetalDiv.style.display = "none";
                     architectureDiv.style.display = "none";
+                    HPCMessageDiv.style.display = "none";
                 }
             });
 
