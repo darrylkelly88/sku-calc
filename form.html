@@ -473,6 +473,9 @@
                     HPCMessageDiv.style.display = "none";
                     satelliteAddonDiv.style.display = "none";
                     HPC2MessageDiv.style.display = "none";
+                    //clear filters if changing this after selections later.
+                    satelliteAddonSelect.value = "";
+                    architectureSelect.value = "";
                 } else if (this.value === "workstation") {
                     // Workstation, display SKU's
                     runSAPDiv.style.display = "none";
@@ -481,8 +484,10 @@
                     HPCMessageDiv.style.display = "none";
                     satelliteAddonDiv.style.display = "none";
                     HPC2MessageDiv.style.display = "none";
-                    //clear other filters
+                    //clear filters if changing this after selections later.
                     runSAPSelect.value = "";
+                    architectureSelect.value = "";
+                    satelliteAddonSelect.value = "";
                 } else if (this.value === "HPC") {
                     // If HPC display HPC messages, relevant questions and hide irrelevant questions.
                     runSAPDiv.style.display = "none";
@@ -491,6 +496,8 @@
                     HPCMessageDiv.style.display = "block";
                     HPC2MessageDiv.style.display = "block";
                     satelliteAddonDiv.style.display = "block";
+                    //clear filters if changing this after selections later.
+                    runSAPSelect.value = "";
                 } else {
                     // if something else e.g select option then hide all
                     runSAPDiv.style.display = "none";
