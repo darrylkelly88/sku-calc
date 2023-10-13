@@ -156,7 +156,7 @@
         <!-- Not server Message -->
         <div id="HPC2MessageDiv">
             <br>
-            Please complete the remaining questions to find the correct SKU:
+            <b>Please complete the remaining questions to find the correct SKU:</b>
             <br>
             <br>
         </div>
@@ -466,28 +466,27 @@
             //RHEL use case?
             pctypeSelect.addEventListener('change', function () {
                 if (this.value === "server") {
-                    // If new, display a reminder about ORP and promotions
+                    // If server, move on to next question. Clear other divs if changing this later.
                     runSAPDiv.style.display = "block";
                     skuListDiv.style.display = "none";
-                    virtualOrBareMetalDiv.style.display = "none";
                     architectureDiv.style.display = "none";
                     HPCMessageDiv.style.display = "none";
                     satelliteAddonDiv.style.display = "none";
                     HPC2MessageDiv.style.display = "none";
                 } else if (this.value === "workstation") {
-                    // If renewal move on to next question.
+                    // Workstation, display SKU's
                     runSAPDiv.style.display = "none";
                     skuListDiv.style.display = "block";
-                    virtualOrBareMetalDiv.style.display = "none";
                     architectureDiv.style.display = "none";
                     HPCMessageDiv.style.display = "none";
                     satelliteAddonDiv.style.display = "none";
                     HPC2MessageDiv.style.display = "none";
+                    //clear other filters
+                    runSAPSelect.value = "";
                 } else if (this.value === "HPC") {
-                    // If renewal move on to next question.
+                    // If HPC display HPC messages, relevant questions and hide irrelevant questions.
                     runSAPDiv.style.display = "none";
                     skuListDiv.style.display = "block";
-                    virtualOrBareMetalDiv.style.display = "none";
                     architectureDiv.style.display = "block";
                     HPCMessageDiv.style.display = "block";
                     HPC2MessageDiv.style.display = "block";
@@ -496,7 +495,6 @@
                     // if something else e.g select option then hide all
                     runSAPDiv.style.display = "none";
                     skuListDiv.style.display = "none";
-                    virtualOrBareMetalDiv.style.display = "none";
                     architectureDiv.style.display = "none";
                     HPCMessageDiv.style.display = "none";
                     satelliteAddonDiv.style.display = "none";
