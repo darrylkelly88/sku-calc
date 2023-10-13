@@ -278,6 +278,11 @@
             const densityGreaterThan7Div = document.getElementById("densityGreaterThan7Div");
             const satelliteAddonDiv = document.getElementById("satelliteAddonDiv");
             const skuListDiv = document.getElementById("skuList");
+            //define divs - sliders
+            const coresDiv = document.getElementById("coresDiv");
+            const vmsDiv = document.getElementById("vmsDiv");
+            const socketPairsDiv = document.getElementById("socketPairsDiv");
+            const lparsDiv = document.getElementById("lparsDiv");
             
             //define selections
             const managedServiceSelect = document.getElementById("managedService");
@@ -314,7 +319,11 @@
             densityGreaterThan7Div.style.display = "none";
             satelliteAddonDiv.style.display = "none";
             skuListDiv.style.display = "none";
-
+            //hide sliders
+            coresDiv.style.display = "none";
+            vmsDiv.style.display = "none";
+            socketPairsDiv.style.display = "none";
+            lparsDiv.style.display = "none";
 
 
             //start with CCSP question
