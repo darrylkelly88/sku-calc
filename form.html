@@ -86,6 +86,16 @@
             </select><br>
         </div>
 
+
+        <!-- Message about ORP for New license -->
+        <div id="ORPMessageDiv">
+            <br>
+            New Subscriptions may qualify for deal registration or other promotions - please ask for more details.
+            <br>
+            <br>
+        </div>
+
+
                 <!-- Support Level Selection -->
         <div id="supportlevelDiv">
             <label for="supportLevel">Select your support level:</label>
@@ -256,6 +266,7 @@
             const deploymentLocationDiv = document.getElementById("deploymentLocationDiv");
             const cloudAccessMessageDiv = document.getElementById("cloudAccessMessageDiv");
             const renewalOrNewDiv = document.getElementById("renewalOrNewDiv");
+            const ORPMessageDiv = document.getElementById("ORPMessageDiv");
             const supportlevelDiv = document.getElementById("supportlevelDiv");
             const termDiv = document.getElementById("termDiv");
             const productDiv = document.getElementById("productDiv");
@@ -291,6 +302,7 @@
             deploymentLocationDiv.style.display = "none";
             cloudAccessMessageDiv.style.display = "none";
             renewalOrNewDiv.style.display = "none";
+            ORPMessageDiv.style.display = "none";
             supportlevelDiv.style.display = "none";
             termDiv.style.display = "none";
             productDiv.style.display = "none";
@@ -325,15 +337,15 @@
             //is this used internally?
             internalSoftwareSelect.addEventListener('change', function () {
                 if (this.value === "Yes") {
-                    // Show the CCSP message and hide the "Is this being used to run software internally?" question
+                    // If yes show a message about internal use and no more questions
                     internalMessageDiv.style.display = "block";
                     deploymentLocationDiv.style.display = "none";
                 } else if (this.value === "No") {
-                    // Show the "Is this being used to run software internally?" question and hide the CCSP message
+                    // If no display the next question about deployment location
                     deploymentLocationDiv.style.display = "block";
                     internalMessageDiv.style.display = "none";
                 } else {
-                    // Hide both the "Is this being used to run software internally?" question and the CCSP message
+                    // if something else e.g select option then hide all
                     deploymentLocationDiv.style.display = "none";
                     internalMessageDiv.style.display = "none";
                 }
@@ -342,20 +354,37 @@
             //Where will this be deployed??
             deploymentLocationSelect.addEventListener('change', function () {
                 if (this.value === "In the Cloud") {
-                    // Show the CCSP message and hide the "Is this being used to run software internally?" question
+                    // If in the cloud display the message about Red Hat Cloud access and ask the next question
                     cloudAccessMessageDiv.style.display = "block";
                     renewalOrNewDiv.style.display = "block";
                 } else if (this.value === "On Premise") {
-                    // Show the "Is this being used to run software internally?" question and hide the CCSP message
+                    // If on premise then display the next question but dont display the message about cloud access.
                     cloudAccessMessageDiv.style.display = "none";
                     renewalOrNewDiv.style.display = "block";
                 } else {
-                    // Hide both the "Is this being used to run software internally?" question and the CCSP message
+                    // if something else e.g select option then hide all
                     cloudAccessMessageDiv.style.display = "none";
                     renewalOrNewDiv.style.display = "none";
                 }
             });
 
+
+            //Is this New or Renewal?
+            renewalOrNewSelect.addEventListener('change', function () {
+                if (this.value === "New") {
+                    // If new, display a reminder about ORP and promotions
+                    ORPMessageDiv.style.display = "block";
+                    supportlevelDiv.style.display = "block";
+                } else if (this.value === "Renewal") {
+                    // If renewal move on to next question.
+                    ORPMessageDiv.style.display = "none";
+                    supportlevelDiv.style.display = "block";
+                } else {
+                    // if something else e.g select option then hide all
+                    ORPMessageDiv.style.display = "none";
+                    supportlevelDiv.style.display = "none";
+                }
+            });
 
 
 
