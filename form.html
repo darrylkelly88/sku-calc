@@ -47,7 +47,7 @@
         </div>
         
         <!-- Where will this be deployed? -->
-        <div>
+        <div id="deploymentLocationDiv">
             <label for="deploymentLocation">Where will this be deployed?</label>
             <select id="deploymentLocation" name="deploymentLocation">
                 <option value="" selected>Select an Option</option>
@@ -57,7 +57,7 @@
         </div>
         
         <!--  Is this opportunity a renewal or new? -->
-        <div>
+        <div id="renewalOrNewDiv">
             <label for="renewalOrNew">Is this opportunity a renewal or new?</label>
             <select id="renewalOrNew" name="renewalOrNew">
                 <option value="" selected>Select an Option</option>
@@ -67,7 +67,7 @@
         </div>
 
                 <!-- Support Level Selection -->
-        <div>
+        <div id="supportlevelDiv">
             <label for="support-level">Select your support level:</label>
             <select id="support-level" name="support-level">
                 <option value="" selected>Select an Option</option>
@@ -80,7 +80,7 @@
         </div>
 
         <!-- What term are you looking at? -->
-        <div>
+        <div id="termDiv">
             <label for="term">What term are you looking at?</label>
             <select id="term" name="term">
                 <option value="" selected>Select an Option</option>
@@ -91,7 +91,7 @@
         </div>
         
         <!-- Which Product are you looking for? -->
-        <div>
+        <div id="productDiv">
             <label for="product">Which Product are you looking for?</label>
             <select id="product" name="product">
                 <option value="" selected>Select an Option</option>
@@ -102,7 +102,7 @@
         </div>
 
         <!-- Is RHEL being used as a server, a workstation (PC) or for High Performance Computing (Supercomputer) -->
-        <div>
+        <div id="pctypeDiv">
             <label for="pctype">Is RHEL being used as a server, a workstation (PC) or for High Performance Computing (Supercomputer)?</label>
             <select id="pctype" name="pctype">
                 <option value="" selected>Select an Option</option>
@@ -114,7 +114,7 @@
         </div>
         
         <!-- Is this being used to run SAP? -->
-        <div>
+        <div id="runSAPDiv">
             <label for="runSAP">Is this being used to run SAP?</label>
             <select id="runSAP" name="runSAP">
                 <option value="" selected>Select an Option</option>
@@ -125,7 +125,7 @@
         </div>
         
         <!-- Which version of RHEL for SAP is needed? -->
-        <div>
+        <div id="SAPversionDiv">
             <label for="SAPversion">Does the customer need just the minimum requirements to run SAP or a full solution?</label>
             <select id="SAPversion" name="SAPversion">
                 <option value="" selected>Select an Option</option>
@@ -138,7 +138,7 @@
         </div>
 
         <!-- What architecture is this running on? -->
-        <div>
+        <div id="architectureDiv">
             <label for="architecture">What architecture is this running on?</label>
             <select id="architecture" name="architecture">
                 <option value="" selected>Select an Option</option>
@@ -150,7 +150,7 @@
         </div>
         
         <!-- Will this be running virtually or bare metal? -->
-        <div>
+        <div id="virtualOrBareMetalDiv">
             <label for="virtualOrBareMetal">Will this be running virtually or bare metal?</label>
             <select id="virtualOrBareMetal" name="virtualOrBareMetal">
                 <option value="" selected>Select an Option</option>
@@ -160,7 +160,7 @@
         </div>
         
         <!-- Will the customer be running a density of greater than 7 VM's per physical host? -->
-        <div>
+        <div id="densityGreaterThan7Div">
             <label for="densityGreaterThan7">Will the customer be running a density of greater than 7 VM's per physical host?</label>
             <select id="densityGreaterThan7" name="densityGreaterThan7">
                 <option value="" selected>Select an Option</option>
@@ -171,7 +171,7 @@
         </div>
         
         <!-- Do you need the Satellite Add-on? -->
-        <div>
+        <div id="satelliteAddonDiv">
             <label for="satelliteAddon">Do you need the Satellite Add-on?</label>
             <select id="satelliteAddon" name="satelliteAddon">
                 <option value="" selected>Select an Option</option>
@@ -190,34 +190,33 @@
         <!-- Sliders & Questions to Determine Quantities -->
 
         <!-- Slider Question: How many cores? -->
-        <div>
+        <div id="coresDiv">
             <label for="cores">How many cores?</label>
             <input type="number" id="coresInput" name="coresInput" min="1" max="500" value="1">
             <input type="range" id="coresSlider" name="coresSlider" min="1" max="500" value="1">
         </div>
         
         <!-- Slider Question: How many VM's? -->
-        <div>
+        <div id="vmsDiv">
             <label for="vms">How many VM's?</label>
             <input type="number" id="vmsInput" name="vmsInput" min="1" max="500" value="1">
             <input type="range" id="vmsSlider" name="vmsSlider" min="1" max="500" value="1">
         </div>
         
         <!-- Slider Question: How many Socket Pairs? -->
-        <div>
+        <div id="socketPairsDiv">
             <label for="socketPairs">How many Socket Pairs?</label>
             <input type="number" id="socketPairsInput" name="socketPairsInput" min="1" max="500" value="1">
             <input type="range" id="socketPairsSlider" name="socketPairsSlider" min="1" max="500" value="1">
         </div>
         
         <!-- Slider Question: How many LPAR's? -->
-        <div>
+        <div id="lparsDiv">
             <label for="lpars">How many LPAR's?</label>
             <input type="number" id="lparsInput" name="lparsInput" min="1" max="500" value="1">
             <input type="range" id="lparsSlider" name="lparsSlider" min="1" max="500" value="1">
         </div>
 
-        <input type="submit" value="Submit">
     </form>
 
     <!-- Load the javascript to control the sliders -->
@@ -228,13 +227,39 @@
     <script src="rhel-sku-filter.js"></script>
 
     <script>
+        //define divs
         window.addEventListener('DOMContentLoaded', (event) => {
             const managedServiceSelect = document.getElementById("managedService");
             const internalSoftwareDiv = document.getElementById("internalSoftwareDiv");
             const ccspMessageDiv = document.getElementById("ccspMessageDiv");
+            const deploymentLocationDiv = document.getElementById("deploymentLocationDiv");
+            const renewalOrNewDiv = document.getElementById("renewalOrNewDiv");
+            const supportlevelDiv = document.getElementById("supportlevelDiv");
+            const termDiv = document.getElementById("termDiv");
+            const productDiv = document.getElementById("productDiv");
+            const pctypeDiv = document.getElementById("pctypeDiv");
+            const runSAPDiv = document.getElementById("runSAPDiv");
+            const SAPversionDiv = document.getElementById("SAPversionDiv");
+            const architectureDiv = document.getElementById("architectureDiv");
+            const virtualOrBareMetalDiv = document.getElementById("virtualOrBareMetalDiv");
+            const densityGreaterThan7Div = document.getElementById("densityGreaterThan7Div");
+            const satelliteAddonDiv = document.getElementById("satelliteAddonDiv");
 
-            // Hide the "Is this being used to run software internally?" question initially
+            // Initially hide all questions
             internalSoftwareDiv.style.display = "none";
+            ccspMessageDiv.style.display = "none";
+            deploymentLocationDiv.style.display = "none";
+            renewalOrNewDiv.style.display = "none";
+            supportlevelDiv.style.display = "none";
+            termDiv.style.display = "none";
+            productDiv.style.display = "none";
+            pctypeDiv.style.display = "none";
+            runSAPDiv.style.display = "none";
+            SAPversionDiv.style.display = "none";
+            architectureDiv.style.display = "none";
+            virtualOrBareMetalDiv.style.display = "none";
+            densityGreaterThan7Div.style.display = "none";
+            satelliteAddonDiv.style.display = "none";
 
             managedServiceSelect.addEventListener('change', function () {
                 if (this.value === "Yes") {
