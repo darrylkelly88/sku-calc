@@ -417,6 +417,21 @@
                 }
             });
 
+            //Which product would you like to buy?
+            productSelect.addEventListener('change', function () {
+                if (this.value === "Red Hat Enterprise Linux (RHEL)") {
+                    // If new, display a reminder about ORP and promotions
+                    pctypeDiv.style.display = "block";
+                } else {
+                    // if something else e.g select option then hide all
+                    pctypeDiv.style.display = "none";
+                }
+            });
+
+
+
+
+
         });
     </script>
 
