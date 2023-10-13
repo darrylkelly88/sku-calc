@@ -515,6 +515,8 @@
                     // If no, move on to architecture
                     architectureDiv.style.display = "block";
                     SAPversionDiv.style.display = "none";
+                    //reset filters if changed later
+                    SAPversionSelect.value = "";
                 } else if (this.value === "Yes") {
                     // If yes ask which version is needed.
                     architectureDiv.style.display = "none";
