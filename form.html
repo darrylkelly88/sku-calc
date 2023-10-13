@@ -450,21 +450,25 @@
                     runSAPDiv.style.display = "block";
                     skuListDiv.style.display = "none";
                     virtualOrBareMetalDiv.style.display = "none";
+                    architectureDiv.style.display = "none";
                 } else if (this.value === "workstation") {
                     // If renewal move on to next question.
                     runSAPDiv.style.display = "none";
                     skuListDiv.style.display = "block";
-                    virtualOrBareMetalDiv.style.display = "block";
+                    virtualOrBareMetalDiv.style.display = "none";
+                    architectureDiv.style.display = "none";
                 } else if (this.value === "HPC") {
                     // If renewal move on to next question.
                     runSAPDiv.style.display = "none";
                     skuListDiv.style.display = "block";
                     virtualOrBareMetalDiv.style.display = "none";
+                    architectureDiv.style.display = "block";
                 } else {
                     // if something else e.g select option then hide all
                     runSAPDiv.style.display = "none";
                     skuListDiv.style.display = "none";
                     virtualOrBareMetalDiv.style.display = "none";
+                    architectureDiv.style.display = "none";
                 }
             });
 
