@@ -509,6 +509,37 @@
                 }
             });
 
+            //Is this being used to run SAP?
+            runSAPSelect.addEventListener('change', function () {
+                if (this.value === "No") {
+                    // If no, move on to architecture
+                    architectureDiv.style.display = "block";
+                    SAPversionDiv.style.display = "none";
+                } else if (this.value === "Yes") {
+                    // If yes ask which version is needed.
+                    architectureDiv.style.display = "none";
+                    SAPversionDiv.style.display = "block";
+                } else {
+                    // if something else e.g select option then hide all
+                    architectureDiv.style.display = "none";
+                    SAPversionDiv.style.display = "none";
+                }
+            });
+
+            //which SAP version do you need?
+            SAPversionSelect.addEventListener('change', function () {
+                if (this.value === "minimum") {
+                    // If selection is made show next question
+                    architectureDiv.style.display = "block";
+                } else if (this.value === "solution") {
+                    // If selection is made show next question
+                    architectureDiv.style.display = "block";
+                } else {
+                    // if something else e.g select option then hide all
+                    architectureDiv.style.display = "none";
+                }
+            });
+
 
 
         });
