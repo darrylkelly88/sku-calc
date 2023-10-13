@@ -151,7 +151,15 @@
             </select><br>
             <p style="font-size: 80%; color: #777;">Note: In most cases Server is the appropriate option.</p>
         </div>
-        
+
+
+        <!-- Not server Message -->
+        <div id="HPC2MessageDiv">
+            <br>
+            Please complete the remaining questions to find the correct SKU:
+            <br>
+            <br>
+        </div>
 
         <!-- Is this being used to run SAP? -->
         <div id="runSAPDiv">
@@ -288,6 +296,7 @@
             const termDiv = document.getElementById("termDiv");
             const productDiv = document.getElementById("productDiv");
             const pctypeDiv = document.getElementById("pctypeDiv");
+            const HPC2MessageDiv = document.getElementById("HPC2MessageDiv");
             const runSAPDiv = document.getElementById("runSAPDiv");
             const SAPversionDiv = document.getElementById("SAPversionDiv");
             const architectureDiv = document.getElementById("architectureDiv");
@@ -330,6 +339,7 @@
             termDiv.style.display = "none";
             productDiv.style.display = "none";
             pctypeDiv.style.display = "none";
+            HPC2MessageDiv.style.display = "none";
             runSAPDiv.style.display = "none";
             SAPversionDiv.style.display = "none";
             architectureDiv.style.display = "none";
@@ -463,6 +473,7 @@
                     architectureDiv.style.display = "none";
                     HPCMessageDiv.style.display = "none";
                     satelliteAddonDiv.style.display = "none";
+                    HPC2MessageDiv.style.display = "none";
                 } else if (this.value === "workstation") {
                     // If renewal move on to next question.
                     runSAPDiv.style.display = "none";
@@ -471,6 +482,7 @@
                     architectureDiv.style.display = "none";
                     HPCMessageDiv.style.display = "none";
                     satelliteAddonDiv.style.display = "none";
+                    HPC2MessageDiv.style.display = "none";
                 } else if (this.value === "HPC") {
                     // If renewal move on to next question.
                     runSAPDiv.style.display = "none";
@@ -478,6 +490,7 @@
                     virtualOrBareMetalDiv.style.display = "none";
                     architectureDiv.style.display = "block";
                     HPCMessageDiv.style.display = "block";
+                    HPC2MessageDiv.style.display = "block";
                     satelliteAddonDiv.style.display = "block";
                 } else {
                     // if something else e.g select option then hide all
@@ -487,6 +500,7 @@
                     architectureDiv.style.display = "none";
                     HPCMessageDiv.style.display = "none";
                     satelliteAddonDiv.style.display = "none";
+                    HPC2MessageDiv.style.display = "none";
                 }
             });
 
