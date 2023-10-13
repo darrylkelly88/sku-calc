@@ -49,7 +49,14 @@
                 <option value="Yes">Yes</option>
             </select><br>
         </div>
-        
+
+        <!-- Message about Running software internally -->
+        <div id="internalMessageDiv">
+            <br>
+            You may not need to purchase standard SKU's for internal use as there are specialist ISV or partner SKU's which will be needed.
+        </div>
+
+
         <!-- Where will this be deployed? -->
         <div id="deploymentLocationDiv">
             <label for="deploymentLocation">Where will this be deployed?</label>
@@ -72,8 +79,8 @@
 
                 <!-- Support Level Selection -->
         <div id="supportlevelDiv">
-            <label for="support-level">Select your support level:</label>
-            <select id="support-level" name="support-level">
+            <label for="supportLevel">Select your support level:</label>
+            <select id="supportLevel" name="supportLevel">
                 <option value="" selected>Select an Option</option>
                 <option value="standard">Standard Support</option>
                 <option value="premium">Premium Support</option>
@@ -234,8 +241,9 @@
         
         window.addEventListener('DOMContentLoaded', (event) => {
             //define divs
-            const internalSoftwareDiv = document.getElementById("internalSoftwareDiv");
             const ccspMessageDiv = document.getElementById("ccspMessageDiv");
+            const internalSoftwareDiv = document.getElementById("internalSoftwareDiv");
+            const internalMessageDiv = document.getElementById("internalMessageDiv");
             const deploymentLocationDiv = document.getElementById("deploymentLocationDiv");
             const renewalOrNewDiv = document.getElementById("renewalOrNewDiv");
             const supportlevelDiv = document.getElementById("supportlevelDiv");
@@ -252,10 +260,24 @@
             
             //define selections
             const managedServiceSelect = document.getElementById("managedService");
+            const internalSoftwareSelect = document.getElementById("internalSoftware");
+            const deploymentLocationSelect = document.getElementById("deploymentLocation");
+            const renewalOrNewSelect = document.getElementById("renewalOrNew");
+            const supportLevelSelect = document.getElementById("supportLevel");
+            const termSelect = document.getElementById("term");
+            const productSelect = document.getElementById("product");
+            const pctypeSelect = document.getElementById("pctype");
+            const runSAPSelect = document.getElementById("runSAP");
+            const SAPversionSelect = document.getElementById("SAPversion");
+            const architectureSelect = document.getElementById("architecture");
+            const virtualOrBareMetalSelect = document.getElementById("virtualOrBareMetal");
+            const densityGreaterThan7Select = document.getElementById("densityGreaterThan7");
+            const satelliteAddonSelect = document.getElementById("satelliteAddon");
 
             // Initially hide all questions
-            internalSoftwareDiv.style.display = "none";
             ccspMessageDiv.style.display = "none";
+            internalSoftwareDiv.style.display = "none";
+            internalMessageDiv.style.display = "none";
             deploymentLocationDiv.style.display = "none";
             renewalOrNewDiv.style.display = "none";
             supportlevelDiv.style.display = "none";
@@ -270,6 +292,9 @@
             satelliteAddonDiv.style.display = "none";
             skuListDiv.style.display = "none";
 
+
+
+            //start with CCSP question
             managedServiceSelect.addEventListener('change', function () {
                 if (this.value === "Yes") {
                     // Show the CCSP message and hide the "Is this being used to run software internally?" question
@@ -285,6 +310,24 @@
                     ccspMessageDiv.style.display = "none";
                 }
             });
+
+            internalSoftwareSelect.addEventListener('change', function () {
+                if (this.value === "Yes") {
+                    // Show the CCSP message and hide the "Is this being used to run software internally?" question
+                    internalMessageDiv.style.display = "block";
+                    deploymentLocationDiv.style.display = "none";
+                } else if (this.value === "No") {
+                    // Show the "Is this being used to run software internally?" question and hide the CCSP message
+                    deploymentLocationDiv.style.display = "block";
+                    internalMessageDiv.style.display = "none";
+                } else {
+                    // Hide both the "Is this being used to run software internally?" question and the CCSP message
+                    deploymentLocationDiv.style.display = "none";
+                    internalMessageDiv.style.display = "none";
+                }
+            });
+
+
         });
     </script>
 

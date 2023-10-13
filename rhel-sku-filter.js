@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const virtualOrBareMetal = document.getElementById("virtualOrBareMetal").value;
                 const densityGreaterThan7 = document.getElementById("densityGreaterThan7").value;
                 const satelliteAddon = document.getElementById("satelliteAddon").value;
-                const supportLevel = document.getElementById("support-level").value;
+                const supportLevel = document.getElementById("supportLevel").value;
                 const pctype = document.getElementById("pctype").value;
                 const SAPversion = document.getElementById("SAPversion").value
 
