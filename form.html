@@ -67,6 +67,14 @@
             </select><br>
         </div>
         
+        <!-- Message about Cloud Access -->
+        <div id="cloudAccessMessageDiv">
+            <br>
+            In order to be compliant when deploying Red Hat subscriptions in the cloud, a customer must notifiy Red Hat by completing <a href="https://www.redhat.com/en/technologies/cloud-computing/cloud-access" target="_blank">Red Hat Cloud Access.</a>
+            <br>
+        </div>
+        
+
         <!--  Is this opportunity a renewal or new? -->
         <div id="renewalOrNewDiv">
             <label for="renewalOrNew">Is this opportunity a renewal or new?</label>
@@ -245,6 +253,7 @@
             const internalSoftwareDiv = document.getElementById("internalSoftwareDiv");
             const internalMessageDiv = document.getElementById("internalMessageDiv");
             const deploymentLocationDiv = document.getElementById("deploymentLocationDiv");
+            const cloudAccessMessageDiv = document.getElementById("cloudAccessMessageDiv");
             const renewalOrNewDiv = document.getElementById("renewalOrNewDiv");
             const supportlevelDiv = document.getElementById("supportlevelDiv");
             const termDiv = document.getElementById("termDiv");
@@ -279,6 +288,7 @@
             internalSoftwareDiv.style.display = "none";
             internalMessageDiv.style.display = "none";
             deploymentLocationDiv.style.display = "none";
+            cloudAccessMessageDiv.style.display = "none";
             renewalOrNewDiv.style.display = "none";
             supportlevelDiv.style.display = "none";
             termDiv.style.display = "none";
@@ -311,6 +321,7 @@
                 }
             });
 
+            //is this used internally?
             internalSoftwareSelect.addEventListener('change', function () {
                 if (this.value === "Yes") {
                     // Show the CCSP message and hide the "Is this being used to run software internally?" question
@@ -326,6 +337,25 @@
                     internalMessageDiv.style.display = "none";
                 }
             });
+
+            //Where will this be deployed??
+            deploymentLocationSelect.addEventListener('change', function () {
+                if (this.value === "In the Cloud") {
+                    // Show the CCSP message and hide the "Is this being used to run software internally?" question
+                    cloudAccessMessageDiv.style.display = "block";
+                    renewalOrNewDiv.style.display = "block";
+                } else if (this.value === "On Premise") {
+                    // Show the "Is this being used to run software internally?" question and hide the CCSP message
+                    cloudAccessMessageDiv.style.display = "none";
+                    renewalOrNewDiv.style.display = "block";
+                } else {
+                    // Hide both the "Is this being used to run software internally?" question and the CCSP message
+                    cloudAccessMessageDiv.style.display = "none";
+                    renewalOrNewDiv.style.display = "none";
+                }
+            });
+
+
 
 
         });
