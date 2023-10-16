@@ -69,6 +69,7 @@ function displayFilteredResults(filteredData) {
         const sku = item["SKU"];
         
         // Check if term is "3 year" and append "F3" to SKU if true
+        const term = document.getElementById("term").value;
         if (term === "3 year") {
             sku += "F3";
         }
