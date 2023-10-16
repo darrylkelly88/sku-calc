@@ -126,7 +126,7 @@ function calculateQuantity(LicensingModel) {
 
     if (LicensingModel === "standard RHEL") {
         if (virtualOrBareMetalSelect.value === "Virtual") {
-            const quantity = parseInt(vmsInput.value) / 2;
+            const quantity = Math.ceil(parseInt(vmsInput.value) / 2);
             return quantity;
         } else if (virtualOrBareMetalSelect.value === "Bare Metal") {
             const quantity = parseInt(socketPairsInput.value);
@@ -134,5 +134,5 @@ function calculateQuantity(LicensingModel) {
         }
     }
     // Add more conditions as needed
-    return 0; // Default value if no condition matches
+    return "Unknown - Please Contact Presales"; // Default value if no condition matches
 }
