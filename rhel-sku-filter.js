@@ -57,7 +57,7 @@ function displayFilteredResults(filteredData) {
         return;
     }
 
-    if (filteredData.length < 5) {
+    if (filteredData.length < 3) {
         // Iterate through the filtered data and read Licensing Model from each item
         filteredData.forEach((item) => {
             const LicensingModel = item["Licensing Model"];
