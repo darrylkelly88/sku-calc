@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-function displayCorrectSliders() {
+function displayCorrectSliders(filteredData) {
     const virtualOrBareMetalSelect = document.getElementById("virtualOrBareMetal");
     const skuListDiv = document.getElementById("skuList");
     if (getComputedStyle(skuListDiv).display === "block") {
@@ -98,7 +98,7 @@ function displayFilteredResults(filteredData) {
         return;
     }
 
-    displayCorrectSliders()
+    displayCorrectSliders(filteredData)
 
     const resultList = document.createElement("ul");
     filteredData.forEach((item) => {
