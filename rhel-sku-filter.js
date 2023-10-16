@@ -74,7 +74,7 @@ function displayFilteredResults(filteredData) {
         }
 
         const listItem = document.createElement("li");
-        listItem.textContent = `Quantity: ${quantity} SKU: ${item["SKU"]} - ${item["SKU Description"]}`;
+        listItem.textContent = `Quantity: ${quantity} SKU: ${sku} - ${item["SKU Description"]}`;
         resultList.appendChild(listItem);
     });
 
