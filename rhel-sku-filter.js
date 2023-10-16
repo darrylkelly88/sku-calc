@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function displayCorrectSliders() {
     const virtualOrBareMetalSelect = document.getElementById("virtualOrBareMetal");
+    const skuListDiv = document.getElementById("skuList");
     if (getComputedStyle(skuListDiv).display === "block") {
         // Iterate through the filtered data and read Licensing Model from each item
         filteredData.forEach((item) => {
