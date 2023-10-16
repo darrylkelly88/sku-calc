@@ -66,6 +66,12 @@ function displayFilteredResults(filteredData) {
     filteredData.forEach((item) => {
         const LicensingModel = item["Licensing Model"]; // Get LicensingModel for the current item
         const quantity = calculateQuantity(LicensingModel); // Pass LicensingModel to the function
+        const sku = item["SKU"];
+        
+        // Check if term is "3 year" and append "F3" to SKU if true
+        if (term === "3 year") {
+            sku += "F3";
+        }
 
         const listItem = document.createElement("li");
         listItem.textContent = `Quantity: ${quantity} SKU: ${item["SKU"]} - ${item["SKU Description"]}`;
