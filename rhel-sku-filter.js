@@ -48,47 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-function displayCorrectSliders(filteredData) {
-    const virtualOrBareMetalSelect = document.getElementById("virtualOrBareMetal");
-    const skuListDiv = document.getElementById("skuList");
-    
-    //if SKUlistdiv is visible then check licensing models for SKU's that have been filtered and show correct sliders
-    if (getComputedStyle(skuListDiv).display === "block") {
-        
-        // Iterate through the filtered data and read Licensing Model from each item
-        filteredData.forEach((item) => {
-            const LicensingModel = item["Licensing Model"];
-
-            // load the correct sliders based on the value of "LicensingModel" for each item
-            if (LicensingModel === "standard RHEL") {
-
-                //show sliders based on which option is selected
-                    if (virtualOrBareMetalSelect.value === "Virtual") {
-                        // If virtual ask how many VM's
-                        vmsDiv.style.display = "block";
-                        socketPairsDiv.style.display = "none";
-                    } else if (virtualOrBareMetalSelect.value === "Bare Metal") {
-                        // If bare metal ask how many socket pairs
-                        vmsDiv.style.display = "none";
-                        socketPairsDiv.style.display = "block";
-                    } else {
-                        // if something else e.g select option then hide all
-                        vmsDiv.style.display = "none";
-                        socketPairsDiv.style.display = "none";
-                    }
-
-
-            } else if (LicensingModel === "ValueB") {
-                // Do something for ValueB for this item
-                console.log(`ValueB: Do something for SKU ${item["SKU"]}`);
-            } else {
-                // Handle other cases for this item
-                console.log(`Other value: Do something else for SKU ${item["SKU"]}`);
-            }
-            
-        });
-    }
-}
 
 function displayFilteredResults(filteredData) {
     const skuListDiv = document.getElementById("skuList");
@@ -119,10 +78,63 @@ function displayFilteredResults(filteredData) {
     skuListDiv.appendChild(resultList);
 }
 
+
+function displayCorrectSliders(filteredData) {
+    const virtualOrBareMetalSelect = document.getElementById("virtualOrBareMetal");
+    const skuListDiv = document.getElementById("skuList");
+    
+    //if SKUlistdiv is visible then check licensing models for SKU's that have been filtered and show correct sliders
+    if (getComputedStyle(skuListDiv).display === "block") {
+        
+        // Iterate through the filtered data and read Licensing Model from each item
+        filteredData.forEach((item) => {
+            const LicensingModel = item["Licensing Model"];
+
+            // load the correct sliders based on the value of "LicensingModel" for each item
+            if (LicensingModel === "standard RHEL") {
+
+                //show sliders based on which option is selected
+                    if (virtualOrBareMetalSelect.value === "Virtual") {
+                        // If virtual ask how many VM's
+                        vmsDiv.style.display = "block";
+                        socketPairsDiv.style.display = "none";
+                    } else if (virtualOrBareMetalSelect.value === "Bare Metal") {
+                        // If bare metal ask how many socket pairs
+                        vmsDiv.style.display = "none";
+                        socketPairsDiv.style.display = "block";
+                    } else {
+                        // if something else e.g select option then hide all
+                        vmsDiv.style.display = "none";
+                        socketPairsDiv.style.display = "none";
+                    }
+
+            } else if (LicensingModel === "POWER") {
+                // Do something for ValueB for this item
+                console.log(`POWER for SKU ${item["SKU"]}`);
+                coresDiv.style.display = "block";
+                lparsDiv.style.display = "block";
+
+            } else if (LicensingModel === "VDC") {
+                // Do something for ValueB for this item
+                console.log(`VDC for SKU ${item["SKU"]}`);
+                socketPairsDiv.style.display = "block";
+            } else {
+                // Handle other cases for this item
+                console.log(`Other value: Do something else for SKU ${item["SKU"]}`);
+            }
+            
+        });
+    }
+}
+
+
+
 function calculateQuantity(LicensingModel) {
     const virtualOrBareMetalSelect = document.getElementById("virtualOrBareMetal");
     const socketPairsInput = document.getElementById("socketPairsInput");
     const vmsInput = document.getElementById("vmsInput");
+    const lparsInput = document.getElementById("lparsInput");
+    const coresInput = document.getElementById("coresInput");
 
     if (LicensingModel === "standard RHEL") {
         if (virtualOrBareMetalSelect.value === "Virtual") {
@@ -132,6 +144,16 @@ function calculateQuantity(LicensingModel) {
             const quantity = parseInt(socketPairsInput.value);
             return quantity;
         }
+    } else if (LicensingModel === "POWER") {
+        const lparsValue = parseInt(lparsInput.value);
+        const coresValue = parseInt(coresInput.value);
+
+        // Calculate the higher of lparsValue / 4 or coresValue / 4
+        const quantity = Math.max(Math.ceil(lparsValue / 4), Math.ceil(coresValue / 4));
+        return quantity;
+    } else if (LicensingModel === "VDC") {
+        const quantity = parseInt(socketPairsInput.value);
+        return quantity;
     }
     // Add more conditions as needed
     return "Unknown - Please Contact Presales"; // Default value if no condition matches
