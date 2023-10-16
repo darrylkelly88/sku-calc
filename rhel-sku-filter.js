@@ -57,7 +57,7 @@ function displayFilteredResults(filteredData) {
         return;
     }
 
-    if (filteredData.length < 3) {
+    if (getComputedStyle(skuListDiv).display === "block") {
         // Iterate through the filtered data and read Licensing Model from each item
         filteredData.forEach((item) => {
             const LicensingModel = item["Licensing Model"];
