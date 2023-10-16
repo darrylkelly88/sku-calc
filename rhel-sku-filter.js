@@ -51,7 +51,10 @@ document.addEventListener("DOMContentLoaded", function () {
 function displayCorrectSliders(filteredData) {
     const virtualOrBareMetalSelect = document.getElementById("virtualOrBareMetal");
     const skuListDiv = document.getElementById("skuList");
+    
+    //if SKUlistdiv is visible then check licensing models for SKU's that have been filtered and show correct sliders
     if (getComputedStyle(skuListDiv).display === "block") {
+        
         // Iterate through the filtered data and read Licensing Model from each item
         filteredData.forEach((item) => {
             const LicensingModel = item["Licensing Model"];
@@ -61,7 +64,7 @@ function displayCorrectSliders(filteredData) {
 
                 //show sliders based on which option is selected
                     if (virtualOrBareMetalSelect.value === "Virtual") {
-                        // If virtual ask how many
+                        // If virtual ask how many VM's
                         vmsDiv.style.display = "block";
                         socketPairsDiv.style.display = "none";
                     } else if (virtualOrBareMetalSelect.value === "Bare Metal") {
@@ -82,7 +85,7 @@ function displayCorrectSliders(filteredData) {
                 // Handle other cases for this item
                 console.log(`Other value: Do something else for SKU ${item["SKU"]}`);
             }
-            // You can perform actions or store data based on each item here.
+            
         });
     }
 }
@@ -99,11 +102,12 @@ function displayFilteredResults(filteredData) {
     }
 
     displayCorrectSliders(filteredData)
+    const quantity = calculateQuantity(LicensingModel)
 
     const resultList = document.createElement("ul");
     filteredData.forEach((item) => {
         const listItem = document.createElement("li");
-        listItem.textContent = `${item["SKU"]} - ${item["SKU Description"]}`;
+        listItem.textContent = `Quantity: ${quantity} SKU: ${item["SKU"]} - ${item["SKU Description"]}`;
         resultList.appendChild(listItem);
     });
 
@@ -113,4 +117,18 @@ function displayFilteredResults(filteredData) {
 
     skuListDiv.appendChild(introText);
     skuListDiv.appendChild(resultList);
+}
+
+
+function calculateQuantity (LicensingModel) {
+    const virtualOrBareMetalSelect = document.getElementById("virtualOrBareMetal");
+    if (LicensingModel === "standard RHEL") {
+        if (virtualOrBareMetalSelect === "Virtual") {
+            return 5; // Calculate the quantity based on your criteria
+        } else if (virtualOrBareMetalSelect === "Bare Metal") {
+            return 10; // Calculate the quantity based on your criteria
+        }
+    }
+    // Add more conditions as needed
+    return 0; // Default value if no condition matches
 }
