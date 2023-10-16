@@ -121,11 +121,16 @@ function displayFilteredResults(filteredData) {
 
 function calculateQuantity(LicensingModel) {
     const virtualOrBareMetalSelect = document.getElementById("virtualOrBareMetal");
+    const socketPairsInput = document.getElementById("socketPairsInput");
+    const vmsInput = document.getElementById("vmsInput");
+
     if (LicensingModel === "standard RHEL") {
         if (virtualOrBareMetalSelect.value === "Virtual") {
-            return 5; // Calculate the quantity based on your criteria
+            const quantity = parseInt(vmsInput.value) / 2;
+            return quantity;
         } else if (virtualOrBareMetalSelect.value === "Bare Metal") {
-            return 10; // Calculate the quantity based on your criteria
+            const quantity = parseInt(socketPairsInput.value);
+            return quantity;
         }
     }
     // Add more conditions as needed
