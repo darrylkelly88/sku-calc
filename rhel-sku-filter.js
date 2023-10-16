@@ -51,6 +51,7 @@ function displayFilteredResults(filteredData) {
     // Display the filtered results in the "skuList" div
     const skuListDiv = document.getElementById("skuList");
     skuListDiv.innerHTML = "";
+    const virtualOrBareMetalSelect = document.getElementById("virtualOrBareMetal");
 
     if (filteredData.length === 0) {
         skuListDiv.innerHTML = "<p>No matching SKUs found.</p>";
@@ -66,6 +67,24 @@ function displayFilteredResults(filteredData) {
             if (LicensingModel === "standard RHEL") {
                 // Do something for ValueA for this item
                 console.log(`standard RHEL for SKU ${item["SKU"]}`);
+                
+                //show sliders based on which option is selected
+                virtualOrBareMetalSelect.addEventListener('change', function () {
+                    if (this.value === "Virtual") {
+                        // If virtual ask about density
+                        vmsDiv.style.display = "block";
+                        socketPairsDiv.style.display = "none";
+                    } else if (this.value === "Bare Metal") {
+                        // If bare metal move on to satellite question
+                        vmsDiv.style.display = "none";
+                        socketPairsDiv.style.display = "block";
+                    } else {
+                        // if something else e.g select option then hide all
+                        vmsDiv.style.display = "none";
+                        socketPairsDiv.style.display = "none";
+                    }
+                });
+
             } else if (LicensingModel === "ValueB") {
                 // Do something for ValueB for this item
                 console.log(`ValueB: Do something for SKU ${item["SKU"]}`);
