@@ -47,27 +47,17 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 });
 
-function displayFilteredResults(filteredData) {
-    // Display the filtered results in the "skuList" div
-    const skuListDiv = document.getElementById("skuList");
-    skuListDiv.innerHTML = "";
+
+function displayCorrectSliders() {
     const virtualOrBareMetalSelect = document.getElementById("virtualOrBareMetal");
-
-    if (filteredData.length === 0) {
-        skuListDiv.innerHTML = "<p>No matching SKUs found.</p>";
-        return;
-    }
-
     if (getComputedStyle(skuListDiv).display === "block") {
         // Iterate through the filtered data and read Licensing Model from each item
         filteredData.forEach((item) => {
             const LicensingModel = item["Licensing Model"];
-    
-            // Perform an action based on the value of "LicensingModel" for each item
+
+            // load the correct sliders based on the value of "LicensingModel" for each item
             if (LicensingModel === "standard RHEL") {
-                // Do something for ValueA for this item
-                console.log(`standard RHEL for SKU ${item["SKU"]}`);
-                
+
                 //show sliders based on which option is selected
                     if (virtualOrBareMetalSelect.value === "Virtual") {
                         // If virtual ask how many
@@ -82,7 +72,7 @@ function displayFilteredResults(filteredData) {
                         vmsDiv.style.display = "none";
                         socketPairsDiv.style.display = "none";
                     }
- 
+
 
             } else if (LicensingModel === "ValueB") {
                 // Do something for ValueB for this item
@@ -93,7 +83,21 @@ function displayFilteredResults(filteredData) {
             }
             // You can perform actions or store data based on each item here.
         });
-    } 
+    }
+}
+
+function displayFilteredResults(filteredData) {
+    // Display the filtered results in the "skuList" div
+    const skuListDiv = document.getElementById("skuList");
+    skuListDiv.innerHTML = "";
+
+
+    if (filteredData.length === 0) {
+        skuListDiv.innerHTML = "<p>No matching SKUs found.</p>";
+        return;
+    }
+
+    displayCorrectSliders()
 
     const resultList = document.createElement("ul");
     filteredData.forEach((item) => {
