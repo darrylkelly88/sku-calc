@@ -69,13 +69,12 @@ function displayFilteredResults(filteredData) {
                 console.log(`standard RHEL for SKU ${item["SKU"]}`);
                 
                 //show sliders based on which option is selected
-                virtualOrBareMetalSelect.addEventListener('change', function () {
-                    if (this.value === "Virtual") {
-                        // If virtual ask about density
+                    if (virtualOrBareMetalSelect.value === "Virtual") {
+                        // If virtual ask how many
                         vmsDiv.style.display = "block";
                         socketPairsDiv.style.display = "none";
-                    } else if (this.value === "Bare Metal") {
-                        // If bare metal move on to satellite question
+                    } else if (virtualOrBareMetalSelect.value === "Bare Metal") {
+                        // If bare metal ask how many socket pairs
                         vmsDiv.style.display = "none";
                         socketPairsDiv.style.display = "block";
                     } else {
@@ -83,7 +82,7 @@ function displayFilteredResults(filteredData) {
                         vmsDiv.style.display = "none";
                         socketPairsDiv.style.display = "none";
                     }
-                });
+ 
 
             } else if (LicensingModel === "ValueB") {
                 // Do something for ValueB for this item
