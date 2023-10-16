@@ -91,27 +91,27 @@ function displayCorrectSliders(filteredData) {
 }
 
 function displayFilteredResults(filteredData) {
-    // Display the filtered results in the "skuList" div
     const skuListDiv = document.getElementById("skuList");
     skuListDiv.innerHTML = "";
-
 
     if (filteredData.length === 0) {
         skuListDiv.innerHTML = "<p>No matching SKUs found.</p>";
         return;
     }
 
-    displayCorrectSliders(filteredData)
-    const quantity = calculateQuantity(LicensingModel)
+    displayCorrectSliders(filteredData);
 
     const resultList = document.createElement("ul");
     filteredData.forEach((item) => {
+        const LicensingModel = item["Licensing Model"]; // Get LicensingModel for the current item
+        const quantity = calculateQuantity(LicensingModel); // Pass LicensingModel to the function
+
         const listItem = document.createElement("li");
         listItem.textContent = `Quantity: ${quantity} SKU: ${item["SKU"]} - ${item["SKU Description"]}`;
         resultList.appendChild(listItem);
     });
 
-    //intro text 
+    //intro text
     const introText = document.createElement("p");
     introText.textContent = "List of Matching SKUs:";
 
@@ -119,13 +119,12 @@ function displayFilteredResults(filteredData) {
     skuListDiv.appendChild(resultList);
 }
 
-
-function calculateQuantity (LicensingModel) {
+function calculateQuantity(LicensingModel) {
     const virtualOrBareMetalSelect = document.getElementById("virtualOrBareMetal");
     if (LicensingModel === "standard RHEL") {
-        if (virtualOrBareMetalSelect === "Virtual") {
+        if (virtualOrBareMetalSelect.value === "Virtual") {
             return 5; // Calculate the quantity based on your criteria
-        } else if (virtualOrBareMetalSelect === "Bare Metal") {
+        } else if (virtualOrBareMetalSelect.value === "Bare Metal") {
             return 10; // Calculate the quantity based on your criteria
         }
     }
