@@ -57,26 +57,6 @@ function displayFilteredResults(filteredData) {
         return;
     }
 
-
-    // Iterate through the filtered data and read Licensing Model from each item
-    filteredData.forEach((item) => {
-        const LicensingModel = item["Licensing Model"];
-
-        // Perform an action based on the value of "LicensingModel" for each item
-        if (LicensingModel === "standard RHEL") {
-            // Do something for ValueA for this item
-            console.log(`standard RHEL for SKU ${item["SKU"]}`);
-        } else if (LicensingModel === "ValueB") {
-            // Do something for ValueB for this item
-            console.log(`ValueB: Do something for SKU ${item["SKU"]}`);
-        } else {
-            // Handle other cases for this item
-            console.log(`Other value: Do something else for SKU ${item["SKU"]}`);
-        }
-
-        // You can perform actions or store data based on each item here.
-    });
-
     const resultList = document.createElement("ul");
     filteredData.forEach((item) => {
         const listItem = document.createElement("li");
@@ -90,4 +70,24 @@ function displayFilteredResults(filteredData) {
 
     skuListDiv.appendChild(introText);
     skuListDiv.appendChild(resultList);
+}
+
+function processFilteredData(filteredData) {
+    filteredData.forEach((item) => {
+        const someFieldValue = item["SomeField"];
+
+        // Perform an action based on the value of "SomeField" for each item
+        if (someFieldValue === "ValueA") {
+            // Do something for ValueA for this item
+            console.log(`ValueA: Do something for SKU ${item["SKU"]}`);
+        } else if (someFieldValue === "ValueB") {
+            // Do something for ValueB for this item
+            console.log(`ValueB: Do something for SKU ${item["SKU"]}`);
+        } else {
+            // Handle other cases for this item
+            console.log(`Other value: Do something else for SKU ${item["SKU"]}`);
+        }
+
+        // You can perform actions or store data based on each item here.
+    });
 }
