@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 });
 
-window.function = function displayFilteredResults(filteredData) {
+window.displayFilteredResults = function(filteredData) {
     // Display the filtered results in the "skuList" div
     const skuListDiv = document.getElementById("skuList");
     skuListDiv.innerHTML = "";
@@ -72,7 +72,7 @@ window.function = function displayFilteredResults(filteredData) {
     skuListDiv.appendChild(resultList);
 }
 
-window.function = function processFilteredData(filteredData) {
+window.processFilteredData = function(filteredData) {
     filteredData.forEach((item) => {
         const someFieldValue = item["SomeField"];
 
