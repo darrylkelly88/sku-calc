@@ -82,6 +82,13 @@ function displayFilteredResults(filteredData) {
         } else {
             // Calculate the total price by multiplying MSRP by quantity
             total = msrp * quantity;
+            
+            // Round the total to two decimal places
+            total = total.toFixed(2);
+
+            // Convert the rounded total back to a number
+            total = parseFloat(total);
+            
              // Check if the total for this item is over 35000
             if (total > 35000) {
                 showNATSMessage = true; // Set the flag to true if any item's total is over 35000
