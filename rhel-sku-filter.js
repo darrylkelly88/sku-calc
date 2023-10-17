@@ -77,14 +77,14 @@ function displayFilteredResults(filteredData) {
         // Check if either msrp or quantity is not a valid number
         if (isNaN(msrp) || isNaN(quantity)) {
             let total = "Unknown";
-            console.log("Unknown Total:", total);
+            console.log("Unknown Total:", total, sku);
         } else {
             // Calculate the total price by multiplying MSRP by quantity
             let total = msrp * quantity;
-            console.log("Else - Total:", total);
+            console.log("Else - Total:", total, sku);
         }
 
-        console.log("After if else Total:", total);
+        console.log("After if else Total:", total, sku);
 
         // Check if term is "3 year" and append "F3" to SKU if true
         const term = document.getElementById("term").value;
