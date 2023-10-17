@@ -187,7 +187,7 @@ function calculateQuantity(LicensingModel, item) {
     } else if (LicensingModel === "node") {
         const numberOfNodes = item["Number of Nodes"]; // Get the number of nodes from the JSON data
         const quantity = Math.ceil(parseInt(nodesInput.value) / numberOfNodes); // Divide and round up
-        console.log(quantity)
+        console.log(quantity, nodesInput, numberOfNodes)
         return quantity;
     }
     // Add more conditions as needed
