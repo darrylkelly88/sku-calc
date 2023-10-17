@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         return (
                             (!supportLevel || (supportLevel === "standard" && item["Standard"] === "TRUE") || (supportLevel === "premium" && item["Premium"] === "TRUE")) &&
                             // standard exclusion filters
-                            (item["Edge"] !== "TRUE")
-//                            (item["Include in Data?"] == "TRUE") 
+                            (item["Edge"] !== "TRUE") &&
+                            (item["Include in Data?"] == "TRUE") 
                        );
                     });
 
@@ -146,6 +146,9 @@ function displayCorrectSliders(filteredData) {
             } else if (LicensingModel === "VDC") {
                 // if licensing model is vdc show correct sliders
                 socketPairsDiv.style.display = "block";
+            } else if (LicensingModel === "node") {
+                // if licensing model is vdc show correct sliders
+                nodesDiv.style.display = "block";
             } else {
                 // Handle other cases for this item
                 console.log(`SKU ${item["SKU"]} does not have a licensing model created for it`);
@@ -161,6 +164,7 @@ function calculateQuantity(LicensingModel) {
     const vmsInput = document.getElementById("vmsInput");
     const lparsInput = document.getElementById("lparsInput");
     const coresInput = document.getElementById("coresInput");
+    const nodesInput = document.getElementById("nodesInput");
 
     if (LicensingModel === "standard RHEL") {
         if (virtualOrBareMetalSelect.value === "Virtual") {
@@ -179,6 +183,9 @@ function calculateQuantity(LicensingModel) {
         return quantity;
     } else if (LicensingModel === "VDC") {
         const quantity = parseInt(socketPairsInput.value);
+        return quantity;
+    } else if (LicensingModel === "node") {
+        const quantity = parseInt(nodesInput.value);
         return quantity;
     }
     // Add more conditions as needed
