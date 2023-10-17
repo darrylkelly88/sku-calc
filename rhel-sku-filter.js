@@ -63,7 +63,7 @@ function displayFilteredResults(filteredData) {
 
     displayCorrectSliders(filteredData);
 
-    const msrp = getMSRP(term, filteredData);
+    
 
     
     const resultList = document.createElement("ul");
@@ -72,6 +72,12 @@ function displayFilteredResults(filteredData) {
         const quantity = calculateQuantity(LicensingModel); // Pass LicensingModel to the function
         let sku = item["SKU"];
         
+        //get msrp price
+        const msrp = getMSRP(term, filteredData);
+
+        // Calculate the total price by multiplying MSRP by quantity
+        const total = msrp * quantity;
+
         // Check if term is "3 year" and append "F3" to SKU if true
         const term = document.getElementById("term").value;
         if (term === "3 year") {
