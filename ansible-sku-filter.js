@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         return (
                             (!supportLevel || (supportLevel === "standard" && item["Standard"] === "TRUE") || (supportLevel === "premium" && item["Premium"] === "TRUE")) &&
                             // standard exclusion filters
-                            (item["Edge"] !== "TRUE") &&
+                            (item["Edge"] !== "TRUE")
 //                            (item["Include in Data?"] == "TRUE") 
                        );
                     });
