@@ -74,7 +74,7 @@ function displayFilteredResults(filteredData) {
         let msrp;
         
         //get msrp price
-        msrp = getMSRP(filteredData);
+        msrp = getMSRP(item);
        
         // Check if either msrp or quantity is not a valid number
         if (isNaN(msrp) || isNaN(quantity)) {
@@ -164,8 +164,6 @@ function displayCorrectSliders(filteredData) {
     }
 }
 
-
-
 function calculateQuantity(LicensingModel) {
     const virtualOrBareMetalSelect = document.getElementById("virtualOrBareMetal");
     const socketPairsInput = document.getElementById("socketPairsInput");
@@ -196,16 +194,16 @@ function calculateQuantity(LicensingModel) {
     return "Unknown - Please Contact Presales"; // Default value if no condition matches
 }
 
-function getMSRP(filteredData) {
+function getMSRP(item) {
     const term = document.getElementById("term").value;
     let msrp;
     if (term === "3 year") {
         // Look up "3-Year MSRP" from the filtered data
-        msrp = filteredData[0]["3-Year MSRP"]; // Assuming the MSRP data is available in the filtered data
+        msrp = item["3-Year MSRP"]; // Assuming the MSRP data is available in the filtered data
         return msrp;
     } else {
         // Look up "1-Year MSRP" from the filtered data
-        msrp = filteredData[0]["1-Year MSRP"]; // Assuming the MSRP data is available in the filtered data
+        msrp = item["1-Year MSRP"]; // Assuming the MSRP data is available in the filtered data
         return msrp;
     }
 }
