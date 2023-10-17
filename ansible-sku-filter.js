@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         // Apply filter conditions based on nodesInputValue
                         if (nodesInputValue >= 1 && nodesInputValue < 4900) {
                             return baseFilter && numberOfNodes === 100;
-                        } else if (nodesInputValue >= 4900 && nodesInputValue <= 10000) {
+                        } else if (nodesInputValue >= 4901 && nodesInputValue <= 10000) {
                             return baseFilter && numberOfNodes === 5000;
                         } else if (nodesInputValue > 10000) {
                             return baseFilter && numberOfNodes === 10000;
