@@ -33,9 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         // Apply filter conditions based on nodesInputValue
                         if (nodesInputValue >= 1 && nodesInputValue < 4901) {
                             return baseFilter && numberOfNodes === 100;
-                        } else if (nodesInputValue >= 4901 && nodesInputValue <= 10000) {
+                        } else if (nodesInputValue >= 4901 && nodesInputValue <= 9999) {
                             return baseFilter && numberOfNodes === 5000;
-                        } else if (nodesInputValue > 10000) {
+                        } else if (nodesInputValue > 9999) {
                             return baseFilter && numberOfNodes === 10000;
                         }
 
@@ -204,6 +204,18 @@ function calculateQuantity(LicensingModel, item) {
     } else if (LicensingModel === "node") {
         const numberOfNodes = item["# of Nodes"]; // Get the number of nodes from the JSON data
         const quantity = Math.ceil(parseInt(nodesInput.value) / numberOfNodes); // Divide and round up
+        const nodesInputValue = parseInt(nodesInput.value);
+        const ansibleMessageDiv = document.getElementById("ansibleMessageDiv");
+
+        // Show message to contact presales for opps with over 5000 nodes.
+        if (nodesInputValue >= 1 && nodesInputValue < 4900) {
+            ansibleMessageDiv.style.display = "none";
+        } else if (nodesInputValue >= 4900 && nodesInputValue <= 10000) {
+            ansibleMessageDiv.style.display = "block";
+        } else if (nodesInputValue > 10000) {
+            ansibleMessageDiv.style.display = "block";
+        }
+
         return quantity;
     }
     // Add more conditions as needed

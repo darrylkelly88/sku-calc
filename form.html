@@ -250,6 +250,14 @@
             <br>
         </div>
 
+        <!-- Ansible Nodes message -->
+        <div id="ansibleMessageDiv">
+            <br>
+            Please note that for deployments with over 5000 nodes it is cheaper to mix and match the smaller / larger SKU's. Please ask presales for support.
+            <br>
+            <br>
+        </div>
+
 
         <!-- Sliders & Questions to Determine Quantities -->
 
@@ -325,6 +333,7 @@
             const HPCMessageDiv  = document.getElementById("HPCMessageDiv");
             const skuListDiv = document.getElementById("skuList");
             const NATSMessageDiv = document.getElementById("NATSMessageDiv");
+            const ansibleMessageDiv = document.getElementById("ansibleMessageDiv");
             //define divs - sliders
             const coresDiv = document.getElementById("coresDiv");
             const vmsDiv = document.getElementById("vmsDiv");
@@ -370,6 +379,7 @@
             HPCMessageDiv.style.display = "none";
             skuListDiv.style.display = "none";
             NATSMessageDiv.style.display = "none";
+            ansibleMessageDiv.style.display = "none";
             //hide sliders
             coresDiv.style.display = "none";
             vmsDiv.style.display = "none";
@@ -635,7 +645,6 @@
                     skuListDiv.style.display = "none";
                 }
             });
-
 
 
         });
