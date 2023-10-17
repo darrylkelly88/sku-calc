@@ -76,11 +76,11 @@ function displayFilteredResults(filteredData) {
        
         // Check if either msrp or quantity is not a valid number
         if (isNaN(msrp) || isNaN(quantity)) {
-            let total = "Unknown";
+            total = "Unknown";
             console.log("Unknown Total:", total, sku);
         } else {
             // Calculate the total price by multiplying MSRP by quantity
-            let total = msrp * quantity;
+            total = msrp * quantity;
             console.log("Else - Total:", total, sku);
         }
 
