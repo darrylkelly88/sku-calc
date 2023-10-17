@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         const nodesInputValue = parseInt(nodesInput.value);
 
                         // Apply filter conditions based on nodesInputValue
-                        if (nodesInputValue >= 1 && nodesInputValue < 4900) {
+                        if (nodesInputValue >= 1 && nodesInputValue < 4901) {
                             return baseFilter && numberOfNodes === 100;
                         } else if (nodesInputValue >= 4901 && nodesInputValue <= 10000) {
                             return baseFilter && numberOfNodes === 5000;
