@@ -19,10 +19,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         // Check if the user made a selection in each field before applying the filter
                         return (
-                            (!supportLevel || (supportLevel === "standard" && item["Standard"] === "TRUE") || (supportLevel === "premium" && item["Premium"] === "TRUE")) &&
+                            (!supportLevel || (supportLevel === "standard" && item["Standard"] === "TRUE") || (supportLevel === "premium" && item["Premium"] === "TRUE"))
                             // standard exclusion filters
-                            (item["Edge"] !== "TRUE") &&
-                            (item["Include in Data?"] == "TRUE") 
+//                            (item["Edge"] !== "TRUE") &&
+//                            (item["Include in Data?"] == "TRUE") 
                        );
                     });
 
