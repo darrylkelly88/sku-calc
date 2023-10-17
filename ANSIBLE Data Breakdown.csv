@@ -1,0 +1,9 @@
+﻿SKU,SKU Description,Premium,Standard,Edge,,Currency,1-Year MSRP,3-Year MSRP,Product Line,# of Sockets,# of Nodes,Support Type,Virtual Guests,System Unit of Measure,Channel F3 SKU
+MCT3691,"Red Hat Ansible Automation Platform, Standard (100 Managed Nodes)",FALSE,TRUE,FALSE,,GBP,8970,24219,Ansible,0,100,STANDARD,0,MANAGED NODE,MCT3691F3
+MCT3692,"Red Hat Ansible Automation Platform, Standard (5000 Managed Nodes)",FALSE,TRUE,FALSE,,GBP,386400,1043280,Ansible,0,5000,STANDARD,0,MANAGED NODE,MCT3692F3
+MCT3693,"Red Hat Ansible Automation Platform, Standard (10000 Managed Nodes)",FALSE,TRUE,FALSE,,GBP,772800,2086560,Ansible,0,10000,STANDARD,0,MANAGED NODE,MCT3693F3
+MCT3694,"Red Hat Ansible Automation Platform, Premium (100 Managed Nodes)",TRUE,FALSE,FALSE,,GBP,12075,32602.5,Ansible,0,100,PREMIUM,0,MANAGED NODE,MCT3694F3
+MCT3695,"Red Hat Ansible Automation Platform, Premium (5000 Managed Nodes)",TRUE,FALSE,FALSE,,GBP,517500,1397250,Ansible,0,5000,PREMIUM,0,MANAGED NODE,MCT3695F3
+MCT3696,"Red Hat Ansible Automation Platform, Premium (10000 Managed Nodes)",TRUE,FALSE,FALSE,,GBP,1035000,2794500,Ansible,0,10000,PREMIUM,0,MANAGED NODE,MCT3696F3
+MCT4164,"Red Hat Ansible Automation Platform for Distributed Computing (Edge Server), Premium (100 Managed Nodes)",TRUE,FALSE,TRUE,,GBP,6037,16301.25,Edge Ansible,,100,PREMIUM,0,MANAGED NODE,MCT4164F3
+MCT4165,"Red Hat Ansible Automation Platform for Distributed Computing (Edge Server), Standard (100 Managed Nodes)",FALSE,TRUE,TRUE,,GBP,4485,12109.5,Edge Ansible,,100,STANDARD,0,MANAGED NODE,MCT4165F3

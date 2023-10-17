@@ -289,9 +289,11 @@
     <!-- Load the javascript to control the sliders -->
     <script src="form-sliders.js"></script>
 
-
     <!-- Load the javascript to control the SKU filters for RHEL -->
     <script src="rhel-sku-filter.js"></script>
+
+    <!-- Load the javascript to control the SKU filters for ansible -->
+    <script src="ansible-sku-filter.js"></script>
 
     <script>
         
@@ -471,6 +473,9 @@
                 if (this.value === "Red Hat Enterprise Linux (RHEL)") {
                     // If new, display a reminder about ORP and promotions
                     pctypeDiv.style.display = "block";
+                } else if (this.value === "Red Hat Ansible Automation Platform") {
+                    // If renewal move on to next question.
+                    skuListDiv.style.display = "block";
                 } else {
                     // if something else e.g select option then hide all
                     pctypeDiv.style.display = "none";
