@@ -198,13 +198,14 @@ function calculateQuantity(LicensingModel) {
 
 function getMSRP(filteredData) {
     const term = document.getElementById("term").value;
+    let msrp;
     if (term === "3 year") {
         // Look up "3-Year MSRP" from the filtered data
-        let msrp = filteredData[0]["3-Year MSRP"]; // Assuming the MSRP data is available in the filtered data
+        msrp = filteredData[0]["3-Year MSRP"]; // Assuming the MSRP data is available in the filtered data
         return msrp;
     } else {
         // Look up "1-Year MSRP" from the filtered data
-        let msrp = filteredData[0]["1-Year MSRP"]; // Assuming the MSRP data is available in the filtered data
+        msrp = filteredData[0]["1-Year MSRP"]; // Assuming the MSRP data is available in the filtered data
         return msrp;
     }
 }
