@@ -55,7 +55,7 @@ function displayFilteredResults(filteredData) {
     const resultList = document.createElement("ul");
     filteredData.forEach((item) => {
         const LicensingModel = item["Licensing Model"]; // Get LicensingModel for the current item
-        const quantity = calculateQuantity(LicensingModel); // Pass LicensingModel to the function
+        const quantity = calculateQuantity(LicensingModel, item); // Pass LicensingModel to the function
         let sku = item["SKU"];
         let msrp;
         
@@ -158,7 +158,7 @@ function displayCorrectSliders(filteredData) {
     }
 }
 
-function calculateQuantity(LicensingModel) {
+function calculateQuantity(LicensingModel, item) {
     const virtualOrBareMetalSelect = document.getElementById("virtualOrBareMetal");
     const socketPairsInput = document.getElementById("socketPairsInput");
     const vmsInput = document.getElementById("vmsInput");
@@ -185,7 +185,8 @@ function calculateQuantity(LicensingModel) {
         const quantity = parseInt(socketPairsInput.value);
         return quantity;
     } else if (LicensingModel === "node") {
-        const quantity = parseInt(nodesInput.value);
+        const numberOfNodes = item["Number of Nodes"]; // Get the number of nodes from the JSON data
+        const quantity = Math.ceil(parseInt(nodesInput.value) / numberOfNodes); // Divide and round up
         return quantity;
     }
     // Add more conditions as needed
