@@ -71,9 +71,10 @@ function displayFilteredResults(filteredData) {
         const LicensingModel = item["Licensing Model"]; // Get LicensingModel for the current item
         const quantity = calculateQuantity(LicensingModel); // Pass LicensingModel to the function
         let sku = item["SKU"];
+        let msrp;
         
         //get msrp price
-        const msrp = getMSRP(filteredData);
+        msrp = getMSRP(filteredData);
        
         // Check if either msrp or quantity is not a valid number
         if (isNaN(msrp) || isNaN(quantity)) {
