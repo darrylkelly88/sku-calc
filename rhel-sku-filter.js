@@ -63,9 +63,6 @@ function displayFilteredResults(filteredData) {
 
     displayCorrectSliders(filteredData);
 
-    
-
-    
     const resultList = document.createElement("ul");
     filteredData.forEach((item) => {
         const LicensingModel = item["Licensing Model"]; // Get LicensingModel for the current item
@@ -74,9 +71,14 @@ function displayFilteredResults(filteredData) {
         
         //get msrp price
         const msrp = getMSRP(term, filteredData);
-
-        // Calculate the total price by multiplying MSRP by quantity
-        const total = msrp * quantity;
+       
+        // Check if either msrp or quantity is not a valid number
+        if (isNaN(msrp) || isNaN(quantity)) {
+            const total = "Unknown";
+        } else {
+            // Calculate the total price by multiplying MSRP by quantity
+            const total = msrp * quantity;
+        }
 
         // Check if term is "3 year" and append "F3" to SKU if true
         const term = document.getElementById("term").value;
@@ -85,7 +87,7 @@ function displayFilteredResults(filteredData) {
         }
 
         const listItem = document.createElement("li");
-        listItem.textContent = `Quantity: ${quantity} SKU: ${sku} - ${item["SKU Description"]} - MSRP: ${msrp}`;
+        listItem.textContent = `Quantity: ${quantity} SKU: ${sku} - ${item["SKU Description"]} - MSRP: ${msrp} - Total:${total}`;
         resultList.appendChild(listItem);
     });
 
