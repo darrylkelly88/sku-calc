@@ -55,6 +55,7 @@ function displayFilteredResults(filteredData) {
     const skuListDiv = document.getElementById("skuList");
     const term = document.getElementById("term").value;
     skuListDiv.innerHTML = "";
+    let total;
 
     if (filteredData.length === 0) {
         skuListDiv.innerHTML = "<p>No matching SKUs found.</p>";
@@ -62,6 +63,7 @@ function displayFilteredResults(filteredData) {
     }
 
     displayCorrectSliders(filteredData);
+
 
     const resultList = document.createElement("ul");
     filteredData.forEach((item) => {
