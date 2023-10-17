@@ -70,7 +70,7 @@ function displayFilteredResults(filteredData) {
         let sku = item["SKU"];
         
         //get msrp price
-        const msrp = getMSRP(term, filteredData);
+        const msrp = getMSRP(filteredData);
        
         // Check if either msrp or quantity is not a valid number
         if (isNaN(msrp) || isNaN(quantity)) {
@@ -180,7 +180,8 @@ function calculateQuantity(LicensingModel) {
     return "Unknown - Please Contact Presales"; // Default value if no condition matches
 }
 
-function getMSRP(term, filteredData) {
+function getMSRP(filteredData) {
+    const term = document.getElementById("term").value;
     if (term === "3 year") {
         // Look up "3-Year MSRP" from the filtered data
         let msrp = filteredData[0]["3-Year MSRP"]; // Assuming the MSRP data is available in the filtered data
