@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Load JSON data from sku-map.json (assuming you have this file)
-    fetch("rhel-sku-map.json")
+    fetch("ansible-sku-map.json")
         .then((response) => response.json())
         .then((data) => {
             // Add an event listener to the form
@@ -20,8 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         return (
                             (!supportLevel || (supportLevel === "standard" && item["Standard"] === "TRUE") || (supportLevel === "premium" && item["Premium"] === "TRUE")) &&
                             // standard exclusion filters
-                            (item["Add-on"] !== "TRUE") && 
-                            (item["Is it for Edge, Endpoint or gateway?"] !== "TRUE") &&
+                            (item["Edge"] !== "TRUE") &&
                             (item["Include in Data?"] == "TRUE") 
                        );
                     });
