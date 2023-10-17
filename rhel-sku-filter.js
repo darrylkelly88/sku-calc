@@ -65,9 +65,7 @@ function displayFilteredResults(filteredData) {
 
     const msrp = getMSRP(term, filteredData);
 
-    // Calculate the total price by multiplying MSRP by quantity
-    const total = msrp * quantity;
-
+    
     const resultList = document.createElement("ul");
     filteredData.forEach((item) => {
         const LicensingModel = item["Licensing Model"]; // Get LicensingModel for the current item
@@ -81,7 +79,7 @@ function displayFilteredResults(filteredData) {
         }
 
         const listItem = document.createElement("li");
-        listItem.textContent = `Quantity: ${quantity} SKU: ${sku} - ${item["SKU Description"]} - Total MSRP: ${total}`;
+        listItem.textContent = `Quantity: ${quantity} SKU: ${sku} - ${item["SKU Description"]} - MSRP: ${msrp}`;
         resultList.appendChild(listItem);
     });
 
