@@ -56,6 +56,7 @@ function displayFilteredResults(filteredData) {
     const term = document.getElementById("term").value;
     skuListDiv.innerHTML = "";
     let total;
+    let showNATSMessage = false;
 
     if (filteredData.length === 0) {
         skuListDiv.innerHTML = "<p>No matching SKUs found.</p>";
@@ -77,14 +78,22 @@ function displayFilteredResults(filteredData) {
         // Check if either msrp or quantity is not a valid number
         if (isNaN(msrp) || isNaN(quantity)) {
             total = "Unknown";
-            console.log("Unknown Total:", total, sku);
         } else {
             // Calculate the total price by multiplying MSRP by quantity
             total = msrp * quantity;
-            console.log("Else - Total:", total, sku);
+             // Check if the total for this item is over 35000
+            if (total > 35000) {
+                showNATSMessage = true; // Set the flag to true if any item's total is over 35000
+            }
         }
 
-        console.log("After if else Total:", total, sku);
+        // Show or hide the NATSMessageDiv based on the flag
+        if (showNATSMessage) {
+            NATSMessageDiv.style.display = "block";
+        } else {
+            NATSMessageDiv.style.display = "none";
+        }
+
 
         // Check if term is "3 year" and append "F3" to SKU if true
         const term = document.getElementById("term").value;

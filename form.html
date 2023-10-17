@@ -242,6 +242,15 @@
         <div id="skuList"></div>
 
 
+        <!-- NATS discount message -->
+        <div id="NATSMessageDiv">
+            <br>
+            Advanced and Premier Partners may have access to NATS for this product due to its total value. TDSynnex can quote this via the Red Hat co-term calculator.
+            <br>
+            <br>
+        </div>
+
+
         <!-- Sliders & Questions to Determine Quantities -->
 
         <!-- Slider Question: How many cores? -->
@@ -308,6 +317,7 @@
             const satelliteAddonDiv = document.getElementById("satelliteAddonDiv");
             const HPCMessageDiv  = document.getElementById("HPCMessageDiv");
             const skuListDiv = document.getElementById("skuList");
+            const NATSMessageDiv = document.getElementById("NATSMessageDiv");
             //define divs - sliders
             const coresDiv = document.getElementById("coresDiv");
             const vmsDiv = document.getElementById("vmsDiv");
@@ -351,6 +361,7 @@
             satelliteAddonDiv.style.display = "none";
             HPCMessageDiv.style.display = "none";
             skuListDiv.style.display = "none";
+            NATSMessageDiv.style.display = "none";
             //hide sliders
             coresDiv.style.display = "none";
             vmsDiv.style.display = "none";
