@@ -88,10 +88,10 @@ function displayFilteredResults(filteredData) {
 
             // Convert the rounded total back to a number
             total = parseFloat(total);
-            
-             // Check if the total for this item is over 35000
-            if (total > 35000) {
-                showNATSMessage = true; // Set the flag to true if any item's total is over 35000
+
+             // Check if the total for this item is over 43000
+            if (total > 43000) {
+                showNATSMessage = true; // Set the flag to true if any item's total is over 43000
             }
         }
 
