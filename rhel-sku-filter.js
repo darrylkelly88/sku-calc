@@ -16,8 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 const supportLevel = document.getElementById("supportLevel").value;
                 const pctype = document.getElementById("pctype").value;
                 const SAPversion = document.getElementById("SAPversion").value
+                const skuListDiv = document.getElementById("skuList");
 
-                if (product === "Red Hat Enterprise Linux (RHEL)") {
+                if (product === "Red Hat Enterprise Linux (RHEL)" && getComputedStyle(skuListDiv).display === "block") {
                     // Filter the JSON data based on user selections
                     const filteredData = data.filter((item) => {
                         // Determine the SKU field to display based on the selected term
@@ -153,18 +154,16 @@ function displayCorrectSliders(filteredData) {
                     }
 
             } else if (LicensingModel === "POWER") {
-                // Do something for ValueB for this item
-                console.log(`POWER for SKU ${item["SKU"]}`);
+                // If licensing model is power show correct sliders
                 coresDiv.style.display = "block";
                 lparsDiv.style.display = "block";
 
             } else if (LicensingModel === "VDC") {
-                // Do something for ValueB for this item
-                console.log(`VDC for SKU ${item["SKU"]}`);
+                // if licensing model is vdc show correct sliders
                 socketPairsDiv.style.display = "block";
             } else {
                 // Handle other cases for this item
-                console.log(`Other value: Do something else for SKU ${item["SKU"]}`);
+                console.log(`SKU ${item["SKU"]} does not have a licensing model created for it`);
             }
             
         });
