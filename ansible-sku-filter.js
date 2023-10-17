@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const term = document.getElementById("term").value;
                 const product = document.getElementById("product").value;
                 const supportLevel = document.getElementById("supportLevel").value;
+                const skuListDiv = document.getElementById("skuList");
 
 
                 if (product === "Red Hat Ansible Automation Platform" && getComputedStyle(skuListDiv).display === "block") {
