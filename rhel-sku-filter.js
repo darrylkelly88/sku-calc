@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function displayFilteredResults(filteredData) {
     const skuListDiv = document.getElementById("skuList");
+    const term = document.getElementById("term").value;
     skuListDiv.innerHTML = "";
 
     if (filteredData.length === 0) {
@@ -61,6 +62,8 @@ function displayFilteredResults(filteredData) {
     }
 
     displayCorrectSliders(filteredData);
+
+    const msrp = getMSRP(term, filteredData);
 
     const resultList = document.createElement("ul");
     filteredData.forEach((item) => {
@@ -75,7 +78,7 @@ function displayFilteredResults(filteredData) {
         }
 
         const listItem = document.createElement("li");
-        listItem.textContent = `Quantity: ${quantity} SKU: ${sku} - ${item["SKU Description"]}`;
+        listItem.textContent = `Quantity: ${quantity} SKU: ${sku} - ${item["SKU Description"]} - MSRP: ${msrp}`;
         resultList.appendChild(listItem);
     });
 
@@ -166,4 +169,16 @@ function calculateQuantity(LicensingModel) {
     }
     // Add more conditions as needed
     return "Unknown - Please Contact Presales"; // Default value if no condition matches
+}
+
+function getMSRP(term, filteredData) {
+    if (term === "3 year") {
+        // Look up "3-Year MSRP" from the filtered data
+        let msrp = filteredData[0]["3-Year MSRP"]; // Assuming the MSRP data is available in the filtered data
+        return msrp;
+    } else {
+        // Look up "1-Year MSRP" from the filtered data
+        let msrp = filteredData[0]["1-Year MSRP"]; // Assuming the MSRP data is available in the filtered data
+        return msrp;
+    }
 }
