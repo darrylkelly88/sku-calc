@@ -308,6 +308,9 @@
     <!-- Load the javascript to control the SKU filters for ansible -->
     <script src="ansible-sku-filter.js"></script>
 
+    <!-- Load the javascript to control the SKU filters for ansible -->
+    <script src="ocp-sku-filter.js"></script>
+
     <script>
         
         window.addEventListener('DOMContentLoaded', (event) => {
@@ -499,8 +502,6 @@
                     // If renewal move on to next question.
                     skuListDiv.style.display = "block";
                     pctypeDiv.style.display = "none";
-                    console.log("openshift selected")
-                    console.log(skuListDiv.style.display)
                 } else {
                     // if something else e.g select option then hide all
                     pctypeDiv.style.display = "none";
