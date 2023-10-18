@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             (!supportLevel || (supportLevel === "standard" && item["Standard"] === "TRUE") || (supportLevel === "premium" && item["Premium"] === "TRUE")) &&
                             // standard exclusion filters
                             (item["Edge"] !== "TRUE") &&
-                            (item["Include in Data?"] == "TRUE") 
+                            (item["Include in Data"] == "TRUE") 
                        );
                     });
 
