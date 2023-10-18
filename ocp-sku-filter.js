@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     // Filter the JSON data based on user selections
                     const filteredData = data.filter((item) => {
                         // Determine the SKU field to display based on the selected term
-
+                    console.log("running ocp sku filter")
                         // Check if the user made a selection in each field before applying the filter
                         return (
                             (!architecture || (architecture === "x86" && item["x86"] === "TRUE") || (architecture === "IBM POWER" && item["IBM POWER"] === "TRUE") || (architecture === "ARM" && item["ARM"] === "TRUE")) &&
