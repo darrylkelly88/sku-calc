@@ -591,20 +591,36 @@
 
             //which architecture are they running on?
             architectureSelect.addEventListener('change', function () {
-                if (this.value === "x86") {
-                    // If new, display a reminder about ORP and promotions
-                    virtualOrBareMetalDiv.style.display = "block";
-                } else if (this.value === "IBM POWER") {
-                    // If renewal move on to next question.
-                    virtualOrBareMetalDiv.style.display = "block";
-                } else if (this.value === "ARM") {
-                    // If renewal move on to next question.
-                    virtualOrBareMetalDiv.style.display = "block";
-                } else {
-                    // if something else e.g select option then hide all
-                    virtualOrBareMetalDiv.style.display = "none";
+                if (productSelect.value === "Red Hat Enterprise Linux (RHEL)") {
+                    if (this.value === "x86") {
+                        // Decision tree for RHEL on x86
+                        virtualOrBareMetalDiv.style.display = "block";
+                    } else if (this.value === "IBM POWER") {
+                        // Decision tree for RHEL on IBM POWER
+                        virtualOrBareMetalDiv.style.display = "block";
+                    } else if (this.value === "ARM") {
+                        // Decision tree for RHEL on ARM
+                        virtualOrBareMetalDiv.style.display = "block";
+                    } else {
+                        // Default for RHEL: hide
+                        virtualOrBareMetalDiv.style.display = "none";
+                    }
+                } else if (productSelect.value === "Red Hat OpenShift Container Platform") {
+                    if (this.value === "Option1") {
+                        // Decision tree for OpenShift with Option1
+                        // Example: your code here
+                    } else if (this.value === "Option2") {
+                        // Decision tree for OpenShift with Option2
+                        // Example: your code here
+                    } else if (this.value === "Option3") {
+                        // Decision tree for OpenShift with Option3
+                        // Example: your code here
+                    } else {
+                        // Default for OpenShift: hide
+                        virtualOrBareMetalDiv.style.display = "none";
+                    }
                 }
-            });            
+            });       
 
             //Is this virtual or bare metal?
             virtualOrBareMetalSelect.addEventListener('change', function () {
