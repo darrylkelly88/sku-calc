@@ -8,15 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Get user selections from form items
                 const term = document.getElementById("term").value;
                 const product = document.getElementById("product").value;
-                const runSAP = document.getElementById("runSAP").value;
                 const architecture = document.getElementById("architecture").value;
                 const virtualOrBareMetal = document.getElementById("virtualOrBareMetal").value;
-                const densityGreaterThan7 = document.getElementById("densityGreaterThan7").value;
-                const satelliteAddon = document.getElementById("satelliteAddon").value;
                 const supportLevel = document.getElementById("supportLevel").value;
-                const pctype = document.getElementById("pctype").value;
-                const SAPversion = document.getElementById("SAPversion").value
                 const skuListDiv = document.getElementById("skuList");
+
 
                 if (product === "Red Hat OpenShift Container Platform" && getComputedStyle(skuListDiv).display === "block") {
                     // Filter the JSON data based on user selections
@@ -29,6 +25,9 @@ document.addEventListener("DOMContentLoaded", function () {
                             (!supportLevel || (supportLevel === "standard" && item["Standard"] === "TRUE") || (supportLevel === "premium" && item["Premium"] === "TRUE")) &&
                             // standard exclusion filters
                             (item["Edge"] !== "TRUE") &&
+                            (item["Distributed Computing"] !== "TRUE") &&
+                            (item["Windows"] !== "TRUE") &&
+                            (item["Data Foundation"] !== "TRUE") &&
                             (item["Include in Data"] == "TRUE") 
                        );
                     });
