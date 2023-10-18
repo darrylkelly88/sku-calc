@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Load JSON data from sku-map.json (assuming you have this file)
-    fetch("ansible-sku-map.json")
+    fetch("ocp-sku-map.json")
         .then((response) => response.json())
         .then((data) => {
             // Add an event listener to the form
@@ -8,38 +8,29 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Get user selections from form items
                 const term = document.getElementById("term").value;
                 const product = document.getElementById("product").value;
+                const runSAP = document.getElementById("runSAP").value;
+                const architecture = document.getElementById("architecture").value;
+                const virtualOrBareMetal = document.getElementById("virtualOrBareMetal").value;
+                const densityGreaterThan7 = document.getElementById("densityGreaterThan7").value;
+                const satelliteAddon = document.getElementById("satelliteAddon").value;
                 const supportLevel = document.getElementById("supportLevel").value;
+                const pctype = document.getElementById("pctype").value;
+                const SAPversion = document.getElementById("SAPversion").value
                 const skuListDiv = document.getElementById("skuList");
-                const nodesInput = document.getElementById("nodesInput");
 
-                if (product === "Red Hat Ansible Automation Platform" && getComputedStyle(skuListDiv).display === "block") {
+                if (product === "Red Hat OpenShift Container Platform" && getComputedStyle(skuListDiv).display === "block") {
                     // Filter the JSON data based on user selections
                     const filteredData = data.filter((item) => {
                         // Determine the SKU field to display based on the selected term
 
                         // Check if the user made a selection in each field before applying the filter
-                        const baseFilter = (
+                        return (
+                            (!architecture || (architecture === "x86" && item["x86"] === "TRUE") || (architecture === "IBM POWER" && item["IBM POWER"] === "TRUE") || (architecture === "ARM" && item["ARM"] === "TRUE")) &&
                             (!supportLevel || (supportLevel === "standard" && item["Standard"] === "TRUE") || (supportLevel === "premium" && item["Premium"] === "TRUE")) &&
-                            // Standard exclusion filters
+                            // standard exclusion filters
                             (item["Edge"] !== "TRUE") &&
-                            (item["Include in Data"] == "TRUE")
-                        );
-
-                        // Get the number of nodes for the current item
-                        const numberOfNodes = item["# of Nodes"];
-                        // Parse the value from nodesInput
-                        const nodesInputValue = parseInt(nodesInput.value);
-
-                        // Apply filter conditions based on nodesInputValue
-                        if (nodesInputValue >= 1 && nodesInputValue < 4901) {
-                            return baseFilter && numberOfNodes === 100;
-                        } else if (nodesInputValue >= 4901 && nodesInputValue <= 9999) {
-                            return baseFilter && numberOfNodes === 5000;
-                        } else if (nodesInputValue > 9999) {
-                            return baseFilter && numberOfNodes === 10000;
-                        }
-
-                        return false; // Default: Do not include the item
+                            (item["Include in Data?"] == "TRUE") 
+                       );
                     });
 
                     // Display the filtered results in the "skuList" div
@@ -51,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("Error loading JSON data:", error);
         });
 });
-
 
 
 function displayFilteredResults(filteredData) {
@@ -72,7 +62,7 @@ function displayFilteredResults(filteredData) {
     const resultList = document.createElement("ul");
     filteredData.forEach((item) => {
         const LicensingModel = item["Licensing Model"]; // Get LicensingModel for the current item
-        const quantity = calculateQuantity(LicensingModel, item); // Pass LicensingModel to the function
+        const quantity = calculateQuantity(LicensingModel); // Pass LicensingModel to the function
         let sku = item["SKU"];
         let msrp;
         
@@ -163,9 +153,6 @@ function displayCorrectSliders(filteredData) {
             } else if (LicensingModel === "VDC") {
                 // if licensing model is vdc show correct sliders
                 socketPairsDiv.style.display = "block";
-            } else if (LicensingModel === "node") {
-                // if licensing model is vdc show correct sliders
-                nodesDiv.style.display = "block";
             } else {
                 // Handle other cases for this item
                 console.log(`SKU ${item["SKU"]} does not have a licensing model created for it`);
@@ -175,13 +162,12 @@ function displayCorrectSliders(filteredData) {
     }
 }
 
-function calculateQuantity(LicensingModel, item) {
+function calculateQuantity(LicensingModel) {
     const virtualOrBareMetalSelect = document.getElementById("virtualOrBareMetal");
     const socketPairsInput = document.getElementById("socketPairsInput");
     const vmsInput = document.getElementById("vmsInput");
     const lparsInput = document.getElementById("lparsInput");
     const coresInput = document.getElementById("coresInput");
-    const nodesInput = document.getElementById("nodesInput");
 
     if (LicensingModel === "standard RHEL") {
         if (virtualOrBareMetalSelect.value === "Virtual") {
@@ -200,22 +186,6 @@ function calculateQuantity(LicensingModel, item) {
         return quantity;
     } else if (LicensingModel === "VDC") {
         const quantity = parseInt(socketPairsInput.value);
-        return quantity;
-    } else if (LicensingModel === "node") {
-        const numberOfNodes = item["# of Nodes"]; // Get the number of nodes from the JSON data
-        const quantity = Math.ceil(parseInt(nodesInput.value) / numberOfNodes); // Divide and round up
-        const nodesInputValue = parseInt(nodesInput.value);
-        const ansibleMessageDiv = document.getElementById("ansibleMessageDiv");
-
-        // Show message to contact presales for opps with over 5000 nodes.
-        if (nodesInputValue >= 1 && nodesInputValue < 5000) {
-            ansibleMessageDiv.style.display = "none";
-        } else if (nodesInputValue >= 5000 && nodesInputValue <= 10000) {
-            ansibleMessageDiv.style.display = "block";
-        } else if (nodesInputValue > 10000) {
-            ansibleMessageDiv.style.display = "block";
-        }
-
         return quantity;
     }
     // Add more conditions as needed
