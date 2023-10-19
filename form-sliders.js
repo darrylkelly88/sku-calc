@@ -31,3 +31,27 @@ window.onload = function() {
     lparsInput.value = lparsSlider.value;
     nodesInput.value = nodesSlider.value;
 };
+
+document.addEventListener("DOMContentLoaded", function() {
+    const selectElements = document.querySelectorAll("#skuCalculatorForm select");
+    const skuListDiv = document.getElementById("skuList");
+    const coresDiv = document.getElementById("coresDiv");
+    const vmsDiv = document.getElementById("vmsDiv");
+    const socketPairsDiv = document.getElementById("socketPairsDiv");
+    const lparsDiv = document.getElementById("lparsDiv");
+    const nodesDiv = document.getElementById("nodesDiv");
+
+    selectElements.forEach((select) => {
+        select.addEventListener("input", function() {
+            console.log("SKU List Div Display: " + getComputedStyle(skuListDiv).display);
+            if (getComputedStyle(skuListDiv).display === "none") {
+                console.log("Hiding sliders");
+                coresDiv.style.display = "none";
+                vmsDiv.style.display = "none";
+                socketPairsDiv.style.display = "none";
+                lparsDiv.style.display = "none";
+                nodesDiv.style.display = "none";
+            }
+        });
+    });
+});
