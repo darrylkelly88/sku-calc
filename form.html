@@ -706,10 +706,13 @@
                         supportlevelDiv.style.display = "none";
                     }
                 } else if (productSelect.value === "Red Hat OpenShift Container Platform") {
-                    // Handle OpenShift-specific logic
                     if (this.value === "Virtual") {
-                        if (architectureSelect.value === "x86") { // Fixed the equality check
-                            ocpBundleDiv.style.display = "block";
+                        if (architectureSelect.value === "x86") {
+                            if (ocpBundleSelect.value === "OCP" || ocpBundleSelect.value === "OPP") {
+                                ocpBundleDiv.style.display = "block";
+                            } else {
+                                ocpBundleDiv.style.display = "none";
+                            }
                         } else {
                             skuListDiv.style.display = "block";
                         }
