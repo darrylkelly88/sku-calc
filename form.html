@@ -504,8 +504,10 @@
                     pctypeDiv.style.display = "none";
                 } else if (this.value === "Red Hat OpenShift Container Platform") {
                     // If renewal move on to next question.
-                    skuListDiv.style.display = "block";
+                    skuListDiv.style.display = "none";
                     pctypeDiv.style.display = "none";
+                    architectureDiv.style.display = "block";
+
                 } else {
                     // if something else e.g select option then hide all
                     pctypeDiv.style.display = "none";
@@ -610,13 +612,12 @@
                         virtualOrBareMetalDiv.style.display = "none";
                     }
                 } else if (productSelect.value === "Red Hat OpenShift Container Platform") {
-                    if (this.value === "Option1") {
-                        // Decision tree for OpenShift with Option1
-                        // Example: your code here
-                    } else if (this.value === "Option2") {
+                    if (this.value === "x86") {
+                        skuListDiv.style.display = "block";
+                    } else if (this.value === "IBM POWER") {
                         // Decision tree for OpenShift with Option2
                         // Example: your code here
-                    } else if (this.value === "Option3") {
+                    } else if (this.value === "ARM") {
                         // Decision tree for OpenShift with Option3
                         // Example: your code here
                     } else {
