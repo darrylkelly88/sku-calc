@@ -76,7 +76,7 @@
 
                 <!---This is the code that includes the calculator-->
                 <div style="width: 75%;">
-                    <iframe id="my-iframe" src="form.html" style="width: 100%; height: 100%; border: none;"></iframe>
+                    <iframe id="my-iframe" src="form.html" style="width: 100%; height: 100%; border: none;" scrolling="no"></iframe>
                 </div>
                 
                 <script>
@@ -88,28 +88,17 @@
                         }
                     }
                 
-                    function observeIframeChanges() {
-                        var iframe = document.getElementById('my-iframe');
-                        if (iframe) {
-                            var observer = new MutationObserver(function (mutations) {
-                                adjustIframeHeight();
-                            });
-                            var config = { childList: true, subtree: true };
-                            observer.observe(iframe.contentDocument.body, config);
-                        }
-                    }
-                
-                    // Attach the adjustIframeHeight function to the iframe's onload event.
+                    // Attach the adjustIframeHeight function to the iframe's onload event and listen for changes in the content.
                     var iframe = document.getElementById('my-iframe');
                     if (iframe) {
                         iframe.addEventListener('load', function () {
                             adjustIframeHeight();
-                            observeIframeChanges();
                         });
+                
+                        // Listen for changes in the content's height periodically (you can adjust the interval as needed).
+                        setInterval(adjustIframeHeight, 50);
                     }
                 </script>
-                
-                
                 
                 <!---This is the end of the code that includes the calculator -->
                 
