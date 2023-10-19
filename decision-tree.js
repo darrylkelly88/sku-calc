@@ -212,21 +212,151 @@ window.addEventListener('DOMContentLoaded', (event) => {
         if (this.value === "Red Hat Enterprise Linux (RHEL)") {
             // If new, display a reminder about ORP and promotions
             pctypeDiv.style.display = "block";
+
+
+            //hide all other questions
+            ocpFlavourDiv.style.display = "none";
+            HPC2MessageDiv.style.display = "none";
+            runSAPDiv.style.display = "none";
+            SAPversionDiv.style.display = "none";
+            architectureDiv.style.display = "none";
+            virtualOrBareMetalDiv.style.display = "none";
+            ocpBundleDiv.style.display = "none";
+            densityGreaterThan7Div.style.display = "none";
+            satelliteAddonDiv.style.display = "none";
+            HPCMessageDiv.style.display = "none";
             skuListDiv.style.display = "none";
+            NATSMessageDiv.style.display = "none";
+            ansibleMessageDiv.style.display = "none";
+            OCPMessageDiv.style.display = "none";
+            //hide sliders
+            coresDiv.style.display = "none";
+            vmsDiv.style.display = "none";
+            socketPairsDiv.style.display = "none";
+            lparsDiv.style.display = "none";
+            nodesDiv.style.display = "none";
+
+            //reset all values.
+            pctypeSelect.value = "";
+            ocpFlavourSelect.value = "";
+            runSAPSelect.value = "";
+            SAPversionSelect.value = "";
+            architectureSelect.value = "";
+            virtualOrBareMetalSelect.value = "";
+            ocpBundleSelect.value = "";
+            densityGreaterThan7Select.value = "";
+            satelliteAddonSelect.value = "";
+
+
         } else if (this.value === "Red Hat Ansible Automation Platform") {
             // If renewal move on to next question.
             skuListDiv.style.display = "block";
             pctypeDiv.style.display = "none";
+
+            //hide all other questions
+            ocpFlavourDiv.style.display = "none";
+            HPC2MessageDiv.style.display = "none";
+            runSAPDiv.style.display = "none";
+            SAPversionDiv.style.display = "none";
+            architectureDiv.style.display = "none";
+            virtualOrBareMetalDiv.style.display = "none";
+            ocpBundleDiv.style.display = "none";
+            densityGreaterThan7Div.style.display = "none";
+            satelliteAddonDiv.style.display = "none";
+            HPCMessageDiv.style.display = "none";
+            NATSMessageDiv.style.display = "none";
+            ansibleMessageDiv.style.display = "none";
+            OCPMessageDiv.style.display = "none";
+            //hide sliders
+            coresDiv.style.display = "none";
+            vmsDiv.style.display = "none";
+            socketPairsDiv.style.display = "none";
+            lparsDiv.style.display = "none";
+
+            //reset all values.
+            pctypeSelect.value = "";
+            ocpFlavourSelect.value = "";
+            runSAPSelect.value = "";
+            SAPversionSelect.value = "";
+            architectureSelect.value = "";
+            virtualOrBareMetalSelect.value = "";
+            ocpBundleSelect.value = "";
+            densityGreaterThan7Select.value = "";
+            satelliteAddonSelect.value = "";
+
         } else if (this.value === "Red Hat OpenShift Container Platform") {
             // If renewal move on to next question.
             skuListDiv.style.display = "none";
             pctypeDiv.style.display = "none";
             ocpFlavourDiv.style.display = "block";
 
+            //hide all other questions
+            HPC2MessageDiv.style.display = "none";
+            runSAPDiv.style.display = "none";
+            SAPversionDiv.style.display = "none";
+            architectureDiv.style.display = "none";
+            virtualOrBareMetalDiv.style.display = "none";
+            ocpBundleDiv.style.display = "none";
+            densityGreaterThan7Div.style.display = "none";
+            satelliteAddonDiv.style.display = "none";
+            HPCMessageDiv.style.display = "none";
+            NATSMessageDiv.style.display = "none";
+            ansibleMessageDiv.style.display = "none";
+            OCPMessageDiv.style.display = "none";
+            //hide sliders
+            coresDiv.style.display = "none";
+            vmsDiv.style.display = "none";
+            socketPairsDiv.style.display = "none";
+            lparsDiv.style.display = "none";
+            nodesDiv.style.display = "none";
+
+            //reset all values.
+            pctypeSelect.value = "";
+            ocpFlavourSelect.value = "";
+            runSAPSelect.value = "";
+            SAPversionSelect.value = "";
+            architectureSelect.value = "";
+            virtualOrBareMetalSelect.value = "";
+            ocpBundleSelect.value = "";
+            densityGreaterThan7Select.value = "";
+            satelliteAddonSelect.value = "";
+
+
         } else {
             // if something else e.g select option then hide all
             pctypeDiv.style.display = "none";
+            //hide all other questions
+            ocpFlavourDiv.style.display = "none";
+            HPC2MessageDiv.style.display = "none";
+            runSAPDiv.style.display = "none";
+            SAPversionDiv.style.display = "none";
+            architectureDiv.style.display = "none";
+            virtualOrBareMetalDiv.style.display = "none";
+            ocpBundleDiv.style.display = "none";
+            densityGreaterThan7Div.style.display = "none";
+            satelliteAddonDiv.style.display = "none";
+            HPCMessageDiv.style.display = "none";
             skuListDiv.style.display = "none";
+            NATSMessageDiv.style.display = "none";
+            ansibleMessageDiv.style.display = "none";
+            OCPMessageDiv.style.display = "none";
+            //hide sliders
+            coresDiv.style.display = "none";
+            vmsDiv.style.display = "none";
+            socketPairsDiv.style.display = "none";
+            lparsDiv.style.display = "none";
+            nodesDiv.style.display = "none";
+
+            //reset all values.
+            pctypeSelect.value = "";
+            ocpFlavourSelect.value = "";
+            runSAPSelect.value = "";
+            SAPversionSelect.value = "";
+            architectureSelect.value = "";
+            virtualOrBareMetalSelect.value = "";
+            ocpBundleSelect.value = "";
+            densityGreaterThan7Select.value = "";
+            satelliteAddonSelect.value = "";
         }
     });
 
