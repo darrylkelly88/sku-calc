@@ -354,6 +354,11 @@
         // Add an event listener to each select element in the form
     const selectElements = document.querySelectorAll("#skuCalculatorForm select");
     const skuListDiv = document.getElementById("skuList");
+    const coresDiv = document.getElementById("coresDiv");
+    const vmsDiv = document.getElementById("vmsDiv");
+    const socketPairsDiv = document.getElementById("socketPairsDiv");
+    const lparsDiv = document.getElementById("lparsDiv");
+    const nodesDiv = document.getElementById("nodesDiv");
 
     selectElements.forEach((select) => {
         select.addEventListener("change", function () {
