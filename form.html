@@ -711,7 +711,9 @@
                         // If virtual ask about density
                         densityGreaterThan7Div.style.display = "block";
                         satelliteAddonDiv.style.display = "none";
-                        satelliteAddonSelect.value ="";
+                        satelliteAddonSelect.value = "";
+                        densityGreaterThan7Div.value = "";
+                        skuListDiv.style.display = "none";
                     } else if (this.value === "Bare Metal") {
                         // If bare metal move on to the satellite question
                         densityGreaterThan7Div.style.display = "none";
@@ -719,6 +721,7 @@
                         // Clear filters
                         densityGreaterThan7Select.value = "No";
                         satelliteAddonSelect.value ="";
+                        skuListDiv.style.display = "none";
                     } else {
                         // If something else, e.g., select option, then hide all
                         ORPMessageDiv.style.display = "none";
