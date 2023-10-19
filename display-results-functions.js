@@ -110,6 +110,12 @@ function displayCorrectSliders(filteredData) {
             } else if (LicensingModel === "node") {
                 // if licensing model is vdc show correct sliders
                 nodesDiv.style.display = "block";
+            } else if (LicensingModel === "Cores") {
+                // if licensing model is vdc show correct sliders
+                coresDiv.style.display = "block";
+            } else if (LicensingModel === "Socket Pairs") {
+                // if licensing model is vdc show correct sliders
+                socketPairsDiv.style.display = "block";
             } else {
                 // Handle other cases for this item
                 console.log(`SKU ${item["SKU"]} does not have a licensing model created for it`);
@@ -161,7 +167,14 @@ function calculateQuantity(LicensingModel, item) {
         } else if (nodesInputValue > 10000) {
             ansibleMessageDiv.style.display = "block";
         }
-
+        return quantity; 
+        
+    } else if (LicensingModel === "Cores") {
+        const numberOfNodes = item["# of Cores"];
+        const quantity = Math.ceil(parseInt(coresInput.value) / numberOfCores);
+        return quantity;
+    } else if (LicensingModel === "Socket Pairs") {
+        const quantity = parseInt(socketPairsInput.value);
         return quantity;
     }
     // Add more conditions as needed
