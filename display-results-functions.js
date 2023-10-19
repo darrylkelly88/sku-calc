@@ -49,6 +49,12 @@ function displayFilteredResults(filteredData) {
             NATSMessageDiv.style.display = "none";
         }
 
+        if (LicensingModel === "Cores") {
+            OCPMessageDiv.style.display = "block";
+        } else {
+            OCPMessageDiv.style.display = "none";
+        }
+        
 
         // Check if term is "3 year" and append "F3" to SKU if true
         const term = document.getElementById("term").value;
