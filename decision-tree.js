@@ -455,7 +455,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 
-
+    //which architecture are you using?
     architectureSelect.addEventListener('change', function () {
         if (productSelect.value === "Red Hat Enterprise Linux (RHEL)") {
             if (pctypeSelect.value === "server") {
@@ -534,7 +534,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         } else if (productSelect.value === "Red Hat OpenShift Container Platform") {
             if (this.value === "Virtual") {
                 if (architectureSelect.value === "x86") {
-                    if (ocpBundleSelect.value === "OCP" || ocpBundleSelect.value === "OPP") {
+                    if (ocpFlavourSelect.value === "OCP" || ocpBundleSelect.value === "OPP") {
                         ocpBundleDiv.style.display = "block";
                     } else {
                         ocpBundleDiv.style.display = "none";
