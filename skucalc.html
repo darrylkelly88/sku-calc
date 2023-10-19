@@ -83,8 +83,11 @@
                     function adjustIframeHeight() {
                         var iframe = document.getElementById('my-iframe');
                         if (iframe) {
-                            iframe.style.height = "auto"; // Reset the height to auto
-                            iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+                            var newHeight = iframe.contentWindow.document.body.scrollHeight;
+                            if (iframe.style.height !== newHeight + 'px') {
+                                iframe.style.height = "auto"; // Reset the height to auto
+                                iframe.style.height = newHeight + 'px';
+                            }
                         }
                     }
                 
@@ -99,6 +102,7 @@
                         setInterval(adjustIframeHeight, 50);
                     }
                 </script>
+                
                 
                 <!---This is the end of the code that includes the calculator -->
                 
