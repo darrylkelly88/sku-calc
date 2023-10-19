@@ -213,7 +213,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
             // If new, display a reminder about ORP and promotions
             pctypeDiv.style.display = "block";
 
-
             //hide all other questions
             ocpFlavourDiv.style.display = "none";
             HPC2MessageDiv.style.display = "none";
@@ -246,7 +245,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
             ocpBundleSelect.value = "";
             densityGreaterThan7Select.value = "";
             satelliteAddonSelect.value = "";
-
 
         } else if (this.value === "Red Hat Ansible Automation Platform") {
             // If renewal move on to next question.
@@ -320,7 +318,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
             ocpBundleSelect.value = "";
             densityGreaterThan7Select.value = "";
             satelliteAddonSelect.value = "";
-
 
         } else {
             // if something else e.g select option then hide all
