@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const ocpFlavour = document.getElementById("ocpFlavour").value;
                 const virtualOrBareMetal = document.getElementById("virtualOrBareMetal").value;
                 const supportLevel = document.getElementById("supportLevel").value;
+                const ocpBundle = document.getElementById("ocpBundle").value;
                 const skuListDiv = document.getElementById("skuList");
 
 
@@ -26,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             (!ocpFlavour || (ocpFlavour === "OKE" && item["Engine"] === "TRUE") || (ocpFlavour === "OCP" && item["Container Platform"] === "TRUE") || (ocpFlavour === "OPP" && item["Platform Plus"] === "TRUE")) &&
                             (!virtualOrBareMetal || (virtualOrBareMetal === "Virtual" && item["Virtual"] === "TRUE") || (virtualOrBareMetal === "Bare Metal" && item["Physical"] === "TRUE")) &&
                             (!supportLevel || (supportLevel === "standard" && item["Standard"] === "TRUE") || (supportLevel === "premium" && item["Premium"] === "TRUE")) &&
+                            (!ocpBundle || (ocpBundle === "no" && item["Runtimes"] !== "TRUE" && item["Application Foundations"] !== "TRUE") || (ocpBundle === "runtimes" && item["Runtimes"] === "TRUE") || (ocpBundle === "appfoundations" && item["Application Foundations"] === "TRUE")) &&
                             // standard exclusion filters
                             (item["Edge"] !== "TRUE") &&
                             (item["Distributed Computing"] !== "TRUE") &&

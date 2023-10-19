@@ -219,6 +219,18 @@
             </select><br>
         </div>
         
+        <!-- does the customer require further tools to support app development? -->
+        <div id="ocpBundleDiv">
+            <label for="ocpBundle">Does the customer require any additional application development tools?</label>
+            <select id="ocpBundle" name="ocpBundle">
+                <option value="" selected>Select an Option</option>
+                <option value="no">No Extra Tooling Required</option>
+                <option value="runtimes">Application Runtimes</option>
+                <option value="appfoundations">Full Suite of Tools</option>
+            </select><br>
+            <p style="font-size: 80%; color: #777;">Note: See more detail about application run times <a href="https://www.redhat.com/en/products/runtimes" target="_blank">here</a> and more detail about the full suite of tools <a href="https://www.redhat.com/en/resources/application-foundations-datasheet" target="_blank">here</a>.</p>
+        </div>
+
         <!-- Will the customer be running a density of greater than 7 VM's per physical host? -->
         <div id="densityGreaterThan7Div">
             <label for="densityGreaterThan7">Will the customer be running a density of greater than 7 VM's per physical host?</label>
@@ -348,6 +360,7 @@
             const SAPversionDiv = document.getElementById("SAPversionDiv");
             const architectureDiv = document.getElementById("architectureDiv");
             const virtualOrBareMetalDiv = document.getElementById("virtualOrBareMetalDiv");
+            const ocpBundleDiv = document.getElementById("ocpBundleDiv");
             const densityGreaterThan7Div = document.getElementById("densityGreaterThan7Div");
             const satelliteAddonDiv = document.getElementById("satelliteAddonDiv");
             const HPCMessageDiv  = document.getElementById("HPCMessageDiv");
@@ -375,6 +388,7 @@
             const SAPversionSelect = document.getElementById("SAPversion");
             const architectureSelect = document.getElementById("architecture");
             const virtualOrBareMetalSelect = document.getElementById("virtualOrBareMetal");
+            const ocpBundleSelect = document.getElementById("ocpBundle");
             const densityGreaterThan7Select = document.getElementById("densityGreaterThan7");
             const satelliteAddonSelect = document.getElementById("satelliteAddon");
 
@@ -396,6 +410,7 @@
             SAPversionDiv.style.display = "none";
             architectureDiv.style.display = "none";
             virtualOrBareMetalDiv.style.display = "none";
+            ocpBundleDiv.style.display = "none";
             densityGreaterThan7Div.style.display = "none";
             satelliteAddonDiv.style.display = "none";
             HPCMessageDiv.style.display = "none";
@@ -680,14 +695,37 @@
                 } else if (productSelect.value === "Red Hat OpenShift Container Platform") {
                     // Handle OpenShift-specific logic
                     if (this.value === "Virtual") {
-                        skuListDiv.style.display = "block";
+                        skuListDiv.style.display = "none";
+                        ocpBundleDiv.style.display = "block";
                     } else if (this.value === "Bare Metal") {
                         skuListDiv.style.display = "block";
+                        ocpBundleDiv.style.display = "none";
                     } else {
                         skuListDiv.style.display = "none";
+                        ocpBundleDiv.style.display = "none";
                     }
                 }
             });
+
+
+            //Does the customer need further supporting tools for app development?
+            ocpBundleSelect.addEventListener('change', function () {
+                if (this.value === "no") {
+                    
+                    skuListDiv.style.display = "block";
+                } else if (this.value === "runtimes") {
+                   
+                    skuListDiv.style.display = "block";
+                } else if (this.value === "appfoundations") {
+                   
+                    skuListDiv.style.display = "block";
+                } else {
+                    // if something else e.g select option then hide all
+                    skuListDiv.style.display = "none";
+
+                }
+            });
+
 
             //density of greater than 7?
             densityGreaterThan7Select.addEventListener('change', function () {
