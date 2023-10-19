@@ -604,11 +604,11 @@
                 } else if (this.value === "HPC") {
                     // If HPC display HPC messages, relevant questions and hide irrelevant questions.
                     runSAPDiv.style.display = "none";
-                    skuListDiv.style.display = "block";
+                    // skuListDiv.style.display = "block";
                     architectureDiv.style.display = "block";
-                    HPCMessageDiv.style.display = "block";
-                    HPC2MessageDiv.style.display = "block";
-                    satelliteAddonDiv.style.display = "block";
+                    // HPCMessageDiv.style.display = "block";
+                    // HPC2MessageDiv.style.display = "block";
+                    // satelliteAddonDiv.style.display = "block";
                     //clear filters if changing this after selections later.
                     runSAPSelect.value = "";
                 } else {
@@ -656,23 +656,39 @@
             });
 
 
-            //which architecture are they running on?
             architectureSelect.addEventListener('change', function () {
                 if (productSelect.value === "Red Hat Enterprise Linux (RHEL)") {
-                    if (this.value === "x86") {
-                        // Decision tree for RHEL on x86
-                        virtualOrBareMetalDiv.style.display = "block";
-                    } else if (this.value === "IBM POWER") {
-                        // Decision tree for RHEL on IBM POWER
-                        virtualOrBareMetalDiv.style.display = "block";
-                    } else if (this.value === "ARM") {
-                        // Decision tree for RHEL on ARM
-                        virtualOrBareMetalDiv.style.display = "block";
-                    } else {
-                        // Default for RHEL: hide
-                        virtualOrBareMetalDiv.style.display = "none";
+                    if (pctypeSelect.value === "server") {
+                        if (this.value === "x86") {
+                            // Decision tree for RHEL on x86 for server
+                            virtualOrBareMetalDiv.style.display = "block";
+                        } else if (this.value === "IBM POWER") {
+                            // Decision tree for RHEL on IBM POWER for server
+                            virtualOrBareMetalDiv.style.display = "block";
+                        } else if (this.value === "ARM") {
+                            // Decision tree for RHEL on ARM for server
+                            virtualOrBareMetalDiv.style.display = "block";
+                        } else {
+                            // Default for RHEL server: hide
+                            virtualOrBareMetalDiv.style.display = "none";
+                        }
+                    } else if (pctypeSelect.value === "HPC") {
+                        if (this.value === "x86") {
+                            // Decision tree for RHEL on x86 for HPC
+                            satelliteAddonDiv.style.display = "block";
+                        } else if (this.value === "IBM POWER") {
+                            // Decision tree for RHEL on IBM POWER for HPC
+                            satelliteAddonDiv.style.display = "block";
+                        } else if (this.value === "ARM") {
+                            // Decision tree for RHEL on ARM for HPC
+                            satelliteAddonDiv.style.display = "block";
+                        } else {
+                            // Default for RHEL HPC: hide
+                            virtualOrBareMetalDiv.style.display = "none";
+                        }
                     }
                 } else if (productSelect.value === "Red Hat OpenShift Container Platform") {
+                    // Decision tree for OpenShift
                     if (this.value === "x86") {
                         virtualOrBareMetalDiv.style.display = "block";
                     } else if (this.value === "IBM POWER") {
@@ -684,7 +700,8 @@
                         virtualOrBareMetalDiv.style.display = "none";
                     }
                 }
-            });       
+            });
+            
 
             // Is this virtual or bare metal?
             virtualOrBareMetalSelect.addEventListener('change', function () {
@@ -712,6 +729,7 @@
                                 ocpBundleDiv.style.display = "block";
                             } else {
                                 ocpBundleDiv.style.display = "none";
+                                skuListDiv.style.display = "block";
                             }
                         } else {
                             skuListDiv.style.display = "block";
