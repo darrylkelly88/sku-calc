@@ -75,25 +75,10 @@
                 
 
                 <!---This is the code that includes the calculator-->
-                <div style="width: 75%;">
-                    <iframe id="my-iframe" src="form.html"></iframe>
+                <div style="width: 75%; height: 1500px;">
+                    <iframe id="my-iframe" src="form.html" style="width: 100%; height: 100%; border: none;"></iframe>
                 </div>
             
-                <script>
-                    function adjustIframeHeight(iframe) {
-                        iframe.style.height = "auto"; // Reset the height to auto
-                        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
-                    }
-            
-                    var iframe = document.getElementById('my-iframe');
-            
-                    var observer = new MutationObserver(function () {
-                        adjustIframeHeight(iframe);
-                    });
-            
-                    // Set up the observer to watch for changes in the iframe's content
-                    observer.observe(iframe.contentDocument.body, { childList: true, subtree: true });
-                </script>
                 <!---This is the end of the code that includes the calculator -->
                 
             </div>
