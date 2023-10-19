@@ -280,11 +280,18 @@
         <!-- Ansible Nodes message -->
         <div id="ansibleMessageDiv">
             <br>
-            Please note that for deployments with over 5000 nodes it is cheaper to mix and match the smaller / larger SKU's. Please ask presales for support.
+            Please note that for deployments with over 5000 nodes it is cheaper to mix and match the smaller / larger SKU's. If in doubt please ask presales for support.
             <br>
             <br>
         </div>
 
+        <!-- OCP Cores message -->
+        <div id="OCPMessageDiv">
+            <br>
+            Please note that core SKU's are stackable and for larger deployments it may be cheaper to mix and match the smaller / larger SKU's. If in doubt please ask presales for support.
+            <br>
+            <br>
+        </div>
 
         <!-- Sliders & Questions to Determine Quantities -->
 
@@ -366,10 +373,12 @@
             const ocpBundleDiv = document.getElementById("ocpBundleDiv");
             const densityGreaterThan7Div = document.getElementById("densityGreaterThan7Div");
             const satelliteAddonDiv = document.getElementById("satelliteAddonDiv");
+            //messages and SKU list.
             const HPCMessageDiv  = document.getElementById("HPCMessageDiv");
             const skuListDiv = document.getElementById("skuList");
             const NATSMessageDiv = document.getElementById("NATSMessageDiv");
             const ansibleMessageDiv = document.getElementById("ansibleMessageDiv");
+            const OCPMessageDiv = document.getElementById("OCPMessageDiv");
             //define divs - sliders
             const coresDiv = document.getElementById("coresDiv");
             const vmsDiv = document.getElementById("vmsDiv");
@@ -420,6 +429,7 @@
             skuListDiv.style.display = "none";
             NATSMessageDiv.style.display = "none";
             ansibleMessageDiv.style.display = "none";
+            OCPMessageDiv.style.display = "none";
             //hide sliders
             coresDiv.style.display = "none";
             vmsDiv.style.display = "none";
