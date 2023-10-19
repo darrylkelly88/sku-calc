@@ -67,6 +67,22 @@
             You may not need to purchase standard SKU's for internal use as there are specialist ISV or partner SKU's which will be needed.
         </div>
 
+        <!-- Is this for an academic customer? -->
+        <div id="academicCustomerDiv">
+            <label for="academicCustomer">Is this for an Academic Customer?</label>
+            <select id="academicCustomer" name="academicCustomer">
+                <option value="" selected>Select an Option</option>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+            </select><br>
+        </div>
+
+        <!-- Message about academic customers -->
+        <div id="academicMessageDiv">
+            <br>
+            Academic customers have access to reduced price SKU's. These are not currently supported by this calculator. Contact presales for support.
+            <br>
+        </div>
 
         <!-- Where will this be deployed? -->
         <div id="deploymentLocationDiv">
@@ -107,7 +123,7 @@
         </div>
 
 
-                <!-- Support Level Selection -->
+        <!-- Support Level Selection -->
         <div id="supportlevelDiv">
             <label for="supportLevel">Select your support level:</label>
             <select id="supportLevel" name="supportLevel">
@@ -355,6 +371,8 @@
             const ccspMessageDiv = document.getElementById("ccspMessageDiv");
             const internalSoftwareDiv = document.getElementById("internalSoftwareDiv");
             const internalMessageDiv = document.getElementById("internalMessageDiv");
+            const academicCustomerDiv = document.getElementById("academicCustomerDiv");
+            const academicMessageDiv = document.getElementById("academicMessageDiv");
             const deploymentLocationDiv = document.getElementById("deploymentLocationDiv");
             const cloudAccessMessageDiv = document.getElementById("cloudAccessMessageDiv");
             const renewalOrNewDiv = document.getElementById("renewalOrNewDiv");
@@ -388,6 +406,7 @@
             //define selections
             const managedServiceSelect = document.getElementById("managedService");
             const internalSoftwareSelect = document.getElementById("internalSoftware");
+            const academicCustomerSelect = document.getElementById("academicCustomer");
             const deploymentLocationSelect = document.getElementById("deploymentLocation");
             const renewalOrNewSelect = document.getElementById("renewalOrNew");
             const supportLevelSelect = document.getElementById("supportLevel");
@@ -407,6 +426,8 @@
             ccspMessageDiv.style.display = "none";
             internalSoftwareDiv.style.display = "none";
             internalMessageDiv.style.display = "none";
+            academicCustomerDiv.style.display = "none";
+            academicMessageDiv.style.display = "none";
             deploymentLocationDiv.style.display = "none";
             cloudAccessMessageDiv.style.display = "none";
             renewalOrNewDiv.style.display = "none";
@@ -459,17 +480,36 @@
                 if (this.value === "Yes") {
                     // If yes show a message about internal use and no more questions
                     internalMessageDiv.style.display = "block";
+                    academicCustomerDiv.style.display = "none";
+                } else if (this.value === "No") {
+                    // If no display the next question about deployment location
+                    academicCustomerDiv.style.display = "block";
+                    internalMessageDiv.style.display = "none";
+                } else {
+                    // if something else e.g select option then hide all
+                    academicCustomerDiv.style.display = "none";
+                    internalMessageDiv.style.display = "none";
+                }
+            });
+
+
+            //is this used by an academic customer?
+            academicCustomerSelect.addEventListener('change', function () {
+                if (this.value === "Yes") {
+                    // If yes show a message about internal use and no more questions
+                    academicMessageDiv.style.display = "block";
                     deploymentLocationDiv.style.display = "none";
                 } else if (this.value === "No") {
                     // If no display the next question about deployment location
                     deploymentLocationDiv.style.display = "block";
-                    internalMessageDiv.style.display = "none";
+                    academicMessageDiv.style.display = "none";
                 } else {
                     // if something else e.g select option then hide all
                     deploymentLocationDiv.style.display = "none";
-                    internalMessageDiv.style.display = "none";
+                    academicMessageDiv.style.display = "none";
                 }
             });
+
 
             //Where will this be deployed??
             deploymentLocationSelect.addEventListener('change', function () {
