@@ -155,7 +155,7 @@
         <!-- Which version of OpenShift does the customer want? -->
         <div id="ocpFlavourDiv">
             <br>
-            <label for="ocpFlavour">Is RHEL being used as a server, a workstation (PC) or for High Performance Computing (Supercomputer)?</label>
+            <label for="ocpFlavour">Which version of OpenShift is required?</label>
             <select id="ocpFlavour" name="ocpFlavour">
                 <option value="" selected>Select an Option</option>
                 <option value="OKE">OpenShift Kubernetes Engine</option>
@@ -646,13 +646,11 @@
                     }
                 } else if (productSelect.value === "Red Hat OpenShift Container Platform") {
                     if (this.value === "x86") {
-                        skuListDiv.style.display = "block";
+                        virtualOrBareMetalDiv.style.display = "block";
                     } else if (this.value === "IBM POWER") {
-                        // Decision tree for OpenShift with Option2
-                        // Example: your code here
+                        virtualOrBareMetalDiv.style.display = "block";
                     } else if (this.value === "ARM") {
-                        // Decision tree for OpenShift with Option3
-                        // Example: your code here
+                        virtualOrBareMetalDiv.style.display = "block";
                     } else {
                         // Default for OpenShift: hide
                         virtualOrBareMetalDiv.style.display = "none";
@@ -660,22 +658,34 @@
                 }
             });       
 
-            //Is this virtual or bare metal?
+            // Is this virtual or bare metal?
             virtualOrBareMetalSelect.addEventListener('change', function () {
-                if (this.value === "Virtual") {
-                    // If virtual ask about density
-                    densityGreaterThan7Div.style.display = "block";
-                    satelliteAddonDiv.style.display = "none";
-                } else if (this.value === "Bare Metal") {
-                    // If bare metal move on to satellite question
-                    densityGreaterThan7Div.style.display = "none";
-                    satelliteAddonDiv.style.display = "block";
-                    //clear filters
-                    densityGreaterThan7Select.value ="No";
-                } else {
-                    // if something else e.g select option then hide all
-                    ORPMessageDiv.style.display = "none";
-                    supportlevelDiv.style.display = "none";
+                if (productSelect.value === "Red Hat Enterprise Linux (RHEL)") {
+                    // Handle RHEL-specific logic
+                    if (this.value === "Virtual") {
+                        // If virtual ask about density
+                        densityGreaterThan7Div.style.display = "block";
+                        satelliteAddonDiv.style.display = "none";
+                    } else if (this.value === "Bare Metal") {
+                        // If bare metal move on to satellite question
+                        densityGreaterThan7Div.style.display = "none";
+                        satelliteAddonDiv.style.display = "block";
+                        // Clear filters
+                        densityGreaterThan7Select.value = "No";
+                    } else {
+                        // If something else e.g select option, then hide all
+                        ORPMessageDiv.style.display = "none";
+                        supportlevelDiv.style.display = "none";
+                    }
+                } else if (productSelect.value === "Red Hat OpenShift Container Platform") {
+                    // Handle OpenShift-specific logic
+                    if (this.value === "Virtual") {
+                        skuListDiv.style.display = "block";
+                    } else if (this.value === "Bare Metal") {
+                        skuListDiv.style.display = "block";
+                    } else {
+                        skuListDiv.style.display = "none";
+                    }
                 }
             });
 

@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         return (
                             (!architecture || (architecture === "x86" && item["x86"] === "TRUE") || (architecture === "IBM POWER" && item["IBM POWER"] === "TRUE") || (architecture === "ARM" && item["ARM"] === "TRUE")) &&
                             (!ocpFlavour || (ocpFlavour === "OKE" && item["Engine"] === "TRUE") || (ocpFlavour === "OCP" && item["Container Platform"] === "TRUE") || (ocpFlavour === "OPP" && item["Platform Plus"] === "TRUE")) &&
+                            (!virtualOrBareMetal || (virtualOrBareMetal === "Virtual" && item["Virtual"] === "TRUE") || (virtualOrBareMetal === "Bare Metal" && item["Physical"] === "TRUE")) &&
                             (!supportLevel || (supportLevel === "standard" && item["Standard"] === "TRUE") || (supportLevel === "premium" && item["Premium"] === "TRUE")) &&
                             // standard exclusion filters
                             (item["Edge"] !== "TRUE") &&
