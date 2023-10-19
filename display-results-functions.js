@@ -178,6 +178,7 @@ function calculateQuantity(LicensingModel, item) {
     } else if (LicensingModel === "Cores") {
         const numberOfCores = item["# of Cores"];
         const quantity = Math.ceil(parseInt(coresInput.value) / numberOfCores);
+        OCPMessageDiv.style.display = "block";
         return quantity;
     } else if (LicensingModel === "Socket Pairs") {
         const quantity = parseInt(socketPairsInput.value);
