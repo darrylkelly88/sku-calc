@@ -812,7 +812,6 @@
 
 
     <script>
-
         document.addEventListener("DOMContentLoaded", function() {
             const selectElements = document.querySelectorAll("#skuCalculatorForm select");
             const skuListDiv = document.getElementById("skuList");
@@ -823,7 +822,7 @@
             const nodesDiv = document.getElementById("nodesDiv");
 
             selectElements.forEach((select) => {
-                select.addEventListener("change", function() {
+                select.addEventListener("input", function() {
                     console.log("SKU List Div Display: " + getComputedStyle(skuListDiv).display);
                     if (getComputedStyle(skuListDiv).display === "none") {
                         console.log("Hiding sliders");
@@ -836,8 +835,8 @@
                 });
             });
         });
+    </script>
 
-        </script>
 
 
 </body>
