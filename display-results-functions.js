@@ -183,34 +183,35 @@ function displayCorrectSliders(filteredData) {
         filteredData.forEach((item) => {
             const LicensingModel = item["Licensing Model"];
 
-            // Determine which slider div should be displayed based on LicensingModel
-            let sliderDivToShow = null;
+            // Determine which slider divs should be displayed based on LicensingModel
+            let sliderDivsToShow = [];
 
             if (LicensingModel === "standard RHEL") {
                 if (virtualOrBareMetalSelect.value === "Virtual") {
-                    sliderDivToShow = vmsDiv;
+                    sliderDivsToShow.push(vmsDiv);
                 } else if (virtualOrBareMetalSelect.value === "Bare Metal") {
-                    sliderDivToShow = socketPairsDiv;
+                    sliderDivsToShow.push(socketPairsDiv);
                 }
             } else if (LicensingModel === "POWER") {
-                sliderDivToShow = coresDiv;
+                sliderDivsToShow.push(coresDiv, lparsDiv);
             } else if (LicensingModel === "VDC") {
-                sliderDivToShow = socketPairsDiv;
+                sliderDivsToShow.push(socketPairsDiv);
             } else if (LicensingModel === "node") {
-                sliderDivToShow = nodesDiv;
+                sliderDivsToShow.push(nodesDiv);
             } else if (LicensingModel === "Cores") {
-                sliderDivToShow = coresDiv;
+                sliderDivsToShow.push(coresDiv);
             } else if (LicensingModel === "Socket Pairs") {
-                sliderDivToShow = socketPairsDiv;
+                sliderDivsToShow.push(socketPairsDiv);
             }
 
-            // Show the determined slider div
-            if (sliderDivToShow) {
-                sliderDivToShow.style.display = "block";
-            }
+            // Show the determined slider divs
+            sliderDivsToShow.forEach((div) => {
+                div.style.display = "block";
+            });
         });
     }
 }
+
 
 function calculateQuantity(LicensingModel, item) {
     const virtualOrBareMetalSelect = document.getElementById("virtualOrBareMetal");
