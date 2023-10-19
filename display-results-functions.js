@@ -168,9 +168,9 @@ function calculateQuantity(LicensingModel, item) {
             ansibleMessageDiv.style.display = "block";
         }
         return quantity; 
-        
+
     } else if (LicensingModel === "Cores") {
-        const numberOfNodes = item["# of Cores"];
+        const numberOfCores = item["# of Cores"];
         const quantity = Math.ceil(parseInt(coresInput.value) / numberOfCores);
         return quantity;
     } else if (LicensingModel === "Socket Pairs") {
