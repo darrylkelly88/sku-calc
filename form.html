@@ -152,6 +152,18 @@
             <p style="font-size: 80%; color: #777;">Note: In most cases Server is the appropriate option.</p>
         </div>
 
+        <!-- Which version of OpenShift does the customer want? -->
+        <div id="ocpFlavourDiv">
+            <br>
+            <label for="ocpFlavour">Is RHEL being used as a server, a workstation (PC) or for High Performance Computing (Supercomputer)?</label>
+            <select id="ocpFlavour" name="ocpFlavour">
+                <option value="" selected>Select an Option</option>
+                <option value="OKE">OpenShift Kubernetes Engine</option>
+                <option value="OCP"> OpenShift Container Platform</option>
+                <option value="OPP">OpenShift Platform Plus</option>
+            </select><br>
+            <p style="font-size: 80%; color: #777;">Note: In most cases customers want OpenShift Container Platform. However, to see the differences between the options <a href="https://www.redhat.com/en/technologies/cloud-computing/openshift/self-managed" target="_blank">Click here</a> </p>
+        </div>
 
         <!-- Not server Message -->
         <div id="HPC2MessageDiv">
@@ -330,6 +342,7 @@
             const termDiv = document.getElementById("termDiv");
             const productDiv = document.getElementById("productDiv");
             const pctypeDiv = document.getElementById("pctypeDiv");
+            const ocpFlavourDiv = document.getElementById("ocpFlavourDiv");
             const HPC2MessageDiv = document.getElementById("HPC2MessageDiv");
             const runSAPDiv = document.getElementById("runSAPDiv");
             const SAPversionDiv = document.getElementById("SAPversionDiv");
@@ -357,6 +370,7 @@
             const termSelect = document.getElementById("term");
             const productSelect = document.getElementById("product");
             const pctypeSelect = document.getElementById("pctype");
+            const ocpFlavourSelect = document.getElementById("ocpFlavour");
             const runSAPSelect = document.getElementById("runSAP");
             const SAPversionSelect = document.getElementById("SAPversion");
             const architectureSelect = document.getElementById("architecture");
@@ -376,6 +390,7 @@
             termDiv.style.display = "none";
             productDiv.style.display = "none";
             pctypeDiv.style.display = "none";
+            ocpFlavourDiv.style.display = "none";
             HPC2MessageDiv.style.display = "none";
             runSAPDiv.style.display = "none";
             SAPversionDiv.style.display = "none";
@@ -506,12 +521,30 @@
                     // If renewal move on to next question.
                     skuListDiv.style.display = "none";
                     pctypeDiv.style.display = "none";
-                    architectureDiv.style.display = "block";
+                    ocpFlavourDiv.style.display = "block";
 
                 } else {
                     // if something else e.g select option then hide all
                     pctypeDiv.style.display = "none";
                     skuListDiv.style.display = "none";
+                }
+            });
+
+
+            //Which OCP version do you need?
+            ocpFlavourSelect.addEventListener('change', function () {
+                if (this.value === "OKE") {
+                    // If new, display a reminder about ORP and promotions
+                    architectureDiv.style.display = "block";
+                } else if (this.value === "OCP") {
+                    // If renewal move on to next question.
+                    architectureDiv.style.display = "block";
+                } else if (this.value === "OPP") {
+                    // If renewal move on to next question.
+                    architectureDiv.style.display = "block";
+                } else {
+                    // if something else e.g select option then hide all
+                    architectureDiv.style.display = "none";
                 }
             });
 

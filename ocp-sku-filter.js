@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const term = document.getElementById("term").value;
                 const product = document.getElementById("product").value;
                 const architecture = document.getElementById("architecture").value;
+                const ocpFlavour = document.getElementById("ocpFlavour").value;
                 const virtualOrBareMetal = document.getElementById("virtualOrBareMetal").value;
                 const supportLevel = document.getElementById("supportLevel").value;
                 const skuListDiv = document.getElementById("skuList");
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         // Check if the user made a selection in each field before applying the filter
                         return (
                             (!architecture || (architecture === "x86" && item["x86"] === "TRUE") || (architecture === "IBM POWER" && item["IBM POWER"] === "TRUE") || (architecture === "ARM" && item["ARM"] === "TRUE")) &&
+                            (!ocpFlavour || (ocpFlavour === "OKE" && item["Engine"] === "TRUE") || (ocpFlavour === "OCP" && item["Container Platform"] === "TRUE") || (ocpFlavour === "OPP" && item["Platform Plus"] === "TRUE")) &&
                             (!supportLevel || (supportLevel === "standard" && item["Standard"] === "TRUE") || (supportLevel === "premium" && item["Premium"] === "TRUE")) &&
                             // standard exclusion filters
                             (item["Edge"] !== "TRUE") &&
