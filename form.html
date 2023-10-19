@@ -649,6 +649,7 @@
                 } else if (this.value === "solution") {
                     // If selection is made show next question
                     architectureDiv.style.display = "block";
+                    satelliteAddonSelect.value= "No";
                 } else {
                     // if something else e.g select option then hide all
                     architectureDiv.style.display = "none";
@@ -720,7 +721,7 @@
                         // If bare metal move on to the satellite question
                         densityGreaterThan7Div.style.display = "none";
                         satelliteAddonDiv.style.display = "block";
-                        
+
                         // Clear filters
                         densityGreaterThan7Select.value = "No";
                         satelliteAddonSelect.value ="";
