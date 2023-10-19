@@ -24,9 +24,10 @@
         <!-- How to use guide -->
         <div id="howToDiv">
             <br>
-            Please complete questions below to find the correct SKU and Quantity to match your requirements.
-            <br>
             The SKU calculator is currently based on the Q4-2023 Pricebook. Please note that a new pricebook is issued quarterly and prices and SKU's may change quarter to quarter.
+            <br>
+            <br>
+            Please complete questions below to find the correct SKU and Quantity to match your requirements.
             <br>
             <br>
         </div>
@@ -684,21 +685,24 @@
                         densityGreaterThan7Div.style.display = "block";
                         satelliteAddonDiv.style.display = "none";
                     } else if (this.value === "Bare Metal") {
-                        // If bare metal move on to satellite question
+                        // If bare metal move on to the satellite question
                         densityGreaterThan7Div.style.display = "none";
                         satelliteAddonDiv.style.display = "block";
                         // Clear filters
                         densityGreaterThan7Select.value = "No";
                     } else {
-                        // If something else e.g select option, then hide all
+                        // If something else, e.g., select option, then hide all
                         ORPMessageDiv.style.display = "none";
                         supportlevelDiv.style.display = "none";
                     }
                 } else if (productSelect.value === "Red Hat OpenShift Container Platform") {
                     // Handle OpenShift-specific logic
                     if (this.value === "Virtual") {
-                        skuListDiv.style.display = "none";
-                        ocpBundleDiv.style.display = "block";
+                        if (architectureSelect.value === "x86") { // Fixed the equality check
+                            ocpBundleDiv.style.display = "block";
+                        } else {
+                            skuListDiv.style.display = "block";
+                        }
                     } else if (this.value === "Bare Metal") {
                         skuListDiv.style.display = "block";
                         ocpBundleDiv.style.display = "none";
@@ -708,6 +712,7 @@
                     }
                 }
             });
+
 
 
             //Does the customer need further supporting tools for app development?
