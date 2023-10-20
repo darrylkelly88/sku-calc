@@ -9,7 +9,7 @@ function generateEmail() {
     const NATSMessageDiv = document.getElementById("NATSMessageDiv");
     const satelliteAddon = document.getElementById("satelliteAddon").value;
     const pctype = document.getElementById("pctype").value;
-    const additionalInfo = document.getElementById("additionalInfo").value;
+
 
     let emailBody = `Hi ${recipient},\n\nThank you for your interest in a quote for ${product}. Please see attached your quote.`;
 
@@ -41,10 +41,6 @@ function generateEmail() {
         emailBody += "\n\nPlease note that we recommend premium support for any production systems. Premium support includes both improved SLAs and the EUS add-on. EUS enables a customer to remain supported on minor versions for longer. Depending on the workload, we find that is often a critical requirement to maintain application compatibility.";
     }
 
-    // Include additional information if provided
-    if (additionalInfo) {
-        emailBody += `\n\nAdditional Information: ${additionalInfo}`;
-    }
 
     // For demonstration purposes, you can log the email body to the console
     emailDiv.textContent = emailBody;
