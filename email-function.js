@@ -4,11 +4,9 @@ function generateEmail() {
     const renewalOrNew = document.getElementById("renewalOrNew").value;
     const supportLevel = document.getElementById("supportLevel").value;
     const partnerStatus = document.getElementById("resellerStatus").value;
-    const cloudAccessMessageDiv = document.getElementById("cloudAccessMessageDiv");
-    const newOpportunityMessageDiv = document.getElementById("ORPMessageDiv");
     const NATSMessageDiv = document.getElementById("NATSMessageDiv");
     const satelliteAddon = document.getElementById("satelliteAddon").value;
-    const pctype = document.getElementById("pctype").value;
+    const deploymentLocation  = document.getElementById("deploymentLocation").value;
 
     let emailBody = `<br><b> Please consider using the following email template: </b> <br><br>Hi [Name],<br><br>Thank you for your interest in a quote for ${product}. Please see attached your quote.`;
 
