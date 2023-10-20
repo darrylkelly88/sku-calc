@@ -11,7 +11,7 @@ function generateEmail() {
     let emailBody = `<br><b> Please consider using the following email template: </b> <br><br>Hi [Name],<br><br>Thank you for your interest in a quote for ${product}. Please see attached your quote.`;
 
     if (deploymentLocation === "In the Cloud") {
-        emailBody += '<br><br>Since you have advised that this will be deployed in the cloud. I wanted to make sure you knew that in order for the customer to remain compliant with Red Hats terms, once purchased they will need to complete <a href="https://www.redhat.com/en/technologies/cloud-computing/cloud-access" target="_blank">Red Hat Cloud Access.</a> [Link]';
+        emailBody += '<br><br>Since you have advised that this will be deployed in the cloud. I wanted to make sure you knew that in order for the customer to remain compliant with Red Hats terms, once purchased they will need to complete <a href="https://www.redhat.com/en/technologies/cloud-computing/cloud-access" target="_blank">Red Hat Cloud Access.</a>';
     }
 
     if (renewalOrNew === "New") {
