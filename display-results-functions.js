@@ -65,7 +65,7 @@ function displayFilteredResults(filteredData) {
         const listItem = document.createElement("li");
         listItem.textContent = `Quantity: ${quantity} SKU: ${sku} - ${item["SKU Description"]} - MSRP: ${msrp} - Total:${total}`;
         resultList.appendChild(listItem);
-        generateEmail()
+        generateEmail();
     });
 
     //intro text
