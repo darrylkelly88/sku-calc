@@ -78,6 +78,28 @@
             You may not need to purchase standard SKU's for internal use as there are specialist ISV or partner SKU's which will be needed.
         </div>
 
+        <!-- Reseller Partner  Status? -->
+        <div id="resellerStatusDiv">
+            <label for="resellerStatus">What is the partners partner level?</label>
+            <select id="resellerStatus" name="resellerStatus">
+                <option value="" selected>Select an Option</option>
+                <option value="Not a Partner">Not a Partner</option>
+                <option value="Ready">Ready</option>
+                <option value="Advanced">Advanced</option>
+                <option value="Premier">Premier</option>
+                <option value="Premier Plus">Premier Plus</option>
+            </select><br>
+            <p style="font-size: 80%; color: #777;">
+                Note: You can check a partners status using <a href="https://partnercenter.redhat.com/PartnerDirectory" target="_blank">this link</a>
+            </p>
+        </div>
+
+        <!-- How to sign up a partner -->
+        <div id="partnerSignUpDiv">
+            <br>
+            Partners can sign up for a Red Hat account <a href="https://redhat.secure.force.com/partner/PartnerAccess" target="_blank">here</a>.
+        </div>
+
         <!-- Is this for an academic customer? -->
         <div id="academicCustomerDiv">
             <label for="academicCustomer">Is this for an Academic Customer?</label>
@@ -357,6 +379,11 @@
             <input type="number" id="nodesInput" name="nodesInput" min="1" max="15000" value="1">
             <input type="range" id="nodesSlider" name="nodesSlider" min="1" max="15000" value="1">
         </div>
+
+
+        <!-- Place to show matching SKUs -->
+        <div id="emailDiv"></div>
+
 
     </form>
 

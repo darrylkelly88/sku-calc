@@ -65,6 +65,7 @@ function displayFilteredResults(filteredData) {
         const listItem = document.createElement("li");
         listItem.textContent = `Quantity: ${quantity} SKU: ${sku} - ${item["SKU Description"]} - MSRP: ${msrp} - Total:${total}`;
         resultList.appendChild(listItem);
+        generateEmail()
     });
 
     //intro text
@@ -75,91 +76,6 @@ function displayFilteredResults(filteredData) {
     skuListDiv.appendChild(resultList);
 }
 
-
-// function displayCorrectSliders(filteredData) {
-//     const virtualOrBareMetalSelect = document.getElementById("virtualOrBareMetal");
-//     const skuListDiv = document.getElementById("skuList");
-    
-//     //if SKUlistdiv is visible then check licensing models for SKU's that have been filtered and show correct sliders
-//     if (getComputedStyle(skuListDiv).display === "block") {
-        
-//         // Iterate through the filtered data and read Licensing Model from each item
-//         filteredData.forEach((item) => {
-//             const LicensingModel = item["Licensing Model"];
-
-//             // load the correct sliders based on the value of "LicensingModel" for each item
-//             if (LicensingModel === "standard RHEL") {
-
-//                 //show sliders based on which option is selected
-//                     if (virtualOrBareMetalSelect.value === "Virtual") {
-//                         // If virtual ask how many VM's
-//                         vmsDiv.style.display = "block";
-//                         socketPairsDiv.style.display = "none";
-//                         coresDiv.style.display = "none";
-//                         lparsDiv.style.display = "none";
-//                         nodesDiv.style.display = "none";
-
-//                     } else if (virtualOrBareMetalSelect.value === "Bare Metal") {
-//                         // If bare metal ask how many socket pairs
-//                         vmsDiv.style.display = "none";
-//                         socketPairsDiv.style.display = "block";
-//                         coresDiv.style.display = "none";
-//                         lparsDiv.style.display = "none";
-//                         nodesDiv.style.display = "none";
-//                     } else {
-//                         // if something else e.g select option then hide all
-//                         vmsDiv.style.display = "none";
-//                         socketPairsDiv.style.display = "none";
-//                         coresDiv.style.display = "none";
-//                         lparsDiv.style.display = "none";
-//                         nodesDiv.style.display = "none";
-//                     }
-
-//             } else if (LicensingModel === "POWER") {
-//                 // If licensing model is power show correct sliders
-//                 coresDiv.style.display = "block";
-//                 lparsDiv.style.display = "block";
-//                 vmsDiv.style.display = "none";
-//                 socketPairsDiv.style.display = "none";
-//                 nodesDiv.style.display = "none";
-
-
-//             } else if (LicensingModel === "VDC") {
-//                 // if licensing model is vdc show correct sliders
-//                 socketPairsDiv.style.display = "block";
-//                 coresDiv.style.display = "none";
-//                 vmsDiv.style.display = "none";
-//                 lparsDiv.style.display = "none";
-//                 nodesDiv.style.display = "none";
-//             } else if (LicensingModel === "node") {
-//                 // if licensing model is vdc show correct sliders
-//                 nodesDiv.style.display = "block";
-//                 coresDiv.style.display = "none";
-//                 vmsDiv.style.display = "none";
-//                 socketPairsDiv.style.display = "none";
-//                 lparsDiv.style.display = "none";
-//             } else if (LicensingModel === "Cores") {
-//                 // if licensing model is vdc show correct sliders
-//                 coresDiv.style.display = "block";
-//                 vmsDiv.style.display = "none";
-//                 socketPairsDiv.style.display = "none";
-//                 lparsDiv.style.display = "none";
-//                 nodesDiv.style.display = "none";
-//             } else if (LicensingModel === "Socket Pairs") {
-//                 // if licensing model is vdc show correct sliders
-//                 socketPairsDiv.style.display = "block";
-//                 coresDiv.style.display = "none";
-//                 vmsDiv.style.display = "none";
-//                 lparsDiv.style.display = "none";
-//                 nodesDiv.style.display = "none";
-//             } else {
-//                 // Handle other cases for this item
-//                 console.log(`SKU ${item["SKU"]} does not have a licensing model created for it`);
-//             }
-            
-//         });
-//     }
-// }
 
 function displayCorrectSliders(filteredData) {
     const virtualOrBareMetalSelect = document.getElementById("virtualOrBareMetal");
