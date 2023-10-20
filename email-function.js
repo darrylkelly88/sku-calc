@@ -10,7 +10,7 @@ function generateEmail() {
     const satelliteAddon = document.getElementById("satelliteAddon").value;
     const pctype = document.getElementById("pctype").value;
 
-    let emailBody = `Hi [Name],<br><br>Thank you for your interest in a quote for ${product}. Please see attached your quote.`;
+    let emailBody = `<br><b> Please consider using the following email template: </b> <br><br>Hi [Name],<br><br>Thank you for your interest in a quote for ${product}. Please see attached your quote.`;
 
     if (deploymentLocation === "In the Cloud") {
         emailBody += "<br><br>In order to remain compliant with Red Hat's terms, once the customer purchases these subscriptions, they will need to complete Red Hat Cloud Access here: [Link]";
