@@ -11,7 +11,7 @@ function generateEmail() {
     const pctype = document.getElementById("pctype").value;
 
 
-    let emailBody = `Hi ${recipient},\n\nThank you for your interest in a quote for ${product}. Please see attached your quote.`;
+    let emailBody = `Hi [Name],\n\nThank you for your interest in a quote for ${product}. Please see attached your quote.`;
 
     if (deploymentLocation === "In the Cloud") {
         emailBody += "\n\nIn order to remain compliant with Red Hat's terms, once the customer purchases these subscriptions, they will need to complete Red Hat Cloud Access here: [Link]";
