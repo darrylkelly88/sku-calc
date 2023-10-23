@@ -25,7 +25,7 @@ function toDoList () {
 
     toDoListDiv.innerHTML = list;
     toDoListDiv.style.display = "block";
-    generateEmailDiv.display = "block";
+    generateEmailDiv.style.display = "block";
 }
 
 
