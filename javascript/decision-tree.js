@@ -25,6 +25,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const ocpBundleDiv = document.getElementById("ocpBundleDiv");
     const densityGreaterThan7Div = document.getElementById("densityGreaterThan7Div");
     const satelliteAddonDiv = document.getElementById("satelliteAddonDiv");
+    const toDoListDiv = document.getElementById("toDoListDiv");
     //messages and SKU list.
     const HPCMessageDiv  = document.getElementById("HPCMessageDiv");
     const skuListDiv = document.getElementById("skuList");
@@ -88,6 +89,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     NATSMessageDiv.style.display = "none";
     ansibleMessageDiv.style.display = "none";
     OCPMessageDiv.style.display = "none";
+    toDoListDiv.style.display = "none";
     //hide sliders
     coresDiv.style.display = "none";
     vmsDiv.style.display = "none";
