@@ -16,8 +16,33 @@ function toDoList () {
         things.push('The partner has advised the customer plans to run in the cloud. The customer will need to complete <a href="https://www.redhat.com/en/technologies/cloud-computing/cloud-access" target="_blank">Red Hat Cloud Access.</a>')
     }
 
+    if (renewalOrNew === "New") {
+        things.push('The partner has advised that this is a new subscription. Please make sure they are aware they can deal reg it.')
+    }
 
+    if (NATSMessageDiv.style.display === "block") {
+        if (partnerStatus === "Advanced" || partnerStatus === "Premier" || partnerStatus === "Premier Plus") {
+            things.push('The partner may have access to NATS discount due to this quote being over 43k and their status being Advanced / Premier. Please complete a co-term calculator when quoting to ensure theyre getting the best price')
+        } else {
+            things.push('This quote may have access to NATs pricing, but the partner is only Ready status, and they therefore will not get access to this pricing. This means that they may be uncompetitive on this deal. Please ask them about their desire to improve their partner status.')
+        }
+    }
 
+    if (product === "Red Hat Enterprise Linux (RHEL)" && satelliteAddon === "No") {
+        things.push('This quote is for RHEL but it does not include the satellite Addon. Red Hat recommends satellite for customer with over 10 RHEL machines. Please try to upsell to satellite.')
+    }
+
+    if (product === "Red Hat Enterprise Linux (RHEL)" && renewalOrNew === "Renewal") {
+        things.push('Since this is a renewal it is worth asking the partner which version of RHEL the customer is running. If it is an older version, it may be an opportunity to sell extended support, or provide an introduction to another partner to sell proffessional services.')
+    }
+
+    if (product === "Red Hat Enterprise Linux (RHEL)" ) {
+        things.push('Since this is a quote for RHEL it is worth ensuring that the partner informs the customer about the free tool - Red Hat Insights. This can often lead to conversations about products which can be upsold later. TDSynnex can provide overviews or demos of insights.')
+    }
+
+    if (supportLevel === "standard") {
+        things.push('The partner has asked for standard support. You should try to upsell to premium support if they are running these subscriptions in production.')
+    }
 
     for (let i = 0; i < things.length; i++) {
         list += `<li>${things[i]}</li>`;
