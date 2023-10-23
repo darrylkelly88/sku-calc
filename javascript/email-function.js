@@ -8,8 +8,9 @@ function toDoList () {
     const satelliteAddon = document.getElementById("satelliteAddon").value;
     const deploymentLocation  = document.getElementById("deploymentLocation").value;
 
-    let list = `<br><b>To Do List:</b><ul>${things}</ul>`
     let things = []
+    let list = `<br><b>To Do List:</b><ul>${things}</ul>`
+
     if (deploymentLocation === "In the Cloud") {
         things.push('The partner has advised the partner plans to run in the cloud. They will need to complete <a href="https://www.redhat.com/en/technologies/cloud-computing/cloud-access" target="_blank">Red Hat Cloud Access.</a>')
     }
