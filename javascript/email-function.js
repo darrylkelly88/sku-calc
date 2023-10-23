@@ -16,14 +16,12 @@ function toDoList () {
     }
 
 
-
-
-
     for (let i = 0; i < things.length; i++) {
         list += `<li>${things[i]}</li>`;
     }
 
     toDoListDiv.innerHTML = list;
+    toDoListDiv.style.display = "block";
     generateEmailDiv.display = "block";
 }
 
