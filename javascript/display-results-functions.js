@@ -69,6 +69,10 @@ function displayFilteredResults(filteredData) {
         
         //display todolist
         toDoList()
+
+        //update or run email generation
+        generateEmail()
+        
     });
 
     //intro text

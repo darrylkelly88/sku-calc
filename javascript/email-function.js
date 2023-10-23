@@ -56,13 +56,12 @@ function toDoList () {
 
 
 const generateEmailButton = document.getElementById("generateEmailButton");
-const emailDiv = document.getElementById("emailDiv"); // Assuming this is the element you want to show/hide
+const emailDiv = document.getElementById("emailDiv"); 
 
 // Add a click event handler to the button
 generateEmailButton.addEventListener("click", function() {
     if (emailDiv.style.display === "none" || emailDiv.style.display === "") {
         emailDiv.style.display = "block"; // Show the element
-        generateEmail()
     } else {
         emailDiv.style.display = "none"; // Hide the element
     }

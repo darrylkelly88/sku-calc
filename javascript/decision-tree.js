@@ -27,6 +27,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const satelliteAddonDiv = document.getElementById("satelliteAddonDiv");
     const toDoListDiv = document.getElementById("toDoListDiv");
     const generateEmailDiv  = document.getElementById("generateEmailDiv");
+    const emailDiv  = document.getElementById("emailDiv");
     //messages and SKU list.
     const HPCMessageDiv  = document.getElementById("HPCMessageDiv");
     const skuListDiv = document.getElementById("skuList");
@@ -92,6 +93,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     OCPMessageDiv.style.display = "none";
     toDoListDiv.style.display = "none";
     generateEmailDiv.style.display = "none";
+    emailDiv.style.display = "none";
 
     //hide sliders
     coresDiv.style.display = "none";
