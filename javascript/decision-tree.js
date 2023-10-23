@@ -91,7 +91,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     ansibleMessageDiv.style.display = "none";
     OCPMessageDiv.style.display = "none";
     toDoListDiv.style.display = "none";
-    generateEmailDiv.display = "none";
+    generateEmailDiv.style.display = "none";
+
     //hide sliders
     coresDiv.style.display = "none";
     vmsDiv.style.display = "none";

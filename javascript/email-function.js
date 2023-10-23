@@ -1,5 +1,6 @@
 function toDoList () {
     const toDoListDiv = document.getElementById("toDoListDiv")
+    const generateEmailDiv  = document.getElementById("generateEmailDiv");
     const product = document.getElementById("product").value;
     const renewalOrNew = document.getElementById("renewalOrNew").value;
     const supportLevel = document.getElementById("supportLevel").value;
@@ -14,6 +15,8 @@ function toDoList () {
     if (deploymentLocation === "In the Cloud") {
         things.push('The partner has advised the customer plans to run in the cloud. The customer will need to complete <a href="https://www.redhat.com/en/technologies/cloud-computing/cloud-access" target="_blank">Red Hat Cloud Access.</a>')
     }
+
+
 
 
     for (let i = 0; i < things.length; i++) {
