@@ -12,18 +12,19 @@ function toDoList () {
     let list = `<br><b>To Do List:</b><ul>${things}</ul>`
 
     if (deploymentLocation === "In the Cloud") {
-        things.push('The partner has advised the partner plans to run in the cloud. They will need to complete <a href="https://www.redhat.com/en/technologies/cloud-computing/cloud-access" target="_blank">Red Hat Cloud Access.</a>')
+        things.push('The partner has advised the customer plans to run in the cloud. The customer will need to complete <a href="https://www.redhat.com/en/technologies/cloud-computing/cloud-access" target="_blank">Red Hat Cloud Access.</a>')
     }
+
+
+
 
 
     for (let i = 0; i < things.length; i++) {
         list += `<li>${things[i]}</li>`;
     }
 
-
-
-    emailDiv.innerHTML = list;
-
+    toDoListDiv.innerHTML = list;
+    generateEmailDiv.display = "block";
 }
 
 
