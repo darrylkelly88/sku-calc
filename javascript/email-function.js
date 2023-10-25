@@ -81,7 +81,7 @@ function generateEmail() {
     const satelliteAddon = document.getElementById("satelliteAddon").value;
     const deploymentLocation  = document.getElementById("deploymentLocation").value;
 
-    let emailBody = `<br><b> Please consider using the following email template: </b> <br><br>Hi [Name],<br><br>Thank you for your interest in a quote for ${product}. Please see attached your quote.`;
+    let emailBody = `<br><b> This is an auto generated email. Please complete any missing information: </b> <br><br>Hi [Name],<br><br>Thank you for your interest in a quote for ${product}. Please see attached your quote.`;
 
     if (partnerStatus === "Not a Partner") {
         emailBody += '<br><br>xxxxxxxx are currently not showing for me as a Red Hat parnter. In order to place an order for this quote on TDSynnex you would need to be a minimum status of Ready. You can sign up <a href="https://redhat.secure.force.com/partner/PartnerAccess" target="_blank">here,</a> which should take no more than 20 minutes. Once approved by Red Hat should get access to the <a href="https://training-lms.redhat.com/sso/saml/login/rhopen" target="_blank">red hattraining portal,</a> where you need to complete 1xsales accreditation. If you need any help with this or if you would like to speak to a member of our team about accelerating your partner status further, please let me know.';
