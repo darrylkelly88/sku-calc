@@ -14,7 +14,7 @@ function toDoList () {
 
 
     if (partnerStatus === "Not a Partner") {
-        things.push('The partner is currently not a partner. In order to place an order with TDsynnex they must be at least Ready Status. To sign up they need to complete an application <a href="https://redhat.secure.force.com/partner/PartnerAccess" target="_blank">here.</a> In addition they will need to complete 1 x sales accreditation on the <a href="https://training-lms.redhat.com/sso/saml/login/rhopen" target="_blank">training portal.</a> However they wont have acess to this until their status is approved by Red Hat.')
+        things.push('The partner is currently not a Red Hat partner. In order to place an order with TDsynnex they must be at least Ready Status. To sign up they need to complete an application <a href="https://redhat.secure.force.com/partner/PartnerAccess" target="_blank">here.</a> In addition they will need to complete 1 x sales accreditation on the <a href="https://training-lms.redhat.com/sso/saml/login/rhopen" target="_blank">training portal.</a> However they wont have acess to this until their status is approved by Red Hat.')
     }
 
     if (deploymentLocation === "In the Cloud") {
@@ -29,7 +29,7 @@ function toDoList () {
         if (partnerStatus === "Advanced" || partnerStatus === "Premier" || partnerStatus === "Premier Plus") {
             things.push('The partner may have access to NATS discount due to this quote being over 43k and their status being Advanced / Premier. Please complete a co-term calculator when quoting to ensure theyre getting the best price')
         } else {
-            things.push('This quote may have access to NATs pricing since it is over 43k. However the partner is only Ready status so does not have access to NATS. This means that they may be uncompetitive on this deal. Please ask them about their desire to improve their partner status.')
+            things.push('This quote may have access to NATs pricing since it is over 43k. However the partner is not Advanced or above so does not have access to NATS. NATS discounts are varaible but can be up to 30%. This means that they may be uncompetitive on this deal. Please ask them about their desire to improve their partner status.')
         }
     }
 
@@ -84,7 +84,7 @@ function generateEmail() {
     let emailBody = `<br><b> This is an auto generated email. Please complete any missing information: </b> <br><br>Hi [Name],<br><br>Thank you for your interest in a quote for ${product}. Please see attached your quote.`;
 
     if (partnerStatus === "Not a Partner") {
-        emailBody += '<br><br>xxxxxxxx are currently not showing for me as a Red Hat parnter. In order to place an order for this quote on TDSynnex you would need to be a minimum status of Ready. You can sign up <a href="https://redhat.secure.force.com/partner/PartnerAccess" target="_blank">here,</a> which should take no more than 20 minutes. Once approved by Red Hat should get access to the <a href="https://training-lms.redhat.com/sso/saml/login/rhopen" target="_blank">red hattraining portal,</a> where you need to complete 1xsales accreditation. If you need any help with this or if you would like to speak to a member of our team about accelerating your partner status further, please let me know.';
+        emailBody += '<br><br>[Partner Name] are currently not showing for me as a Red Hat partner. In order to place an order for this quote on TDSynnex you would need to be a minimum status of Ready. You can sign up <a href="https://redhat.secure.force.com/partner/PartnerAccess" target="_blank">here,</a> which should take no more than 20 minutes. Once approved by Red Hat should get access to the <a href="https://training-lms.redhat.com/sso/saml/login/rhopen" target="_blank">red hattraining portal,</a> where you need to complete 1xsales accreditation. If you need any help with this or if you would like to speak to a member of our team about accelerating your partner status further, please let me know.';
     }
 
     if (deploymentLocation === "In the Cloud") {
