@@ -125,15 +125,29 @@ window.addEventListener('DOMContentLoaded', (event) => {
         if (this.value === "Yes") {
             // If yes show a message about internal use and no more questions
             internalMessageDiv.style.display = "block";
-            academicCustomerDiv.style.display = "none";
+            resellerStatusDiv.style.display = "none";
         } else if (this.value === "No") {
             // If no display the next question about deployment location
-            academicCustomerDiv.style.display = "block";
+            resellerStatusDiv.style.display = "block";
             internalMessageDiv.style.display = "none";
         } else {
             // if something else e.g select option then hide all
-            academicCustomerDiv.style.display = "none";
+            resellerStatusDiv.style.display = "none";
             internalMessageDiv.style.display = "none";
+        }
+    });
+
+
+    //is this used internally?
+    resellerStatusSelect.addEventListener('change', function () {
+        if (this.value === "Not a Partner") {
+            // If yes show a message about internal use and no more questions
+            partnerSignUpDiv.style.display = "block";
+            academicCustomerDiv.style.display = "block";
+        } else {
+            // if something else e.g select option then hide all
+            academicCustomerDiv.style.display = "none";
+            partnerSignUpDiv.style.display = "none";
         }
     });
 
