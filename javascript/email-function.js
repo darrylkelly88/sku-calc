@@ -12,6 +12,11 @@ function toDoList () {
     let things = []
     let list = `<br><b>To Do List:</b><ul>${things}</ul>`
 
+
+    if (partnerStatus === "Not a Partner") {
+        things.push('The partner is currently not a partner. In order to place an order with TDsynnex they must be at least Ready Status. To sign up they need to complete an application <a href="https://redhat.secure.force.com/partner/PartnerAccess" target="_blank">here.</a> In addition they will need to complete 1 x sales accreditation on the <a href="https://training-lms.redhat.com/sso/saml/login/rhopen" target="_blank">training portal.</a> However they wont have acess to this until their status is approved by Red Hat.')
+    }
+
     if (deploymentLocation === "In the Cloud") {
         things.push('The partner has advised the customer plans to run in the cloud. The customer will need to complete <a href="https://www.redhat.com/en/technologies/cloud-computing/cloud-access" target="_blank">Red Hat Cloud Access.</a>')
     }
@@ -77,6 +82,10 @@ function generateEmail() {
     const deploymentLocation  = document.getElementById("deploymentLocation").value;
 
     let emailBody = `<br><b> Please consider using the following email template: </b> <br><br>Hi [Name],<br><br>Thank you for your interest in a quote for ${product}. Please see attached your quote.`;
+
+    if (partnerStatus === "Not a Partner") {
+        emailBody += '<br><br>xxxxxxxx are currently not showing for me as a Red Hat parnter. In order to place an order for this quote on TDSynnex you would need to be a minimum status of Ready. You can sign up <a href="https://redhat.secure.force.com/partner/PartnerAccess" target="_blank">here,</a> which should take no more than 20 minutes. Once approved by Red Hat should get access to the <a href="https://training-lms.redhat.com/sso/saml/login/rhopen" target="_blank">red hattraining portal,</a> where you need to complete 1xsales accreditation. If you need any help with this or if you would like to speak to a member of our team about accelerating your partner status further, please let me know.';
+    }
 
     if (deploymentLocation === "In the Cloud") {
         emailBody += '<br><br>Since you have advised that this will be deployed in the cloud. I wanted to make sure you knew that in order for the customer to remain compliant with Red Hats terms, once purchased they will need to complete <a href="https://www.redhat.com/en/technologies/cloud-computing/cloud-access" target="_blank">Red Hat Cloud Access.</a>';
