@@ -146,7 +146,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             academicCustomerDiv.style.display = "block";
         } else {
             // if something else e.g select option then hide all
-            academicCustomerDiv.style.display = "none";
+            academicCustomerDiv.style.display = "block";
             partnerSignUpDiv.style.display = "none";
         }
     });
