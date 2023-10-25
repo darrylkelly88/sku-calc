@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Load JSON data from sku-map.json (assuming you have this file)
-    fetch("/sku-maps/ocp-sku-map.json")
+    fetch("/sku-calc/sku-maps/ocp-sku-map.json")
         .then((response) => response.json())
         .then((data) => {
             // Add an event listener to the form
