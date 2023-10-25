@@ -75,9 +75,405 @@
                 
 
                 <!---This is the code that includes the calculator-->
-                <div style="width: 75%; height: 1500px;">
-                    <iframe id="my-iframe" src="form.html" style="width: 100%; height: 100%; border: none;"></iframe>
-                </div>
+                <form id="skuCalculatorForm">
+
+                    <!-- All Questions -->
+            
+                    <!-- How to use guide -->
+                    <div id="howToDiv">
+                        <br>
+                        The SKU calculator is currently based on the Q4-2023 Pricebook. Please note that a new pricebook is issued quarterly and prices and SKU's may change quarter to quarter.
+                        <br>
+                        <br>
+                        Please note that you may wish to request some information from your partner before attempting to complete this form. Please see template emails you may wish to use below:
+                        <br>
+                        <b>Email Templates:</b>
+                        <br>
+                        <a href="/email_templates/rhel_quote.msg" target="_blank">Red Hat Enterprise Linux  Template</a>
+                        <br>
+                        <a href="/email_templates/ansible_quote.msg" target="_blank">Ansible Automation Platform Template</a>
+                        <br>
+                        <a href="/email_templates/ocp_quote.msg" target="_blank">OpenShift Container Platform Template</a>
+                        <br>
+                        <br>
+                        Please complete questions below to find the correct SKU and Quantity to match your requirements.
+                        <br>
+                        <br>
+                    </div>
+            
+                    <!-- Is this being used to run a managed service? -->
+                    <div>
+                        <label for="managedService">Is this being used to run a managed service?</label>
+                        <select id="managedService" name="managedService">
+                            <option value="" selected>Select an Option</option>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select><br>
+                    </div>
+            
+                    <!-- Message about CCSP agreement -->
+                    <div id="ccspMessageDiv">
+                        <br>
+                        To operate a managed service with Red Hat, you must have a CCSP agreement or it is non-compliant with their terms. 
+                        <br>
+                        <br>
+                        CCSP uses different SKU's and subscription models that are not available in this calculator.
+                    </div>
+            
+                    <!-- Is this being used to run software internally? -->
+                    <div id="internalSoftwareDiv">
+                        <label for="internalSoftware">Is this being used to run software internally?</label>
+                        <select id="internalSoftware" name="internalSoftware">
+                            <option value="" selected>Select an Option</option>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select><br>
+                    </div>
+            
+                    <!-- Message about Running software internally -->
+                    <div id="internalMessageDiv">
+                        <br>
+                        You may not need to purchase standard SKU's for internal use as there are specialist ISV or partner SKU's which will be needed.
+                    </div>
+            
+                    <!-- Reseller Partner  Status? -->
+                    <div id="resellerStatusDiv">
+                        <label for="resellerStatus">What is the partners partner level?</label>
+                        <select id="resellerStatus" name="resellerStatus">
+                            <option value="" selected>Select an Option</option>
+                            <option value="Not a Partner">Not a Partner</option>
+                            <option value="Ready">Ready</option>
+                            <option value="Advanced">Advanced</option>
+                            <option value="Premier">Premier</option>
+                            <option value="Premier Plus">Premier Plus</option>
+                        </select><br>
+                        <p style="font-size: 80%; color: #777;">
+                            Note: You can check a partners status using <a href="https://partnercenter.redhat.com/PartnerDirectory" target="_blank">this link</a>
+                        </p>
+                    </div>
+            
+                    <!-- How to sign up a partner -->
+                    <div id="partnerSignUpDiv">
+                        <br>
+                        Partners can sign up for a Red Hat account <a href="https://redhat.secure.force.com/partner/PartnerAccess" target="_blank">here</a>.
+                    </div>
+            
+                    <!-- Is this for an academic customer? -->
+                    <div id="academicCustomerDiv">
+                        <label for="academicCustomer">Is this for an Academic Customer?</label>
+                        <select id="academicCustomer" name="academicCustomer">
+                            <option value="" selected>Select an Option</option>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select><br>
+                    </div>
+            
+                    <!-- Message about academic customers -->
+                    <div id="academicMessageDiv">
+                        <br>
+                        Academic customers have access to reduced price SKU's. These are not currently supported by this calculator. Contact presales for support.
+                        <br>
+                    </div>
+            
+                    <!-- Where will this be deployed? -->
+                    <div id="deploymentLocationDiv">
+                        <label for="deploymentLocation">Where will this be deployed?</label>
+                        <select id="deploymentLocation" name="deploymentLocation">
+                            <option value="" selected>Select an Option</option>
+                            <option value="On Premise">On Premise</option>
+                            <option value="In the Cloud">In the Cloud</option>
+                        </select><br>
+                    </div>
+                    
+                    <!-- Message about Cloud Access -->
+                    <div id="cloudAccessMessageDiv">
+                        <br>
+                        Please note, that deployments in the cloud use the same SKU's. However in order to be compliant when deploying Red Hat subscriptions in the cloud, a customer must notifiy Red Hat by completing <a href="https://www.redhat.com/en/technologies/cloud-computing/cloud-access" target="_blank">Red Hat Cloud Access.</a>
+                        <br>
+                        <br>
+                    </div>
+                    
+            
+                    <!--  Is this opportunity a renewal or new? -->
+                    <div id="renewalOrNewDiv">
+                        <label for="renewalOrNew">Is this opportunity a renewal or new?</label>
+                        <select id="renewalOrNew" name="renewalOrNew">
+                            <option value="" selected>Select an Option</option>
+                            <option value="Renewal">Renewal</option>
+                            <option value="New">New</option>
+                        </select><br>
+                    </div>
+            
+            
+                    <!-- Message about ORP for New license -->
+                    <div id="ORPMessageDiv">
+                        <br>
+                        New Subscriptions may qualify for deal registration or other promotions - please ask for more details.
+                        <br>
+                        <br>
+                    </div>
+            
+            
+                    <!-- Support Level Selection -->
+                    <div id="supportlevelDiv">
+                        <label for="supportLevel">Select your support level:</label>
+                        <select id="supportLevel" name="supportLevel">
+                            <option value="" selected>Select an Option</option>
+                            <option value="standard">Standard Support</option>
+                            <option value="premium">Premium Support</option>
+                        </select><br>
+                        <p style="font-size: 80%; color: #777;">
+                            Note: <a href="https://access.redhat.com/support/offerings/production/sla" target="_blank">Click here</a> to see more details about the differences between Standard and Premium support.
+                        </p>
+                    </div>
+            
+                    <!-- What term are you looking at? -->
+                    <div id="termDiv">
+                        <label for="term">What term are you looking at?</label>
+                        <select id="term" name="term">
+                            <option value="" selected>Select an Option</option>
+                            <option value="1 year">1 year</option>
+                            <option value="3 year">3 year</option>
+                        </select><br>
+                        <p style="font-size: 80%; color: #777;">Note: 3 year SKU's include a built-in discount.</p>
+                    </div>
+                    
+                    <!-- Which Product are you looking for? -->
+                    <div id="productDiv">
+                        <label for="product">Which Product are you looking for?</label>
+                        <select id="product" name="product">
+                            <option value="" selected>Select an Option</option>
+                            <option value="Red Hat Enterprise Linux (RHEL)">Red Hat Enterprise Linux (RHEL)</option>
+                            <option value="Red Hat Ansible Automation Platform">Red Hat Ansible Automation Platform</option>
+                            <option value="Red Hat OpenShift Container Platform">Red Hat OpenShift Container Platform</option>
+                        </select><br>
+                    </div>
+            
+                    <!-- Is RHEL being used as a server, a workstation (PC) or for High Performance Computing (Supercomputer) -->
+                    <div id="pctypeDiv">
+                        <br>
+                        <label for="pctype">Is RHEL being used as a server, a workstation (PC) or for High Performance Computing (Supercomputer)?</label>
+                        <select id="pctype" name="pctype">
+                            <option value="" selected>Select an Option</option>
+                            <option value="server">Server</option>
+                            <option value="workstation">Workstation (PC)</option>
+                            <option value="HPC">High Performance Computing (Supercomputer)</option>
+                        </select><br>
+                        <p style="font-size: 80%; color: #777;">Note: In most cases Server is the appropriate option.</p>
+                    </div>
+            
+                    <!-- Which version of OpenShift does the customer want? -->
+                    <div id="ocpFlavourDiv">
+                        <br>
+                        <label for="ocpFlavour">Which version of OpenShift is required?</label>
+                        <select id="ocpFlavour" name="ocpFlavour">
+                            <option value="" selected>Select an Option</option>
+                            <option value="OKE">OpenShift Kubernetes Engine</option>
+                            <option value="OCP"> OpenShift Container Platform</option>
+                            <option value="OPP">OpenShift Platform Plus</option>
+                        </select><br>
+                        <p style="font-size: 80%; color: #777;">Note: In most cases customers want OpenShift Container Platform. However, to see the differences between the options <a href="https://www.redhat.com/en/technologies/cloud-computing/openshift/self-managed" target="_blank">Click here</a> </p>
+                    </div>
+            
+                    <!-- Not server Message -->
+                    <div id="HPC2MessageDiv">
+                        <br>
+                        <b>Please complete the remaining questions to find the correct SKU:</b>
+                        <br>
+                        <br>
+                    </div>
+            
+                    <!-- Is this being used to run SAP? -->
+                    <div id="runSAPDiv">
+                        <label for="runSAP">Is this being used to run SAP?</label>
+                        <select id="runSAP" name="runSAP">
+                            <option value="" selected>Select an Option</option>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select><br>
+                        <p style="font-size: 80%; color: #777;">Note: There are specific SKU's that are needed to run SAP. If unsure, select No.</p>
+                    </div>
+                    
+                    <!-- Which version of RHEL for SAP is needed? -->
+                    <div id="SAPversionDiv">
+                        <label for="SAPversion">Does the customer need just the minimum requirements to run SAP or a full solution?</label>
+                        <select id="SAPversion" name="SAPversion">
+                            <option value="" selected>Select an Option</option>
+                            <option value="minimum">Minimum Requirements</option>
+                            <option value="solution">Full Solution</option>
+                        </select><br>
+                        <p style="font-size: 80%; color: #777;">
+                            Note: <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_sap_solutions/8/html/overview_of_red_hat_enterprise_linux_for_sap_solutions_subscription/assembly_differences-between-rhel-for-sap-applications-and-rhel-for-sap-solutions_overview-of-rhel-for-sap-solutions-subscription-combined#:~:text=Chapter%205.-,Differences%20between%20RHEL%20for%20SAP%20Applications%20and%20RHEL%20for%20SAP,RHEL%20for%20SAP%20Applications%20subscription." target="_blank">Click here</a> to see more details about the differences between the minimum requirements and full solution.
+                        </p>
+                    </div>
+            
+                    <!-- What architecture is this running on? -->
+                    <div id="architectureDiv">
+                        <label for="architecture">What architecture is this running on?</label>
+                        <select id="architecture" name="architecture">
+                            <option value="" selected>Select an Option</option>
+                            <option value="x86">x86</option>
+                            <option value="IBM POWER">IBM POWER</option>
+                            <option value="ARM">ARM</option>
+                        </select><br>
+                        <p style="font-size: 80%; color: #777;">Note: If unsure, it is likely x86.</p>
+                    </div>
+                    
+                    <!-- Will this be running virtually or bare metal? -->
+                    <div id="virtualOrBareMetalDiv">
+                        <label for="virtualOrBareMetal">Will this be running virtually or bare metal?</label>
+                        <select id="virtualOrBareMetal" name="virtualOrBareMetal">
+                            <option value="" selected>Select an Option</option>
+                            <option value="Virtual">Virtual</option>
+                            <option value="Bare Metal">Bare Metal</option>
+                        </select><br>
+                    </div>
+                    
+                    <!-- does the customer require further tools to support app development? -->
+                    <div id="ocpBundleDiv">
+                        <label for="ocpBundle">Does the customer require any additional application development tools?</label>
+                        <select id="ocpBundle" name="ocpBundle">
+                            <option value="" selected>Select an Option</option>
+                            <option value="no">No Extra Tooling Required</option>
+                            <option value="runtimes">Application Runtimes</option>
+                            <option value="appfoundations">Full Suite of Tools</option>
+                        </select><br>
+                        <p style="font-size: 80%; color: #777;">Note: See more detail about application run times <a href="https://www.redhat.com/en/products/runtimes" target="_blank">here</a> and more detail about the full suite of tools <a href="https://www.redhat.com/en/resources/application-foundations-datasheet" target="_blank">here</a>.</p>
+                    </div>
+            
+                    <!-- Will the customer be running a density of greater than 7 VM's per physical host? -->
+                    <div id="densityGreaterThan7Div">
+                        <label for="densityGreaterThan7">Will the customer be running a density of greater than 7 VM's per physical host?</label>
+                        <select id="densityGreaterThan7" name="densityGreaterThan7">
+                            <option value="" selected>Select an Option</option>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select><br>
+                        <p style="font-size: 80%; color: #777;">Note: If running greater than 7 VM's per host, it is normally cheaper to buy a Virtual Data Centre license. If you do not know, select No.</p>
+                    </div>
+                    
+                    <!-- Do you need the Satellite Add-on? -->
+                    <div id="satelliteAddonDiv">
+                        <label for="satelliteAddon">Do you need the Satellite Add-on?</label>
+                        <select id="satelliteAddon" name="satelliteAddon">
+                            <option value="" selected>Select an Option</option>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select><br>
+                        <p style="font-size: 80%; color: #777;">Note: Red Hat recommends Satellite for customers with greater than 10 RHEL Machines.</p>
+                    </div>
+                    
+            
+                    <!-- Not server Message -->
+                    <div id="HPCMessageDiv">
+                        <br>
+                        HPC requires at least 1 head node and multiple system nodes. Please engage a pre-sales resource to accurately size.
+                        <br>
+                        <br>
+                    </div>
+            
+                    <!-- Place to show matching SKUs -->
+                    <div id="skuList"></div>
+            
+            
+                    <!-- NATS discount message -->
+                    <div id="NATSMessageDiv">
+                        <br>
+                        Advanced and Premier Partners may have access to NATS for this product due to its total value. TDSynnex can quote this via the Red Hat co-term calculator.
+                        <br>
+                        <br>
+                    </div>
+            
+                    <!-- Ansible Nodes message -->
+                    <div id="ansibleMessageDiv">
+                        <br>
+                        Please note that for deployments with over 5000 nodes it is cheaper to mix and match the smaller / larger SKU's. If in doubt please ask presales for support.
+                        <br>
+                        <br>
+                    </div>
+            
+                    <!-- OCP Cores message -->
+                    <div id="OCPMessageDiv">
+                        <br>
+                        Please note that core SKU's are stackable and for larger deployments it may be cheaper to mix and match the smaller / larger SKU's. If in doubt please ask presales for support.
+                        <br>
+                        <br>
+                    </div>
+            
+                    <!-- Sliders & Questions to Determine Quantities -->
+            
+                    <!-- Slider Question: How many cores? -->
+                    <div id="coresDiv">
+                        <label for="cores">How many cores?</label>
+                        <input type="number" id="coresInput" name="coresInput" min="1" max="500" value="1">
+                        <input type="range" id="coresSlider" name="coresSlider" min="1" max="500" value="1">
+                    </div>
+            
+                        <!-- Slider Question: How many LPAR's? -->
+                    <div id="lparsDiv">
+                        <label for="lpars">How many LPAR's?</label>
+                        <input type="number" id="lparsInput" name="lparsInput" min="1" max="500" value="1">
+                        <input type="range" id="lparsSlider" name="lparsSlider" min="1" max="500" value="1">
+                    </div>
+            
+                    <!-- Slider Question: How many VM's? -->
+                    <div id="vmsDiv">
+                        <label for="vms">How many VM's?</label>
+                        <input type="number" id="vmsInput" name="vmsInput" min="1" max="500" value="1">
+                        <input type="range" id="vmsSlider" name="vmsSlider" min="1" max="500" value="1">
+                    </div>
+                    
+                    <!-- Slider Question: How many Socket Pairs? -->
+                    <div id="socketPairsDiv">
+                        <label for="socketPairs">How many Socket Pairs?</label>
+                        <input type="number" id="socketPairsInput" name="socketPairsInput" min="1" max="500" value="1">
+                        <input type="range" id="socketPairsSlider" name="socketPairsSlider" min="1" max="500" value="1">
+                        <p style="font-size: 80%; color: #777;">Note: Single socket systems require a full socket pair SKU.</p>
+                    </div>
+                    
+                    <!-- Slider Question: How many nodes? -->
+                    <div id="nodesDiv">
+                        <label for="nodes">How many Nodes?</label>
+                        <input type="number" id="nodesInput" name="nodesInput" min="1" max="15000" value="1">
+                        <input type="range" id="nodesSlider" name="nodesSlider" min="1" max="15000" value="1">
+                    </div>
+            
+            
+                    <!-- Place to show toDoList -->
+                    <div id="toDoListDiv"></div>
+            
+                    <!-- Button to generate email -->
+                    <div id="generateEmailDiv"> 
+                        <button type="button" id="generateEmailButton">Click Here to Show/Hide an auto Generated Email for these points</button>
+                    </div>
+                    
+                    <!-- Place to show matching SKUs -->
+                    <div id="emailDiv"></div>
+            
+            
+                </form>
+            
+                <!-- Load the javascript to control the sliders -->
+                <script src="/javascript/form-sliders.js"></script>
+            
+                <!-- Load the javascript to control the SKU filters for RHEL -->
+                <script src="/javascript/rhel-sku-filter.js"></script>
+            
+                <!-- Load the javascript to control the SKU filters for ansible -->
+                <script src="/javascript/ansible-sku-filter.js"></script>
+            
+                <!-- Load the javascript to control the SKU filters for ocp -->
+                <script src="/javascript/ocp-sku-filter.js"></script>
+            
+                <!-- Load the javascript to control displaying SKU's -->
+                <script src="/javascript/display-results-functions.js"></script>
+            
+                <!-- Load the javascript to control question decision tree -->
+                <script src="/javascript/decision-tree.js"></script>
+            
+                <!-- Load the javascript to control question decision tree -->
+                <script src="/javascript/email-function.js"></script>
+            
             
                 <!---This is the end of the code that includes the calculator -->
                 

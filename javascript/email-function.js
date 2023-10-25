@@ -24,12 +24,12 @@ function toDoList () {
         if (partnerStatus === "Advanced" || partnerStatus === "Premier" || partnerStatus === "Premier Plus") {
             things.push('The partner may have access to NATS discount due to this quote being over 43k and their status being Advanced / Premier. Please complete a co-term calculator when quoting to ensure theyre getting the best price')
         } else {
-            things.push('This quote may have access to NATs pricing, but the partner is only Ready status, and they therefore will not get access to this pricing. This means that they may be uncompetitive on this deal. Please ask them about their desire to improve their partner status.')
+            things.push('This quote may have access to NATs pricing since it is over 43k. However the partner is only Ready status so does not have access to NATS. This means that they may be uncompetitive on this deal. Please ask them about their desire to improve their partner status.')
         }
     }
 
     if (product === "Red Hat Enterprise Linux (RHEL)" && satelliteAddon === "No") {
-        things.push('This quote is for RHEL but it does not include the satellite Addon. Red Hat recommends satellite for customer with over 10 RHEL machines. Please try to upsell to satellite.')
+        things.push('This quote is for RHEL but it does not include the satellite Addon. Red Hat recommends satellite for customer with over 10 RHEL machines. Its possibly worth trying to upsell satellite. Dont forget the customer might have machines other than what we are quoting.')
     }
 
     if (product === "Red Hat Enterprise Linux (RHEL)" && renewalOrNew === "Renewal") {
@@ -41,7 +41,7 @@ function toDoList () {
     }
 
     if (supportLevel === "standard") {
-        things.push('The partner has asked for standard support. You should try to upsell to premium support if they are running these subscriptions in production.')
+        things.push('The partner has asked for standard support. You should try to upsell to premium support if they are running these subscriptions in production. Premium support gives better  SLAs, 24/7 support and includes the EUS addon.')
     }
 
     for (let i = 0; i < things.length; i++) {
@@ -52,7 +52,6 @@ function toDoList () {
     toDoListDiv.style.display = "block";
     generateEmailDiv.style.display = "block";
 }
-
 
 
 const generateEmailButton = document.getElementById("generateEmailButton");
