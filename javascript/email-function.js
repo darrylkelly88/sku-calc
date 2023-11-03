@@ -36,7 +36,7 @@ function toDoList () {
     }
 
     if (product === "Red Hat Enterprise Linux (RHEL)" && satelliteAddon === "No") {
-        things.push('This quote is for RHEL but it does not include the satellite Addon. Red Hat recommends satellite for customer with over 10 RHEL machines. Its possibly worth trying to upsell satellite. Dont forget the customer might have machines other than what we are quoting. You may want to send them the <a href="/sku-calc/battlecards/Satellite-Battlecard" target="_blank">Satellite Battlecard</a>.')
+        things.push('This quote is for RHEL but it does not include the satellite Addon. Red Hat recommends satellite for customer with over 10 RHEL machines. Its possibly worth trying to upsell satellite. Dont forget the customer might have machines other than what we are quoting. You may want to send them the <a href="/sku-calc/battlecards/Satellite-Battlecard.pdf" target="_blank">Satellite Battlecard</a>.')
     }
 
     if (product === "Red Hat Enterprise Linux (RHEL)" && renewalOrNew === "Renewal") {
