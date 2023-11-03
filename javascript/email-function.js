@@ -16,7 +16,7 @@ function toDoList () {
     things.push('Check for qualifying promotions. Current promotions can be reviewed here <a href="/sku-calc/promos/redhat-promos.pptx" target="_blank">Q4-Promos.</a> ')
 
     if (partnerStatus === "Not a Partner") {
-        things.push('The partner is currently not a Red Hat partner. In order to place an order with TDsynnex they must be at least Ready Status. To sign up they need to complete an application <a href="https://redhat.secure.force.com/partner/PartnerAccess" target="_blank">here.</a> In addition they will need to complete 1 x sales accreditation on the <a href="https://training-lms.redhat.com/sso/saml/login/rhopen" target="_blank">training portal.</a> However they wont have acess to this until their status is approved by Red Hat.')
+        things.push('The partner is currently not a Red Hat partner. In order to place an order with TDsynnex they must be at least Ready Status. To sign up they need to complete an application <a href="https://redhat.secure.force.com/partner/PartnerAccess" target="_blank">here.</a> In addition they will need to complete 1 x sales accreditation on the <a href="https://training-lms.redhat.com/sso/saml/login/rhopen" target="_blank">training portal.</a> However they wont have acess to this until their status is approved by Red Hat. To sign up the partner you may wish to send the <a href="/guides/How-to-become-a-partner.pdf" target="_blank">how to become a partner</a> guide, and the <a href="/guides/SolutionProvider-Overview.pdf" target="_blank">solution provider overview</a> guide.')
     }
 
     if (deploymentLocation === "In the Cloud") {
@@ -24,7 +24,7 @@ function toDoList () {
     }
 
     if (renewalOrNew === "New") {
-        things.push('The partner has advised that this is a new subscription. Please make sure they are aware they can deal reg it.')
+        things.push('The partner has advised that this is a new subscription. Please make sure they are aware they can deal reg it. You may want to send them the <a href="/guides/ORP-Guide.pdf" target="_blank">ORP</a> guide.')
     }
 
     if (NATSMessageDiv.style.display === "block") {
@@ -36,7 +36,7 @@ function toDoList () {
     }
 
     if (product === "Red Hat Enterprise Linux (RHEL)" && satelliteAddon === "No") {
-        things.push('This quote is for RHEL but it does not include the satellite Addon. Red Hat recommends satellite for customer with over 10 RHEL machines. Its possibly worth trying to upsell satellite. Dont forget the customer might have machines other than what we are quoting.')
+        things.push('This quote is for RHEL but it does not include the satellite Addon. Red Hat recommends satellite for customer with over 10 RHEL machines. Its possibly worth trying to upsell satellite. Dont forget the customer might have machines other than what we are quoting. You may want to send them the <a href="/battlecards/Satellite-Battlecard" target="_blank">Satellite Battlecard</a>.')
     }
 
     if (product === "Red Hat Enterprise Linux (RHEL)" && renewalOrNew === "Renewal") {
