@@ -47,6 +47,14 @@ function toDoList () {
         things.push('Since this is a quote for RHEL it is worth ensuring that the partner informs the customer about the free tool - Red Hat Insights. This can often lead to conversations about products which can be upsold later. TDSynnex can provide overviews or demos of insights.')
     }
 
+    if (product === "Red Hat Ansible Automation Platformns" ) {
+        things.push('It may not always be appropriate, but if you are working with a new partner or a sales person that is new to Red Hat, you may want to share the <a href="/battlecards/Ansible-Battlecard.pdf" target="_blank">Ansible Battlecard</a>')
+    }
+
+    if (product === "Red Hat OpenShift Container Platform" ) {
+        things.push('It may not always be appropriate, but if you are working with a new partner or a sales person that is new to Red Hat, you may want to share the <a href="/battlecards/OpenShift-Battlecard.pdf" target="_blank">OpenShift Battlecard</a>')
+    }
+
     if (supportLevel === "standard") {
         things.push('The partner has asked for standard support. You should try to upsell to premium support if they are running these subscriptions in production. Premium support gives better  SLAs, 24/7 support and includes the EUS addon.')
     }
