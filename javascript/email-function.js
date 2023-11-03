@@ -24,7 +24,7 @@ function toDoList () {
     }
 
     if (renewalOrNew === "New") {
-        things.push('The partner has advised that this is a new subscription. Please make sure they are aware they can deal reg it. You may want to send them the <a href="/guides/ORP-Guide.pdf" target="_blank">ORP</a> guide.')
+        things.push('The partner has advised that this is a new subscription. Please make sure they are aware they can deal reg it. You may want to send them the <a href="/sku-calc/guides/ORP-Guide.pdf" target="_blank">ORP</a> guide.')
     }
 
     if (NATSMessageDiv.style.display === "block") {
