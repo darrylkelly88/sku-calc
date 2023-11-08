@@ -398,7 +398,10 @@
                     <!-- OCP Cores message -->
                     <div id="OCPMessageDiv">
                         <br>
-                        Please note that core SKU's are stackable and for larger deployments it may be cheaper to mix and match the smaller / larger SKU's. If in doubt please ask presales for support.
+                        Note that vCPU are used when a customer has hyperthreading enabled.
+                        <br>
+                        <br>
+                        Please note that core/vCPU SKU's are stackable and for larger deployments it may be cheaper to mix and match the smaller / larger SKU's. If in doubt please ask presales for support.
                         <br>
                         <br>
                     </div>
@@ -411,7 +414,14 @@
                         <input type="number" id="coresInput" name="coresInput" min="1" max="500" value="1">
                         <input type="range" id="coresSlider" name="coresSlider" min="1" max="500" value="1">
                     </div>
-            
+
+                    <!-- Slider Question: How many cores? -->
+                    <div id="vcpuDiv">
+                        <label for="vcpu">How many vCPU?</label>
+                        <input type="number" id="vcpuInput" name="vcpuInput" min="1" max="500" value="1">
+                        <input type="range" id="vcpuSlider" name="vcpuSlider" min="1" max="500" value="1">
+                    </div>
+
                         <!-- Slider Question: How many LPAR's? -->
                     <div id="lparsDiv">
                         <label for="lpars">How many LPAR's?</label>

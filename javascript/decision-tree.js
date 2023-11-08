@@ -40,6 +40,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const socketPairsDiv = document.getElementById("socketPairsDiv");
     const lparsDiv = document.getElementById("lparsDiv");
     const nodesDiv = document.getElementById("nodesDiv");
+    const vcpuDiv = document.getElementById("vcpuDiv");
     
     //define selections
     const managedServiceSelect = document.getElementById("managedService");
@@ -101,6 +102,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     socketPairsDiv.style.display = "none";
     lparsDiv.style.display = "none";
     nodesDiv.style.display = "none";
+    vcpuDiv.style.display = "none";
 
 
     //start with CCSP question

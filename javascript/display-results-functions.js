@@ -92,6 +92,7 @@ function displayCorrectSliders(filteredData) {
     const socketPairsDiv = document.getElementById("socketPairsDiv");
     const lparsDiv = document.getElementById("lparsDiv");
     const nodesDiv = document.getElementById("nodesDiv");
+    const vcpuDiv = document.getElementById("vcpuDiv");
     
     // Define a list of slider divs
     const sliderDivs = [coresDiv, vmsDiv, socketPairsDiv, lparsDiv, nodesDiv];
@@ -122,7 +123,7 @@ function displayCorrectSliders(filteredData) {
             } else if (LicensingModel === "node") {
                 sliderDivsToShow.push(nodesDiv);
             } else if (LicensingModel === "Cores") {
-                sliderDivsToShow.push(coresDiv);
+                sliderDivsToShow.push(coresDiv, vcpuDiv);
             } else if (LicensingModel === "Socket Pairs") {
                 sliderDivsToShow.push(socketPairsDiv);
             }
@@ -143,6 +144,7 @@ function calculateQuantity(LicensingModel, item) {
     const lparsInput = document.getElementById("lparsInput");
     const coresInput = document.getElementById("coresInput");
     const nodesInput = document.getElementById("nodesInput");
+    const vcpuInput = document.getElementById("vcpuInput");
 
     if (LicensingModel === "standard RHEL") {
         if (virtualOrBareMetalSelect.value === "Virtual") {
@@ -182,7 +184,7 @@ function calculateQuantity(LicensingModel, item) {
 
     } else if (LicensingModel === "Cores") {
         const numberOfCores = item["# of Cores"];
-        const quantity = Math.ceil(parseInt(coresInput.value) / numberOfCores);
+        const quantity = Math.max(Math.ceil(parseInt(coresInput.value) / numberOfCores), Math.ceil(parseInt(vcpuInput.value)/ 2 / numberOfCores));
         OCPMessageDiv.style.display = "block";
         return quantity;
     } else if (LicensingModel === "Socket Pairs") {

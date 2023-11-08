@@ -23,6 +23,11 @@ nodesSlider.addEventListener('input', function () {
     nodesInput.value = nodesSlider.value;
 });
 
+// Update text input for "How many LPAR's?" slider
+vcpuSlider.addEventListener('input', function () {
+    vcpuInput.value = vcpuSlider.value;
+});
+
 // Initial updates when the page loads
 window.onload = function() {
     coresInput.value = coresSlider.value;
@@ -30,6 +35,7 @@ window.onload = function() {
     socketPairsInput.value = socketPairsSlider.value;
     lparsInput.value = lparsSlider.value;
     nodesInput.value = nodesSlider.value;
+    vcpuInput.value = vcpuSlider.value;
 };
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -40,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const socketPairsDiv = document.getElementById("socketPairsDiv");
     const lparsDiv = document.getElementById("lparsDiv");
     const nodesDiv = document.getElementById("nodesDiv");
+    const vcpuDiv = document.getElementById("vcpuDiv");
 
     selectElements.forEach((select) => {
         select.addEventListener("input", function() {
@@ -51,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 socketPairsDiv.style.display = "none";
                 lparsDiv.style.display = "none";
                 nodesDiv.style.display = "none";
+                vcpuDiv.style.display = "none";
             }
         });
     });
