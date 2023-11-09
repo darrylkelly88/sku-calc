@@ -93,9 +93,10 @@ function displayCorrectSliders(filteredData) {
     const lparsDiv = document.getElementById("lparsDiv");
     const nodesDiv = document.getElementById("nodesDiv");
     const vcpuDiv = document.getElementById("vcpuDiv");
+    const academicDiv = document.getElementById("academicDiv");
     
     // Define a list of slider divs
-    const sliderDivs = [coresDiv, vmsDiv, socketPairsDiv, lparsDiv, nodesDiv];
+    const sliderDivs = [coresDiv, vmsDiv, socketPairsDiv, lparsDiv, nodesDiv, academicDiv];
     
     // Hide all slider divs
     sliderDivs.forEach((div) => {
@@ -126,6 +127,8 @@ function displayCorrectSliders(filteredData) {
                 sliderDivsToShow.push(coresDiv, vcpuDiv);
             } else if (LicensingModel === "Socket Pairs") {
                 sliderDivsToShow.push(socketPairsDiv);
+            } else if (LicensingModel === "academic") {
+                sliderDivsToShow.push(academicDiv);
             }
 
             // Show the determined slider divs
@@ -145,6 +148,10 @@ function calculateQuantity(LicensingModel, item) {
     const coresInput = document.getElementById("coresInput");
     const nodesInput = document.getElementById("nodesInput");
     const vcpuInput = document.getElementById("vcpuInput");
+    const fullTimeFacultyInput = document.getElementById("fullTimeFacultyInput");
+    const partTimeFacultyInput = document.getElementById("partTimeFacultyInput");
+    const fullTimeStaffInput = document.getElementById("fullTimeStaffInput");
+    const partTimeStaffInput = document.getElementById("partTimeStaffInput");
 
     if (LicensingModel === "standard RHEL") {
         if (virtualOrBareMetalSelect.value === "Virtual") {
@@ -189,6 +196,9 @@ function calculateQuantity(LicensingModel, item) {
         return quantity;
     } else if (LicensingModel === "Socket Pairs") {
         const quantity = parseInt(socketPairsInput.value);
+        return quantity;
+    } else if (LicensingModel === "academic") {
+        const quantity = Math.ceil( parseInt(fullTimeFacultyInput.value) + (parseInt(partTimeFacultyInput.value)/3) + parseInt(fullTimeStaffInput.value) + (parseInt(partTimeStaffInput.value)/2));
         return quantity;
     }
     // Add more conditions as needed

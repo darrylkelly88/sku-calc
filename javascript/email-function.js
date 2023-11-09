@@ -1,6 +1,7 @@
 function toDoList () {
     const toDoListDiv = document.getElementById("toDoListDiv")
     const generateEmailDiv  = document.getElementById("generateEmailDiv");
+    const academicCustomer = document.getElementById("academicCustomer").value;
     const product = document.getElementById("product").value;
     const renewalOrNew = document.getElementById("renewalOrNew").value;
     const supportLevel = document.getElementById("supportLevel").value;
@@ -17,6 +18,14 @@ function toDoList () {
 
     if (partnerStatus === "Not a Partner") {
         things.push('The partner is currently not a Red Hat partner. In order to place an order with TDsynnex they must be at least Ready Status. To sign up they need to complete an application <a href="https://redhat.secure.force.com/partner/PartnerAccess" target="_blank">here.</a> In addition they will need to complete 1 x sales accreditation on the <a href="https://training-lms.redhat.com/sso/saml/login/rhopen" target="_blank">training portal.</a> However they wont have acess to this until their status is approved by Red Hat. To sign up the partner you may wish to send the <a href="/sku-calc/guides/How-to-become-a-partner.pdf" target="_blank">how to become a partner</a> guide, and the <a href="/sku-calc/guides/SolutionProvider-Overview.pdf" target="_blank">solution provider overview</a> guide.')
+    }
+
+    if (academicCustomer === "Yes" && (partnerStatus === "Advanced" || partnerStatus === "Premier" )) {
+        things.push('To take advantage of any academic specific SKUs the partner must be an approved academic partner. This may require to completing 1 x sales accreditation on the <a href="https://training-lms.redhat.com/sso/saml/login/rhopen" target="_blank">training portal.</a>. Please make them aware that they cannot order this from TD until they meet these requirements.')
+    }
+
+    if (academicCustomer === "Yes" && (partnerStatus === "Not a Partner" || partnerStatus === "Ready" )) {
+        things.push('To take advantage of any academic specific SKUs the partner must be an approved academic partner. In order to be an approved Academic partner they must be at least Advanced status. In addition they will be require to complete 1 x sales accreditation on the <a href="https://training-lms.redhat.com/sso/saml/login/rhopen" target="_blank">training portal.</a> Please make them aware that this is subject to them completing these requirements.')
     }
 
     if (deploymentLocation === "In the Cloud") {

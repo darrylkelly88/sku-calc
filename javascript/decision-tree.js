@@ -41,6 +41,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const lparsDiv = document.getElementById("lparsDiv");
     const nodesDiv = document.getElementById("nodesDiv");
     const vcpuDiv = document.getElementById("vcpuDiv");
+    const academicDiv = document.getElementById("academicDiv");
     
     //define selections
     const managedServiceSelect = document.getElementById("managedService");
@@ -103,6 +104,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     lparsDiv.style.display = "none";
     nodesDiv.style.display = "none";
     vcpuDiv.style.display = "none";
+    academicDiv.style.display = "none";
 
 
     //start with CCSP question
@@ -158,8 +160,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     academicCustomerSelect.addEventListener('change', function () {
         if (this.value === "Yes") {
             // If yes show a message about internal use and no more questions
-            academicMessageDiv.style.display = "block";
-            deploymentLocationDiv.style.display = "none";
+            academicMessageDiv.style.display = "none";
+            deploymentLocationDiv.style.display = "block";
         } else if (this.value === "No") {
             // If no display the next question about deployment location
             deploymentLocationDiv.style.display = "block";
@@ -238,42 +240,45 @@ window.addEventListener('DOMContentLoaded', (event) => {
     //Which product would you like to buy?
     productSelect.addEventListener('change', function () {
         if (this.value === "Red Hat Enterprise Linux (RHEL)") {
-            // If new, display a reminder about ORP and promotions
-            pctypeDiv.style.display = "block";
+            if (academicCustomerSelect.value === "Yes") {
+                skuListDiv.style.display = "block";
+            }else {
+                // If new, display a reminder about ORP and promotions
+                pctypeDiv.style.display = "block";
 
-            //hide all other questions
-            ocpFlavourDiv.style.display = "none";
-            HPC2MessageDiv.style.display = "none";
-            runSAPDiv.style.display = "none";
-            SAPversionDiv.style.display = "none";
-            architectureDiv.style.display = "none";
-            virtualOrBareMetalDiv.style.display = "none";
-            ocpBundleDiv.style.display = "none";
-            densityGreaterThan7Div.style.display = "none";
-            satelliteAddonDiv.style.display = "none";
-            HPCMessageDiv.style.display = "none";
-            skuListDiv.style.display = "none";
-            NATSMessageDiv.style.display = "none";
-            ansibleMessageDiv.style.display = "none";
-            OCPMessageDiv.style.display = "none";
-            //hide sliders
-            coresDiv.style.display = "none";
-            vmsDiv.style.display = "none";
-            socketPairsDiv.style.display = "none";
-            lparsDiv.style.display = "none";
-            nodesDiv.style.display = "none";
+                //hide all other questions
+                ocpFlavourDiv.style.display = "none";
+                HPC2MessageDiv.style.display = "none";
+                runSAPDiv.style.display = "none";
+                SAPversionDiv.style.display = "none";
+                architectureDiv.style.display = "none";
+                virtualOrBareMetalDiv.style.display = "none";
+                ocpBundleDiv.style.display = "none";
+                densityGreaterThan7Div.style.display = "none";
+                satelliteAddonDiv.style.display = "none";
+                HPCMessageDiv.style.display = "none";
+                skuListDiv.style.display = "none";
+                NATSMessageDiv.style.display = "none";
+                ansibleMessageDiv.style.display = "none";
+                OCPMessageDiv.style.display = "none";
+                //hide sliders
+                coresDiv.style.display = "none";
+                vmsDiv.style.display = "none";
+                socketPairsDiv.style.display = "none";
+                lparsDiv.style.display = "none";
+                nodesDiv.style.display = "none";
 
-            //reset all values.
-            pctypeSelect.value = "";
-            ocpFlavourSelect.value = "";
-            runSAPSelect.value = "";
-            SAPversionSelect.value = "";
-            architectureSelect.value = "";
-            virtualOrBareMetalSelect.value = "";
-            ocpBundleSelect.value = "";
-            densityGreaterThan7Select.value = "";
-            satelliteAddonSelect.value = "";
-
+                //reset all values.
+                pctypeSelect.value = "";
+                ocpFlavourSelect.value = "";
+                runSAPSelect.value = "";
+                SAPversionSelect.value = "";
+                architectureSelect.value = "";
+                virtualOrBareMetalSelect.value = "";
+                ocpBundleSelect.value = "";
+                densityGreaterThan7Select.value = "";
+                satelliteAddonSelect.value = "";
+            }
         } else if (this.value === "Red Hat Ansible Automation Platform") {
             // If renewal move on to next question.
             skuListDiv.style.display = "block";
