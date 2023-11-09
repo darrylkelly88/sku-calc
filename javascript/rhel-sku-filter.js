@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("skuCalculatorForm").addEventListener("change", function () {
                 // Get user selections from form items
                 const term = document.getElementById("term").value;
+                const academic = document.getElementById("academicCustomer").value;
                 const product = document.getElementById("product").value;
                 const runSAP = document.getElementById("runSAP").value;
                 const architecture = document.getElementById("architecture").value;
@@ -18,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const SAPversion = document.getElementById("SAPversion").value
                 const skuListDiv = document.getElementById("skuList");
 
-                if (product === "Red Hat Enterprise Linux (RHEL)" && getComputedStyle(skuListDiv).display === "block") {
+                if (product === "Red Hat Enterprise Linux (RHEL)" && academic === "No" && getComputedStyle(skuListDiv).display === "block") {
                     // Filter the JSON data based on user selections
                     const filteredData = data.filter((item) => {
                         // Determine the SKU field to display based on the selected term

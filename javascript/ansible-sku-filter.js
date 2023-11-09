@@ -7,12 +7,13 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("skuCalculatorForm").addEventListener("change", function () {
                 // Get user selections from form items
                 const term = document.getElementById("term").value;
+                const academic = document.getElementById("academicCustomer").value;
                 const product = document.getElementById("product").value;
                 const supportLevel = document.getElementById("supportLevel").value;
                 const skuListDiv = document.getElementById("skuList");
                 const nodesInput = document.getElementById("nodesInput");
 
-                if (product === "Red Hat Ansible Automation Platform" && getComputedStyle(skuListDiv).display === "block") {
+                if (product === "Red Hat Ansible Automation Platform" && academic === "No" && getComputedStyle(skuListDiv).display === "block") {
                     // Filter the JSON data based on user selections
                     const filteredData = data.filter((item) => {
                         // Determine the SKU field to display based on the selected term
