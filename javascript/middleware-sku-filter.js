@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             (item["Edge"] !== "TRUE") && 
                             (item["ELS"] !== "TRUE") && 
                             (item["Distributed Computing"] !== "TRUE") &&
+                            (item["Cluster Edition"] !== "TRUE") &&
                             (item["Openshift"] !== "TRUE")
                             // (item["Include in Data?"] === "TRUE") 
                        );

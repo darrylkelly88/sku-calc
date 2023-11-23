@@ -15,6 +15,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const supportlevelDiv = document.getElementById("supportlevelDiv");
     const termDiv = document.getElementById("termDiv");
     const productDiv = document.getElementById("productDiv");
+    const middlewareExplanationDiv = document.getElementById("middlewareExplanationDiv");
     const middlewareproductDiv = document.getElementById("middlewareproductDiv");
     const jbossDiv = document.getElementById("jbossDiv");
     const pctypeDiv = document.getElementById("pctypeDiv");
@@ -82,6 +83,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     supportlevelDiv.style.display = "none";
     termDiv.style.display = "none";
     productDiv.style.display = "none";
+    middlewareExplanationDiv.style.display = "none";
     middlewareproductDiv.style.display = "none";
     jbossDiv.style.display = "none";
     pctypeDiv.style.display = "none";
@@ -252,6 +254,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 // If new, display a reminder about ORP and promotions
                 pctypeDiv.style.display = "block";
                 middlewareproductDiv.style.display = "none";
+                middlewareExplanationDiv.style.display = "none";
 
                 //hide all other questions
                 jbossDiv.style.display = "none";
@@ -293,6 +296,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             skuListDiv.style.display = "block";
             pctypeDiv.style.display = "none";
             middlewareproductDiv.style.display = "none";
+            middlewareExplanationDiv.style.display = "none";
 
             //hide all other questions
             jbossDiv.style.display = "none";
@@ -333,6 +337,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             pctypeDiv.style.display = "none";
             middlewareproductDiv.style.display = "none";
             ocpFlavourDiv.style.display = "block";
+            middlewareExplanationDiv.style.display = "none";
 
             //hide all other questions
             jbossDiv.style.display = "none";
@@ -369,6 +374,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
         } else if (this.value === "Red Hat Middleware") {
             middlewareproductDiv.style.display = "block";
+            middlewareExplanationDiv.style.display = "block";
             skuListDiv.style.display = "none";
             pctypeDiv.style.display = "none";
 
@@ -408,6 +414,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         } else {
             // if something else e.g select option then hide all
             pctypeDiv.style.display = "none";
+            middlewareExplanationDiv.disply = "none";
             //hide all other questions
             middlewareproductDiv.style.display = "none";
             jbossDiv.style.display = "none";
