@@ -395,7 +395,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
             nodesDiv.style.display = "none";
 
             //reset all values.
-            middlewareproductSelect = "";
             pctypeSelect.value = "";
             ocpFlavourSelect.value = "";
             runSAPSelect.value = "";
