@@ -8,11 +8,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Get user selections from form items
                 const term = document.getElementById("term").value;
                 const product = document.getElementById("product").value;
-                const middlewareproduct = document.getElementById("middlewareproduct").value; // Use all lowercase here
-                const jboss = document.getElementById("jboss").value;
+                const middlewareproduct = document.getElementById("middlewareproduct").value; 
+                const jbossProduct = document.getElementById("jboss").value;
                 const supportLevel = document.getElementById("supportLevel").value;
                 const skuListDiv = document.getElementById("skuList");
-                
 
                 if (product === "Red Hat Middleware" && getComputedStyle(skuListDiv).display === "block") {
                     // Filter the JSON data based on user selections
@@ -22,9 +21,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         // Check if the user made a selection in each field before applying the filter
                         return (
                             (!supportLevel || (supportLevel === "standard" && item["Standard"] === "TRUE") || (supportLevel === "premium" && item["Premium"] === "TRUE")) &&
-                            // Look for correct product with all lowercase variable
                             (!middlewareproduct ||
                                 (
+                                  (middlewareproduct === "JBOSS" &&
+                                    (
+                                      (!jbossProduct || (jbossProduct === "EAP" && item["JbossEAP"] === "TRUE") || (jbossProduct === "Web Server" && item["JbossWebServer"] === "TRUE"))
+                                    )
+                                  ) ||
                                   (middlewareproduct === "3scale" && item["3Scale"] === "TRUE") ||
                                   (middlewareproduct === "AMQ" && item["AMQ"] === "TRUE") ||
                                   (middlewareproduct === "Data Grid" && item["Data Grid"] === "TRUE") ||
@@ -37,11 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
                                   (middlewareproduct === "Application Foundations" && item["Application Foundations"] === "TRUE")
                                 )
                               ) &&
-                              (!jboss || (jboss === "EAP" && item["JbossEAP"] === "TRUE") || (jboss === "Web Server" && item["JbossWebServer"] === "TRUE")) &&
+                            
                             // Standard exclusion filters
                             (item["Edge"] !== "TRUE") && 
                             (item["ELS"] !== "TRUE") && 
-                            (item["Distributed Computing"] !== "TRUE")
+                            (item["Distributed Computing"] !== "TRUE") &&
+                            (item["Openshift"] !== "TRUE")
                             // (item["Include in Data?"] === "TRUE") 
                        );
                     });
