@@ -70,7 +70,7 @@
             <div class="title col-md-12 col-lg-10">
                 <h3 class="mbr-section-title mbr-fonts-style align-center mb-4 display-2">
                     <strong>SKU Calculator</strong></h3>
-                <h4 class="mbr-section-subtitle align-center mbr-fonts-style mb-4 display-7">Please Note: This SKU Calculator is in development there may be errors or issues that you may encounter. Use it at your own risk.<br><br><br></h4>
+                <h4 class="mbr-section-subtitle align-center mbr-fonts-style mb-4 display-7">Please Note: This SKU Calculator is in development there may be errors or issues that you may encounter. Use it at your own risk.<br><br>Please contact <a href="mailto:darryl.kelly@tdsynnex.com">darryl.kelly@tdsynnex.com</a> with any issues or bugs you encounter<br></h4>
                 
 
                 <!---This is the code that includes the calculator-->
@@ -249,9 +249,38 @@
                             <option value="Red Hat Enterprise Linux (RHEL)">Red Hat Enterprise Linux (RHEL)</option>
                             <option value="Red Hat Ansible Automation Platform">Red Hat Ansible Automation Platform</option>
                             <option value="Red Hat OpenShift Container Platform">Red Hat OpenShift Container Platform</option>
+                            <option value="Red Hat Middleware">Red Hat Middleware (Select for more options)</option>
                         </select><br>
                     </div>
-            
+
+                    <!-- Which middleware product?-->
+                    <div id="middlewareproductDiv">
+                        <label for="middlewareproduct">Which Red Hat Middleware product?</label>
+                        <select id="middlewareproduct" name="middlewareproduct">
+                            <option value="" selected>Select an Option</option>
+                            <option value="3scale">3scale</option>
+                            <option value="AMQ">AMQ</option>
+                            <option value="Application Foundations">Application Foundations</option>
+                            <option value="Data Grid">Data Grid</option>
+                            <option value="Fuse">Fuse</option>
+                            <option value="Red Hat Integration">Red Hat Integration</option>
+                            <option value="JBOSS">JBOSS</option>
+                            <option value="Red Hat Runtimes">Red Hat Runtimes</option>
+                            <option value="Service Interconnect">Service Interconnect</option>
+                            <option value="OpenJDK">OpenJDK</option>
+                        </select><br>
+                    </div>
+
+                    <!-- Which version of Jboss?-->
+                    <div id="jbossDiv">
+                        <label for="jboss">Which Product are you looking for?</label>
+                        <select id="jboss" name="jboss">
+                            <option value="" selected>Select an Option</option>
+                            <option value="EAP">JBOSS EAP (Enterprise Application Platform)</option>
+                            <option value="Web Server">JBOSS Web Server</option>
+                        </select><br>
+                    </div>
+
                     <!-- Is RHEL being used as a server, a workstation (PC) or for High Performance Computing (Supercomputer) -->
                     <div id="pctypeDiv">
                         <br>
@@ -513,6 +542,9 @@
             
                 <!-- Load the javascript to control the SKU filters for academic -->
                 <script src="/sku-calc/javascript/academic-sku-filter.js"></script>
+
+                <!-- Load the javascript to control the SKU filters for middleware products -->
+                <script src="/sku-calc/javascript/middleware-sku-filter.js"></script>
 
                 <!-- Load the javascript to control displaying SKU's -->
                 <script src="/sku-calc/javascript/display-results-functions.js"></script>

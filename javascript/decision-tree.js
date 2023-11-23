@@ -15,6 +15,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const supportlevelDiv = document.getElementById("supportlevelDiv");
     const termDiv = document.getElementById("termDiv");
     const productDiv = document.getElementById("productDiv");
+    const middlewareproductDiv = document.getElementById("middlewareproductDiv");
+    const jbossDiv = document.getElementById("jbossDiv");
     const pctypeDiv = document.getElementById("pctypeDiv");
     const ocpFlavourDiv = document.getElementById("ocpFlavourDiv");
     const HPC2MessageDiv = document.getElementById("HPC2MessageDiv");
@@ -53,6 +55,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const supportLevelSelect = document.getElementById("supportLevel");
     const termSelect = document.getElementById("term");
     const productSelect = document.getElementById("product");
+    const middlewareproductSelect = document.getElementById("middlewareproduct");
+    const jbossSelect = document.getElementById("jboss");
     const pctypeSelect = document.getElementById("pctype");
     const ocpFlavourSelect = document.getElementById("ocpFlavour");
     const runSAPSelect = document.getElementById("runSAP");
@@ -78,6 +82,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     supportlevelDiv.style.display = "none";
     termDiv.style.display = "none";
     productDiv.style.display = "none";
+    middlewareproductDiv.style.display = "none";
+    jbossDiv.style.display = "none";
     pctypeDiv.style.display = "none";
     ocpFlavourDiv.style.display = "none";
     HPC2MessageDiv.style.display = "none";
@@ -245,8 +251,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
             }else {
                 // If new, display a reminder about ORP and promotions
                 pctypeDiv.style.display = "block";
+                middlewareproductDiv.style.display = "none";
 
                 //hide all other questions
+                jbossDiv.style.display = "none";
                 ocpFlavourDiv.style.display = "none";
                 HPC2MessageDiv.style.display = "none";
                 runSAPDiv.style.display = "none";
@@ -269,6 +277,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 nodesDiv.style.display = "none";
 
                 //reset all values.
+                jbossSelect.value = "";
                 pctypeSelect.value = "";
                 ocpFlavourSelect.value = "";
                 runSAPSelect.value = "";
@@ -283,8 +292,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
             // If renewal move on to next question.
             skuListDiv.style.display = "block";
             pctypeDiv.style.display = "none";
+            middlewareproductDiv.style.display = "none";
 
             //hide all other questions
+            jbossDiv.style.display = "none";
             ocpFlavourDiv.style.display = "none";
             HPC2MessageDiv.style.display = "none";
             runSAPDiv.style.display = "none";
@@ -305,6 +316,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             lparsDiv.style.display = "none";
 
             //reset all values.
+            jbossSelect.value = "";
             pctypeSelect.value = "";
             ocpFlavourSelect.value = "";
             runSAPSelect.value = "";
@@ -319,9 +331,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
             // If renewal move on to next question.
             skuListDiv.style.display = "none";
             pctypeDiv.style.display = "none";
+            middlewareproductDiv.style.display = "none";
             ocpFlavourDiv.style.display = "block";
 
             //hide all other questions
+            jbossDiv.style.display = "none";
             HPC2MessageDiv.style.display = "none";
             runSAPDiv.style.display = "none";
             SAPversionDiv.style.display = "none";
@@ -342,6 +356,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             nodesDiv.style.display = "none";
 
             //reset all values.
+            jbossSelect.value = "";
             pctypeSelect.value = "";
             ocpFlavourSelect.value = "";
             runSAPSelect.value = "";
@@ -352,9 +367,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
             densityGreaterThan7Select.value = "";
             satelliteAddonSelect.value = "";
 
-        } else {
-            // if something else e.g select option then hide all
+        } else if (this.value === "Red Hat Middleware") {
+            middlewareproductDiv.style.display = "block";
+            skuListDiv.style.display = "none";
             pctypeDiv.style.display = "none";
+
             //hide all other questions
             ocpFlavourDiv.style.display = "none";
             HPC2MessageDiv.style.display = "none";
@@ -378,6 +395,46 @@ window.addEventListener('DOMContentLoaded', (event) => {
             nodesDiv.style.display = "none";
 
             //reset all values.
+            middlewareproductSelect = "";
+            pctypeSelect.value = "";
+            ocpFlavourSelect.value = "";
+            runSAPSelect.value = "";
+            SAPversionSelect.value = "";
+            architectureSelect.value = "";
+            virtualOrBareMetalSelect.value = "";
+            ocpBundleSelect.value = "";
+            densityGreaterThan7Select.value = "";
+            satelliteAddonSelect.value = "";
+
+        } else {
+            // if something else e.g select option then hide all
+            pctypeDiv.style.display = "none";
+            //hide all other questions
+            middlewareproductDiv.style.display = "none";
+            jbossDiv.style.display = "none";
+            ocpFlavourDiv.style.display = "none";
+            HPC2MessageDiv.style.display = "none";
+            runSAPDiv.style.display = "none";
+            SAPversionDiv.style.display = "none";
+            architectureDiv.style.display = "none";
+            virtualOrBareMetalDiv.style.display = "none";
+            ocpBundleDiv.style.display = "none";
+            densityGreaterThan7Div.style.display = "none";
+            satelliteAddonDiv.style.display = "none";
+            HPCMessageDiv.style.display = "none";
+            skuListDiv.style.display = "none";
+            NATSMessageDiv.style.display = "none";
+            ansibleMessageDiv.style.display = "none";
+            OCPMessageDiv.style.display = "none";
+            //hide sliders
+            coresDiv.style.display = "none";
+            vmsDiv.style.display = "none";
+            socketPairsDiv.style.display = "none";
+            lparsDiv.style.display = "none";
+            nodesDiv.style.display = "none";
+
+            //reset all values.
+            middlewareproductSelect = "";
             pctypeSelect.value = "";
             ocpFlavourSelect.value = "";
             runSAPSelect.value = "";
@@ -390,6 +447,69 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 
+
+    //Which middleware Product do you need?
+    middlewareproductSelect.addEventListener('change', function () {
+        if (this.value === "3scale") {
+            // If new, display a reminder about ORP and promotions
+            skuListDiv.style.display = "block";
+            jbossDiv.style.display = "none";
+        } else if (this.value === "AMQ") {
+            // If renewal move on to next question.
+            skuListDiv.style.display = "block";
+            jbossDiv.style.display = "none";
+        } else if (this.value === "Application Foundations") {
+            // If renewal move on to next question.
+            skuListDiv.style.display = "block";
+            jbossDiv.style.display = "none";
+        } else if (this.value === "Data Grid") {
+            // If renewal move on to next question.
+            skuListDiv.style.display = "block";
+            jbossDiv.style.display = "none";
+        } else if (this.value === "Fuse") {
+            // If renewal move on to next question.
+            skuListDiv.style.display = "block";
+            jbossDiv.style.display = "none";
+        } else if (this.value === "Red Hat Integration") {
+            // If renewal move on to next question.
+            skuListDiv.style.display = "block";
+            jbossDiv.style.display = "none";
+        } else if (this.value === "JBOSS") {
+            // If renewal move on to next question.
+            skuListDiv.style.display = "none";
+            jbossDiv.style.display = "block";
+        } else if (this.value === "Red Hat Runtimes") {
+            // If renewal move on to next question.
+            skuListDiv.style.display = "block";
+            jbossDiv.style.display = "none";
+        } else if (this.value === "Service Interconnect") {
+            // If renewal move on to next question.
+            skuListDiv.style.display = "block";
+            jbossDiv.style.display = "none";
+        } else if (this.value === "OpenJDK") {
+            // If renewal move on to next question.
+            skuListDiv.style.display = "block";
+            jbossDiv.style.display = "none";
+        } else {
+            // if something else e.g select option then hide all
+            skuListDiv.style.display = "none";
+            jbossDiv.style.display = "none";
+        }
+    });
+
+    //Which version of JBOSS do you need?
+    jbossSelect.addEventListener('change', function () {
+        if (this.value === "EAP") {
+            // If new, display a reminder about ORP and promotions
+            skuListDiv.style.display = "block";
+        } else if (this.value === "Web Server") {
+            // If renewal move on to next question.
+            skuListDiv.style.display = "block";
+        } else {
+            // if something else e.g select option then hide all
+            skuListDiv.style.display = "none";
+        }
+    });
 
     //Which OCP version do you need?
     ocpFlavourSelect.addEventListener('change', function () {
