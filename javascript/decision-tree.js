@@ -450,7 +450,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
             nodesDiv.style.display = "none";
 
             //reset all values.
-            middlewareproductSelect = "";
+            middlewareproductSelect.value = "";
+            middlewareOpenJDKSelect.value = "";
             pctypeSelect.value = "";
             ocpFlavourSelect.value = "";
             runSAPSelect.value = "";
@@ -471,56 +472,85 @@ window.addEventListener('DOMContentLoaded', (event) => {
             skuListDiv.style.display = "block";
             jbossDiv.style.display = "none";
             middlewareOpenShiftDiv.style.display = "none";
+            middlewareOpenJDKDiv.style.display = "none";
+            middlewareOpenJDKSelect.value = "";
+            middlewareOpenshiftSelect.value = "";
         } else if (this.value === "AMQ") {
             // If renewal move on to next question.
             skuListDiv.style.display = "none";
             jbossDiv.style.display = "none";
             middlewareOpenShiftDiv.style.display = "block";
+            middlewareOpenJDKDiv.style.display = "none";
+            middlewareOpenJDKSelect.value = "";
         } else if (this.value === "Application Foundations") {
             // If renewal move on to next question.
             skuListDiv.style.display = "block";
             jbossDiv.style.display = "none";
             middlewareOpenShiftDiv.style.display = "none";
+            middlewareOpenJDKSelect.value = "";
+            middlewareOpenshiftSelect.value = "";
         } else if (this.value === "Data Grid") {
             // If renewal move on to next question.
             skuListDiv.style.display = "block";
             jbossDiv.style.display = "none";
             middlewareOpenShiftDiv.style.display = "none";
+            middlewareOpenJDKDiv.style.display = "none";
+            middlewareOpenJDKSelect.value = "";
+            middlewareOpenshiftSelect.value = "";
         } else if (this.value === "Fuse") {
             // If renewal move on to next question.
             skuListDiv.style.display = "none";
             jbossDiv.style.display = "none";
             middlewareOpenShiftDiv.style.display = "block";
+            middlewareOpenJDKDiv.style.display = "none";
+            middlewareOpenJDKSelect.value = "";
         } else if (this.value === "Red Hat Integration") {
             // If renewal move on to next question.
             skuListDiv.style.display = "block";
             jbossDiv.style.display = "none";
             middlewareOpenShiftDiv.style.display = "none";
+            middlewareOpenJDKDiv.style.display = "none";
+            middlewareOpenJDKSelect.value = "";
+            middlewareOpenshiftSelect.value = "";
         } else if (this.value === "JBOSS") {
             // If renewal move on to next question.
             skuListDiv.style.display = "none";
             jbossDiv.style.display = "block";
             middlewareOpenShiftDiv.style.display = "none";
+            middlewareOpenJDKDiv.style.display = "none";
+            middlewareOpenJDKSelect.value = "";
+            middlewareOpenshiftSelect.value = "";
         } else if (this.value === "Red Hat Runtimes") {
             // If renewal move on to next question.
             skuListDiv.style.display = "block";
             jbossDiv.style.display = "none";
             middlewareOpenShiftDiv.style.display = "none";
+            middlewareOpenJDKDiv.style.display = "none";
+            middlewareOpenJDKSelect.value = "";
+            middlewareOpenshiftSelect.value = "";
         } else if (this.value === "Service Interconnect") {
             // If renewal move on to next question.
             skuListDiv.style.display = "block";
             jbossDiv.style.display = "none";
             middlewareOpenShiftDiv.style.display = "none";
+            middlewareOpenJDKDiv.style.display = "none";
+            middlewareOpenJDKSelect.value = "";
+            middlewareOpenshiftSelect.value = "";
         } else if (this.value === "OpenJDK") {
             // If renewal move on to next question.
-            skuListDiv.style.display = "block";
+            skuListDiv.style.display = "none";
             jbossDiv.style.display = "none";
             middlewareOpenShiftDiv.style.display = "none";
+            middlewareOpenJDKDiv.style.display = "block";
+            middlewareOpenshiftSelect.value = "";
         } else {
             // if something else e.g select option then hide all
             skuListDiv.style.display = "none";
             jbossDiv.style.display = "none";
             middlewareOpenShiftDiv.style.display = "none";
+            middlewareOpenJDKDiv.style.display = "none";
+            middlewareOpenJDKSelect.value = "";
+            middlewareOpenshiftSelect.value = "";
         }
     });
 
@@ -537,15 +567,30 @@ window.addEventListener('DOMContentLoaded', (event) => {
             // if something else e.g select option then hide all
             skuListDiv.style.display = "none";
             middlewareOpenShiftDiv.style.display = "none";
+            middlewareOpenshiftSelect.value = "";
         }
     });
 
-    //Which version of JBOSS do you need?
+    //Is this going to run on OpenShift?
     middlewareOpenshiftSelect.addEventListener('change', function () {
         if (this.value === "No") {
             // If new, display a reminder about ORP and promotions
             skuListDiv.style.display = "block";
         } else if (this.value === "Yes") {
+            // If renewal move on to next question.
+            skuListDiv.style.display = "block";
+        } else {
+            // if something else e.g select option then hide all
+            skuListDiv.style.display = "none";
+        }
+    });
+
+    //Which JBOSS?
+    middlewareOpenJDKSelect.addEventListener('change', function () {
+        if (this.value === "Servers") {
+            // If new, display a reminder about ORP and promotions
+            skuListDiv.style.display = "block";
+        } else if (this.value === "Workstations") {
             // If renewal move on to next question.
             skuListDiv.style.display = "block";
         } else {

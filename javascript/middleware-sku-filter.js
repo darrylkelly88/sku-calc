@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const supportLevel = document.getElementById("supportLevel").value;
                 const skuListDiv = document.getElementById("skuList");
                 const middlewareOpenshift = document.getElementById("middlewareOpenShift").value;
+                const middlewareOpenJDK = document.getElementById("middlewareOpenJDK").value;
 
                 if (product === "Red Hat Middleware" && getComputedStyle(skuListDiv).display === "block") {
                     // Filter the JSON data based on user selections
@@ -23,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         return (
                             (!supportLevel || (supportLevel === "standard" && item["Standard"] === "TRUE") || (supportLevel === "premium" && item["Premium"] === "TRUE")) &&
                             (!middlewareOpenshift || (middlewareOpenshift === "No" && item["Openshift"] === "FALSE") || (middlewareOpenshift === "Yes" && item["Openshift"] === "TRUE")) &&
+                            (!middlewareOpenJDK || (middlewareOpenJDK === "Servers" && item["OpenJDKServer"] === "TRUE") || (middlewareOpenJDK === "Workstations" && item["OpenJDKWorkstation"] === "TRUE")) &&
                             (!middlewareproduct ||
                                 (
                                   (middlewareproduct === "JBOSS" &&
