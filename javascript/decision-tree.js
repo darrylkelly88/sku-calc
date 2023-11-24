@@ -18,6 +18,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const middlewareExplanationDiv = document.getElementById("middlewareExplanationDiv");
     const middlewareproductDiv = document.getElementById("middlewareproductDiv");
     const jbossDiv = document.getElementById("jbossDiv");
+    const middlewareOpenShiftDiv = document.getElementById("middlewareOpenShiftDiv");
+    const middlewareOpenJDKDiv = document.getElementById("middlewareOpenJDKDiv");
     const pctypeDiv = document.getElementById("pctypeDiv");
     const ocpFlavourDiv = document.getElementById("ocpFlavourDiv");
     const HPC2MessageDiv = document.getElementById("HPC2MessageDiv");
@@ -58,6 +60,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const productSelect = document.getElementById("product");
     const middlewareproductSelect = document.getElementById("middlewareproduct");
     const jbossSelect = document.getElementById("jboss");
+    const middlewareOpenshiftSelect = document.getElementById("middlewareOpenShift");
+    const middlewareOpenJDKSelect = document.getElementById("middlewareOpenJDK");
     const pctypeSelect = document.getElementById("pctype");
     const ocpFlavourSelect = document.getElementById("ocpFlavour");
     const runSAPSelect = document.getElementById("runSAP");
@@ -86,6 +90,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     middlewareExplanationDiv.style.display = "none";
     middlewareproductDiv.style.display = "none";
     jbossDiv.style.display = "none";
+    middlewareOpenShiftDiv.style.display = "none";
+    middlewareOpenJDKDiv.style.display = "none";
     pctypeDiv.style.display = "none";
     ocpFlavourDiv.style.display = "none";
     HPC2MessageDiv.style.display = "none";
@@ -258,6 +264,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
                 //hide all other questions
                 jbossDiv.style.display = "none";
+                middlewareOpenShiftDiv.style.display = "none";
                 ocpFlavourDiv.style.display = "none";
                 HPC2MessageDiv.style.display = "none";
                 runSAPDiv.style.display = "none";
@@ -300,6 +307,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
             //hide all other questions
             jbossDiv.style.display = "none";
+            middlewareOpenShiftDiv.style.display = "none";
             ocpFlavourDiv.style.display = "none";
             HPC2MessageDiv.style.display = "none";
             runSAPDiv.style.display = "none";
@@ -341,6 +349,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
             //hide all other questions
             jbossDiv.style.display = "none";
+            middlewareOpenShiftDiv.style.display = "none";
             HPC2MessageDiv.style.display = "none";
             runSAPDiv.style.display = "none";
             SAPversionDiv.style.display = "none";
@@ -417,6 +426,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             middlewareExplanationDiv.disply = "none";
             //hide all other questions
             middlewareproductDiv.style.display = "none";
+            middlewareOpenShiftDiv.style.display = "none";
             jbossDiv.style.display = "none";
             ocpFlavourDiv.style.display = "none";
             HPC2MessageDiv.style.display = "none";
@@ -460,46 +470,57 @@ window.addEventListener('DOMContentLoaded', (event) => {
             // If new, display a reminder about ORP and promotions
             skuListDiv.style.display = "block";
             jbossDiv.style.display = "none";
+            middlewareOpenShiftDiv.style.display = "none";
         } else if (this.value === "AMQ") {
             // If renewal move on to next question.
-            skuListDiv.style.display = "block";
+            skuListDiv.style.display = "none";
             jbossDiv.style.display = "none";
+            middlewareOpenShiftDiv.style.display = "block";
         } else if (this.value === "Application Foundations") {
             // If renewal move on to next question.
             skuListDiv.style.display = "block";
             jbossDiv.style.display = "none";
+            middlewareOpenShiftDiv.style.display = "none";
         } else if (this.value === "Data Grid") {
             // If renewal move on to next question.
             skuListDiv.style.display = "block";
             jbossDiv.style.display = "none";
+            middlewareOpenShiftDiv.style.display = "none";
         } else if (this.value === "Fuse") {
             // If renewal move on to next question.
-            skuListDiv.style.display = "block";
+            skuListDiv.style.display = "none";
             jbossDiv.style.display = "none";
+            middlewareOpenShiftDiv.style.display = "block";
         } else if (this.value === "Red Hat Integration") {
             // If renewal move on to next question.
             skuListDiv.style.display = "block";
             jbossDiv.style.display = "none";
+            middlewareOpenShiftDiv.style.display = "none";
         } else if (this.value === "JBOSS") {
             // If renewal move on to next question.
             skuListDiv.style.display = "none";
             jbossDiv.style.display = "block";
+            middlewareOpenShiftDiv.style.display = "none";
         } else if (this.value === "Red Hat Runtimes") {
             // If renewal move on to next question.
             skuListDiv.style.display = "block";
             jbossDiv.style.display = "none";
+            middlewareOpenShiftDiv.style.display = "none";
         } else if (this.value === "Service Interconnect") {
             // If renewal move on to next question.
             skuListDiv.style.display = "block";
             jbossDiv.style.display = "none";
+            middlewareOpenShiftDiv.style.display = "none";
         } else if (this.value === "OpenJDK") {
             // If renewal move on to next question.
             skuListDiv.style.display = "block";
             jbossDiv.style.display = "none";
+            middlewareOpenShiftDiv.style.display = "none";
         } else {
             // if something else e.g select option then hide all
             skuListDiv.style.display = "none";
             jbossDiv.style.display = "none";
+            middlewareOpenShiftDiv.style.display = "none";
         }
     });
 
@@ -507,8 +528,24 @@ window.addEventListener('DOMContentLoaded', (event) => {
     jbossSelect.addEventListener('change', function () {
         if (this.value === "EAP") {
             // If new, display a reminder about ORP and promotions
-            skuListDiv.style.display = "block";
+            skuListDiv.style.display = "none";
+            middlewareOpenShiftDiv.style.display = "block";
         } else if (this.value === "Web Server") {
+            // If renewal move on to next question.
+            skuListDiv.style.display = "block";
+        } else {
+            // if something else e.g select option then hide all
+            skuListDiv.style.display = "none";
+            middlewareOpenShiftDiv.style.display = "none";
+        }
+    });
+
+    //Which version of JBOSS do you need?
+    middlewareOpenshiftSelect.addEventListener('change', function () {
+        if (this.value === "No") {
+            // If new, display a reminder about ORP and promotions
+            skuListDiv.style.display = "block";
+        } else if (this.value === "Yes") {
             // If renewal move on to next question.
             skuListDiv.style.display = "block";
         } else {

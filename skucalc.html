@@ -278,7 +278,7 @@
                         </style>
                         <br>
                         <p>In a lot of cases Red Hat Middleware products are more cost effective to buy as part of their respective bundle.
-                            <br><br>This calculator will give you all the options when looking for a Red Hat Middleware product to help determine the most cost effective option.
+                            <br><br>When looking for a Red Hat Middleware product you should also compare pricing with its bundles.
                             <br><br> See below for an explanation on how the bundles roll into each other:</p>
                         <table>
                             <tr>
@@ -327,6 +327,27 @@
                             <option value="Web Server">JBOSS Web Server</option>
                         </select><br>
                     </div>
+
+                    <!-- Will this run on openshift?-->
+                    <div id="middlewareOpenShiftDiv">
+                        <label for="middlewareOpenShift">Is this going to be run on OpenShift?</label>
+                        <select id="middlewareOpenShift" name="middlewareOpenShift">
+                            <option value="" selected>Select an Option</option>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select><br>
+                    </div>
+
+                    <!-- Is this for servers or workstations?-->
+                    <div id="middlewareOpenJDKDiv">
+                        <label for="middlewareOpenJDK">Is this going to be run on OpenShift?</label>
+                        <select id="middlewareOpenJDK" name="middlewareOpenJDK">
+                            <option value="" selected>Select an Option</option>
+                            <option value="Servers">Servers</option>
+                            <option value="Workstations">Workstations</option>
+                        </select><br>
+                    </div>
+
 
                     <!-- Is RHEL being used as a server, a workstation (PC) or for High Performance Computing (Supercomputer) -->
                     <div id="pctypeDiv">
@@ -474,7 +495,7 @@
                     <!-- OCP Cores message -->
                     <div id="OCPMessageDiv">
                         <br>
-                        Note that vCPU are used when a customer has hyperthreading enabled.
+                        Note that vCPU are used when a customer has hyperthreading enabled. Generally 1 core = 2 vCPU, so it is important to be clear when quoting as it can halve/double the price.
                         <br>
                         <br>
                         Please note that core/vCPU SKU's are stackable and for larger deployments it may be cheaper to mix and match the smaller / larger SKU's. If in doubt please ask presales for support.

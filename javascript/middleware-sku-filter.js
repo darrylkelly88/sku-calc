@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const jbossProduct = document.getElementById("jboss").value;
                 const supportLevel = document.getElementById("supportLevel").value;
                 const skuListDiv = document.getElementById("skuList");
+                const middlewareOpenshift = document.getElementById("middlewareOpenShift").value;
 
                 if (product === "Red Hat Middleware" && getComputedStyle(skuListDiv).display === "block") {
                     // Filter the JSON data based on user selections
@@ -21,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         // Check if the user made a selection in each field before applying the filter
                         return (
                             (!supportLevel || (supportLevel === "standard" && item["Standard"] === "TRUE") || (supportLevel === "premium" && item["Premium"] === "TRUE")) &&
+                            (!middlewareOpenshift || (middlewareOpenshift === "No" && item["Openshift"] === "FALSE") || (middlewareOpenshift === "Yes" && item["Openshift"] === "TRUE")) &&
                             (!middlewareproduct ||
                                 (
                                   (middlewareproduct === "JBOSS" &&
@@ -45,8 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             (item["Edge"] !== "TRUE") && 
                             (item["ELS"] !== "TRUE") && 
                             (item["Distributed Computing"] !== "TRUE") &&
-                            (item["Cluster Edition"] !== "TRUE") &&
-                            (item["Openshift"] !== "TRUE")
+                            (item["Cluster Edition"] !== "TRUE") 
                             // (item["Include in Data?"] === "TRUE") 
                        );
                     });
