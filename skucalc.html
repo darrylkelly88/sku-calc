@@ -70,7 +70,7 @@
             <div class="title col-md-12 col-lg-10">
                 <h3 class="mbr-section-title mbr-fonts-style align-center mb-4 display-2">
                     <strong>SKU Calculator</strong></h3>
-                <h4 class="mbr-section-subtitle align-center mbr-fonts-style mb-4 display-7">Please Note: This SKU Calculator is in development there may be errors or issues that you may encounter. Use it at your own risk.<br><br><br></h4>
+                <h4 class="mbr-section-subtitle align-center mbr-fonts-style mb-4 display-7">Please Note: This SKU Calculator is in development there may be errors or issues that you may encounter. Use it at your own risk.<br><br>Please contact <a href="mailto:darryl.kelly@tdsynnex.com">darryl.kelly@tdsynnex.com</a> with any issues or bugs you encounter<br></h4>
                 
 
                 <!---This is the code that includes the calculator-->
@@ -249,9 +249,106 @@
                             <option value="Red Hat Enterprise Linux (RHEL)">Red Hat Enterprise Linux (RHEL)</option>
                             <option value="Red Hat Ansible Automation Platform">Red Hat Ansible Automation Platform</option>
                             <option value="Red Hat OpenShift Container Platform">Red Hat OpenShift Container Platform</option>
+                            <option value="Red Hat Middleware">Red Hat Middleware (Select for more options)</option>
                         </select><br>
                     </div>
-            
+
+                    <!-- Middleware explanation-->
+                    <div id="middlewareExplanationDiv">
+                        <style>
+                            #middlewareExplanationDiv {
+                                opacity: 0.8; /* Adjust the opacity for the desired level of greying out */
+                                margin: auto; /* Center the div horizontally */
+                                transform: scale(0.8); /* Scale the content to 80% */
+                                transform-origin: 0 0;
+
+                            }
+                    
+                            #middlewareExplanationDiv table {
+                                width: 100%;
+                                border-collapse: collapse;
+                                margin-top: 20px;
+                            }
+                    
+                            #middlewareExplanationDiv th, #middlewareExplanationDiv td {
+                                border: 1px solid #dddddd;
+                                text-align: center; 
+                                padding: 2px;
+                            }
+                        </style>
+                        <br>
+                        <p>In a lot of cases Red Hat Middleware products are more cost effective to buy as part of their respective bundle.
+                            <br><br>When looking for a Red Hat Middleware product you should also compare pricing with its bundles.
+                            <br><br> See below for an explanation on how the bundles roll into each other:</p>
+                        <table>
+                            <tr>
+                                <th colspan="3">Application Foundations Bundle</th>
+                            </tr>
+                            <tr>
+                                <td>Integration Bundle</td>
+                                <td>Runtimes Bundle</td>
+                                <td>No Bundle</td>
+                            </tr>
+                            <tr>
+                                <td>FUSE <br> AMQ <br> 3Scale</td>
+                                <td>All JBOSS Products <br> Data Grid <br> OpenJDK</td>
+                                <td>Service Interconnect</td>
+                            </tr>
+                        </table>
+                        <br>
+                        <p>Middleware SKU's can be mixed and matched. e.g if you need 34 cores you can use 2x 16 core SKUs plus a 2 core SKU.
+                            <br><br>This calculator does not yet support using the best mix of SKU's. It will do a simple calculation for quantites against each of the individual SKU's.
+                            <br><br>Please reach out to presales if you need support with the best mix of SKU's.</p>
+                    </div>
+                    <!-- Which middleware product?-->
+                    <div id="middlewareproductDiv">
+                        <label for="middlewareproduct">Which Red Hat Middleware product?</label>
+                        <select id="middlewareproduct" name="middlewareproduct">
+                            <option value="" selected>Select an Option</option>
+                            <option value="Application Foundations">Application Foundations Bundle</option>
+                            <option value="Red Hat Integration">Red Hat Integration Bundle</option>
+                            <option value="Red Hat Runtimes">Red Hat Runtimes Bundle</option>
+                            <option value="3scale">3scale</option>
+                            <option value="AMQ">AMQ</option>
+                            <option value="Data Grid">Data Grid</option>
+                            <option value="Fuse">Fuse</option>
+                            <option value="JBOSS">JBOSS</option>
+                            <option value="Service Interconnect">Service Interconnect</option>
+                            <option value="OpenJDK">OpenJDK</option>
+                        </select><br>
+                    </div>
+
+                    <!-- Which version of Jboss?-->
+                    <div id="jbossDiv">
+                        <label for="jboss">Which version of JBOSS is needed?</label>
+                        <select id="jboss" name="jboss">
+                            <option value="" selected>Select an Option</option>
+                            <option value="EAP">JBOSS EAP (Enterprise Application Platform)</option>
+                            <option value="Web Server">JBOSS Web Server</option>
+                        </select><br>
+                    </div>
+
+                    <!-- Will this run on openshift?-->
+                    <div id="middlewareOpenShiftDiv">
+                        <label for="middlewareOpenShift">Is this going to be run on OpenShift?</label>
+                        <select id="middlewareOpenShift" name="middlewareOpenShift">
+                            <option value="" selected>Select an Option</option>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select><br>
+                    </div>
+
+                    <!-- Is this for servers or workstations?-->
+                    <div id="middlewareOpenJDKDiv">
+                        <label for="middlewareOpenJDK">Is this for Server or Workstation?</label>
+                        <select id="middlewareOpenJDK" name="middlewareOpenJDK">
+                            <option value="" selected>Select an Option</option>
+                            <option value="Servers">Servers</option>
+                            <option value="Workstations">Workstations</option>
+                        </select><br>
+                    </div>
+
+
                     <!-- Is RHEL being used as a server, a workstation (PC) or for High Performance Computing (Supercomputer) -->
                     <div id="pctypeDiv">
                         <br>
@@ -398,7 +495,7 @@
                     <!-- OCP Cores message -->
                     <div id="OCPMessageDiv">
                         <br>
-                        Note that vCPU are used when a customer has hyperthreading enabled.
+                        Note that vCPU are used when a customer has hyperthreading enabled. Generally 1 core = 2 vCPU, so it is important to be clear when quoting as it can halve/double the price.
                         <br>
                         <br>
                         Please note that core/vCPU SKU's are stackable and for larger deployments it may be cheaper to mix and match the smaller / larger SKU's. If in doubt please ask presales for support.
@@ -513,6 +610,9 @@
             
                 <!-- Load the javascript to control the SKU filters for academic -->
                 <script src="/sku-calc/javascript/academic-sku-filter.js"></script>
+
+                <!-- Load the javascript to control the SKU filters for middleware products -->
+                <script src="/sku-calc/javascript/middleware-sku-filter.js"></script>
 
                 <!-- Load the javascript to control displaying SKU's -->
                 <script src="/sku-calc/javascript/display-results-functions.js"></script>
