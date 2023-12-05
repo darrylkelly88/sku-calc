@@ -71,7 +71,7 @@ function displayFilteredResults(filteredData) {
         toDoList()
 
         //update or run email generation
-        generateEmail()
+        //generateEmail()
         
     });
 
