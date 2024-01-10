@@ -16,7 +16,7 @@ function toDoList () {
     let list = `<br><b>Please see below a list of notes which includes potential action items for this quote.:</b><ul>${things}</ul>`
 
 
-    things.push('Check for qualifying promotions. Current promotions can be reviewed here <a href="/sku-calc/promos/redhat-promos.pptx" target="_blank">Q4-Promos.</a> ')
+    things.push('Check for qualifying promotions. Current promotions can be reviewed here <a href="/sku-calc/promos/redhat-promos.pptx" target="_blank">Q1-Promos.</a> ')
 
     if (partnerStatus === "Not a Partner") {
         things.push('The partner is currently not a Red Hat partner. In order to place an order with TDsynnex they must be at least Ready Status. To sign up they need to complete an application <a href="https://redhat.secure.force.com/partner/PartnerAccess" target="_blank">here.</a> In addition they will need to complete 1 x sales accreditation on the <a href="https://training-lms.redhat.com/sso/saml/login/rhopen" target="_blank">training portal.</a> However they wont have acess to this until their status is approved by Red Hat. To sign up the partner you may wish to send the <a href="/sku-calc/guides/How-to-become-a-partner.pdf" target="_blank">how to become a partner</a> guide, and the <a href="/sku-calc/guides/SolutionProvider-Overview.pdf" target="_blank">solution provider overview</a> guide.')
